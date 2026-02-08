@@ -1,0 +1,10 @@
+[project]
+name = "gpiosvr"
+version = "0.9.0"
+dependencies = []
+
+[project.scripts]
+gpio_server = "gpiosvr.bin.gpio_server:main"
+key_monitor = "gpiosvr.bin.key_monitor:main"
+pigs = "gpiosvr.bin.pigs:main"
+leds = "gpiosvr.bin.leds:main"

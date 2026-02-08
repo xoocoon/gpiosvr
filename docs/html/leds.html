@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>leds executable &mdash; gpiosvr 0.9 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_paramlinks.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="pigs executable" href="pigs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> gpiosvr
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">gpiosvr</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="picossa.html">picossa module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client.html">client module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pigs.html">pigs executable</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">leds executable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arguments">Arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">gpiosvr</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">gpiosvr</a> &raquo;</li>
+        
+      <li>leds executable</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-gpiosvr.bin.leds">
+<span id="leds-executable"></span><h1>leds executable<a class="headerlink" href="#module-gpiosvr.bin.leds" title="Permalink to this headline">¶</a></h1>
+<p>Executable script for blinking LEDs in specific patterns.</p>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<p>The required positional arguments specify the blink pattern and GPIO(s):</p>
+<ol class="arabic simple">
+<li><p>Total number of blink cycle(s) for the specified LED(s).</p></li>
+<li><p>Millisecond duration of the <em>on</em> phase of the LED(s), as well as the following
+<em>off</em> phase.</p></li>
+<li><p>After the blink cycles, the millisecond duration for which the LED(s) shall
+remain <em>on</em>. <code class="docutils literal notranslate"><span class="pre">0</span></code> if “forever”.</p></li>
+<li><p>Up to three GPIO numbers for the LEDs to turn on and off in each blink cycle.</p></li>
+</ol>
+<p>The standard arguments from 
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">gpiosvr.shell.GpioControlShell.addStandardArgs()</span></code> are accepted.</p>
+<p>For connecting to a specific GPIO server, the arguments <code class="docutils literal notranslate"><span class="pre">--strategy</span></code> and 
+possibly <code class="docutils literal notranslate"><span class="pre">--socket</span></code> are required. As an alternative to these arguments, the 
+environment variables <code class="docutils literal notranslate"><span class="pre">GPIO_STRATEGY</span></code> and <code class="docutils literal notranslate"><span class="pre">GPIO_SOCKET_PATH</span></code> can be used,
+respectively. If neither these arguments nor environment variables are given,
+the standard strategy of <a class="reference internal" href="shell.html#shell.GpioControlShell" title="shell.GpioControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioControlShell</span></code></a> is applied.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="pigs.html" class="btn btn-neutral float-left" title="pigs executable" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2026, xoocoon.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
