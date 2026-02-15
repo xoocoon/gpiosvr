@@ -9,7 +9,6 @@ Main features:
 
 In essence, *gpiosvr* is a versatile framework for IoT and home automation projects, decoding and propagating signals from various sources and for controlling actuators.
 
-
 Developed and tested for Raspberry Pi variants, namely:
 
 * Pi 3B
@@ -33,8 +32,6 @@ See [Environment configuration](#environment-configuration) for the configuratio
 Since *gpiosvr* is based on asyncio, and asyncio in turn is backed by a C implementation in CPython, it runs fast enough for most use cases, even on Single Board Computers (SBCs). As an example, infrared signals from remote controls with pulse bursts in the range of microseconds can easily be decoded.
 
 For apidocs, see [https://xoocoon.github.io/gpiosvr](https://xoocoon.github.io/gpiosvr/html/).
-
-Requires Python 3.8+.
 
 ## Signal definition language
 
@@ -159,18 +156,22 @@ For a reference of supported configuration keys, please see the documentation of
 
 The following packages need to be installed:
 
-- [appbase](https://github.com/xoocoon/appbase) package
-- [pigpio](https://abyz.me.uk/rpi/pigpio/download.html), if *pigpiod* shall be used as a backend for Raspberry Pi up to 4B
-- [libgpiod](https://libgpiod.readthedocs.io/en/latest/python_api.html) package, if *libgpiod* shall be used as a backend – **Not yet integrated.**
-- [evdev](https://pypi.org/project/evdev) package, for handling key events
-- [pyserial](https://pypi.org/project/pyserial) package, if Raspberry Pico shall be controlled via USB 2.0
-- [python-systemd](https://github.com/systemd/python-systemd) for running `gpio_server.py` and/or `key_monitor.py` as systemd service(s)
+- [ctlbase](https://github.com/xoocoon/ctlbase), for basing executable scripts
+- [evdev](https://pypi.org/project/evdev), for handling key events
+- [systemd-python](https://pypi.org/project/systemd-python/), for running `gpio_server.py` and/or `key_monitor.py` as systemd service units
+- [pyserial](https://pypi.org/project/pyserial), if the [picossa](https://xoocoon.github.io/gpiosvr/html/picossa.html) module shall be used as a GPIO backend for Raspberry Pico
+- [pigpio](https://abyz.me.uk/rpi/pigpio/download.html), if *pigpiod* shall be used as a GPIO backend for Raspberry Pi up to 4B
+- [libgpiod](https://libgpiod.readthedocs.io/en/latest/python_api.html), if *libgpiod* shall be used as a GPIO backend – **Not yet integrated.**
 
-Except for the first one, on a Debian-based system, the packages can be installed as follows:
+If you install *gpiosvr* in a virtual Python environment, as recommended under [Package installation](#package-installation), dependecies will be installed automatically as needed.
+
+For completeness, on a Debian-based system, the dependencies can be installed as follows:
 
 ```
 sudo apt update && sudo apt install -y pigpiod gpiod python3-libgpiod python3-evdev python3-serial python3-systemd
 ```
+
+Note that the custom package `ctlbase` is not available as a Debian package.
 
 ## Linux prerequisites
 
@@ -183,31 +184,57 @@ ls /dev/uinput       # must yield the output '/dev/uinput'
 
 ## Package installation
 
-The *gpiosvr* package may be installed directly from a local clone of the GitHub repo.
+For installing the *gpiosvr* package you have at least to choices:
 
-To install *gpiosvr* as a system-wide package, use the `pip3` command as follows:
+* Install the latest release from PyPI via `pip`.
+* Install directly from a local clone of the GitHub repo.
+
+In both cases, it is recommended to use a virtual Python environment to encapsulate all the required dependencies. See [https://docs.python.org/3/library/venv.html](https://docs.python.org/3/library/venv.html) for details on how to create one.
+
+For installing from PyPI, use the `pip` command of your Python environment as follows:
 
 ```
-sudo pip3 install $GPIOSVR_PATH
+pip install gpiosvr
 ```
 
-... where `$GPIOSVR_PATH` resolves to the root directory of the repo containing the `pyproject.toml` file.
+For installing from a local clone of the GitHub repo, use the `pip` command of your Python environment as follows:
 
-**Note**: There are Linux distributions with system-wide Python installations managed by the system's package manager, especially Debian and derivatives. On these, warnings occur that you might break system packages when installing a custom python package. Currently, *gpiosvr*'s `pyproject.toml` descriptor does not list any dependencies. So by experience, it seems safe to install the package globally, without corrupting system packages. In this scenario, dependencies must be provided by the system-wide packages listed under [Package dependencies](#package-dependencies).
+```
+pip install $GPIOSVR
+```
 
-If you do not want to take the risk, use a virtual Python environment and install *gpiosvr* with the `pip3` command of the virtual environment. 
+... where `$GPIOSVR` resolves to the root directory of the repo containing the `pyproject.toml` file.
+
+In both cases, if you want to deploy `gpio_server.py` and/or `key_monitor.py` as systemd service units, install the optional `systemd` dependency by appending `[systemd]` to the command. Likewise, if you want to use *pigpiod* as a GPIO backend, install the optional `pigpio` dependency by appending `[pigpio]` to the command. For installing both, append `[systemd,pigpiod]`.
+
+Note that for building *systemd-python*, the systemd headers must be available on the system. On Debian and derivatives, you can install them via `sudo apt update && sudo apt install -y libsystemd-dev`.
+
+> [!WARNING]
+> On some Linux distributions, Python packages are managed by the system's package manager, especially Debian and derivatives. Installing *gpiosvr* globally could break these system-wide packages. If you want to take the risk, install the system-wide packages listed under [Package dependencies](#package-dependencies). Then "dry-run" the *gpiosvr* installation first, to see if these system-wide packages satisfy *gpiosvr*'s dependencies. If only `Requirement already satisfied` messages occur, you may proceed with the actual installation.
+
+For "dry-running" a global installation, consider the following command:
+
+```
+sudo pip install $GPIOSVR_PATH --dry-run
+```
 
 ## Executables installation
 
-As *gpiosvr* contains executable scripts under `src/gpiosvr/bin/`, you might want to add them to your shell's path.
+Installing the entire package, as described under [Package installation](#package-installation), also installs the executable scripts to a common `bin` directory. In a virtual Python environment, this normally is its `bin` directory.
 
-A common way to achieve this is to install the entire package via `pip3`, as mentioned above:
+If you want to make the scripts available system-wide, you can sym-link them to `/usr/local/bin` and add that directory to your `$PATH`:
 
 ```
-sudo pip3 install $GPIOSVR_PATH
+for exe in gpio_server key_monitor leds pigs; do
+  sudo ln -s $VENV_PATH/bin/$exe /usr/local/bin/
+done
+
+PATH="$PATH:/usr/local/bin"
 ```
 
-This also installs the executable scripts to a globally available path, normally `/usr/local/bin`. To test the setup. you can simply call `pigs info`. It should print a simple info from the connected GPIO server.
+... where `$VENV_PATH` resolves to the root directory of the virtual Python environment containing the `pyvenv.cfg` file.
+
+To test the setup, simply call `pigs info`. It should print an info string from the connected GPIO server.
 
 All executables support the `--help` argument which shows the available command line arguments.
 
@@ -220,7 +247,7 @@ Additionally, they can be looked up in the apidocs:
 
 ## Environment configuration
 
-Based on the [appbase.config](https://xoocoon.github.io/appbase/html/config.html) module, executables like `pigs` can auto-discover environment configuration files. These follow a basic Bash syntax for variable declarations. The following example sets the default for the GPIO server to use with the `pigs` command:
+Based on the [ctlbase.config](https://xoocoon.github.io/ctlbase/html/config.html) module, executables like `pigs` can auto-discover environment configuration files. These follow a basic Bash syntax for variable declarations. The following example sets the default for the GPIO server to use with the `pigs` command:
 
 ```
 GPIO_SOCKET_PATH=/var/run/pico/pico.sock
@@ -230,7 +257,7 @@ For the `pigs` executable to find it, this line must be placed somewhere up the 
 
 ## systemd service setup
 
-Under `templates/`, you will find systemd templates for installing `gpio_server.py` and `key_monitor.py` as system-wide systemd services. If you do not want to use systemd as an init system, you can still use the `*.service` files as a reference for valid command lines.
+Under `templates/`, you will find systemd templates for installing `gpio_server.py` and `key_monitor.py` as systemd service units. If you do not want to use systemd as an init system, you can still use the `*.service` files as a reference for valid command lines.
 
 The files `pi_server.service` and `pico_server.service` serve as examples for services attached to the built-on GPIO chip of a Raspberry Pi, and a Raspberry Pico, respectively. Please adjust the contents of the files according to your environment and deploy them to `/etc/systemd/system/`. Then have systemd recognize the new service(s) by executing `sudo systemctl daemon-reload`.
 
@@ -251,3 +278,5 @@ The source code for the microcode was obtained from the [picod project](https://
 The code for the functionality described above already exists and has matured over years. Hopefully, I will find the time to curate and document the code up to a state eligible for its sharing as OSS.
 
 Please feel free to contact me if the functionality might be useful to you. I might share portions of the code beforehand on a bilateral basis.
+
+Final note: This project is unrelated to https://github.com/projectweekend/gpiosvr/.

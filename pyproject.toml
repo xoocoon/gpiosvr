@@ -1,7 +1,45 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.distutils.egg_info]
+egg_base = "." 
+
 [project]
 name = "gpiosvr"
-version = "0.9.0"
-dependencies = []
+description = "An asyncio-based server providing uniform access to the GPIOs of a Linux SBC."
+version = "1.0a1"
+dependencies = [
+  "ctlbase>=1.0a1",
+  "evdev>=1.4.0",
+  "pyserial>3.4"
+]
+authors = [
+  {name = "xoocoon", email = "54350963+xoocoon@users.noreply.github.com"}
+]
+readme = "README.md"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+keywords = ["asyncio", "raspi", "pi", "raspberrypi", "gpio", "pigpio", "iot", "pico"]
+requires-python = ">=3.9"
+classifiers = [
+  "Operating System :: POSIX :: Linux",
+  "Topic :: Home Automation",
+  "Framework :: AsyncIO",
+  "Programming Language :: Python :: 3.9",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[project.optional-dependencies]
+pigpio = ["pigpio==1.78"]
+systemd = ["systemd-python>=234"]
+
+[project.urls]
+Documentation = "https://xoocoon.github.io/gpiosvr/html/"
+Repository = "https://github.com/xoocoon/gpiosvr.git"
 
 [project.scripts]
 gpio_server = "gpiosvr.bin.gpio_server:main"

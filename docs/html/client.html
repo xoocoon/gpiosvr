@@ -1,96 +1,67 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>client module &mdash; gpiosvr 0.9 documentation</title>
-  
+  <title>client module &mdash; gpiosvr 1.0a1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=06783962" />
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/sphinx_paramlinks.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6ac1bee6"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="client_pigpio module" href="client_pigpio.html" />
     <link rel="prev" title="signal module" href="signal.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> gpiosvr
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            gpiosvr
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">gpiosvr</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="picossa.html">picossa module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="signal.html">signal module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">client module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client.Response"><code class="docutils literal notranslate"><span class="pre">Response</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client.SocketClient"><code class="docutils literal notranslate"><span class="pre">SocketClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client.GpioDirection"><code class="docutils literal notranslate"><span class="pre">GpioDirection</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client.GpioLevel"><code class="docutils literal notranslate"><span class="pre">GpioLevel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client.GpioPull"><code class="docutils literal notranslate"><span class="pre">GpioPull</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client.RequestDelimiters"><code class="docutils literal notranslate"><span class="pre">RequestDelimiters</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
@@ -105,73 +76,32 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">gpiosvr</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="modules.html">gpiosvr</a> &raquo;</li>
-        
-      <li>client module</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">gpiosvr</a></li>
+      <li class="breadcrumb-item active">client module</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="module-gpiosvr.client">
-<span id="client-module"></span><h1>client module<a class="headerlink" href="#module-gpiosvr.client" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="module-gpiosvr.client">
+<span id="client-module"></span><h1>client module<a class="headerlink" href="#module-gpiosvr.client" title="Link to this heading"></a></h1>
 <p>Classes for communicating with a GPIO server via a Unix socket.</p>
 <p>For more specific, well-known client APIs, see:</p>
 <blockquote>
@@ -181,149 +111,149 @@
 <li><p><a class="reference internal" href="client_pigs.html#module-gpiosvr.client_pigs" title="gpiosvr.client_pigs"><code class="xref py py-mod docutils literal notranslate"><span class="pre">client_pigs</span></code></a></p></li>
 </ul>
 </div></blockquote>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
 <li><p><a class="reference internal" href="#constants-and-defaults" id="id2">Constants and defaults</a></p></li>
 </ul>
-</div>
-<div class="section" id="classes">
-<h2><a class="toc-backref" href="#id1">Classes</a><a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+</nav>
+<section id="classes">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <dl class="py class">
-<dt id="gpiosvr.client.Response">
-<em class="property">class </em><code class="sig-prename descclassname">gpiosvr.client.</code><code class="sig-name descname">Response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">result</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.client.</span></span><span class="sig-name descname"><span class="pre">Response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response" title="Link to this definition"></a></dt>
 <dd><p>Response from a GPIO server, with methods for encoding and decoding.</p>
 <p>Mimics <a class="reference external" href="https://docs.python.org/3/library/asyncio-future.html#future-object">asyncio.Future</a>.
 Other than <cite>asyncio.Future</cite>, a server response can hold more than one
 exception, if several errors occurred om the server side.</p>
 <dl class="py method">
-<dt id="gpiosvr.client.Response.encodeException">
-<em class="property">static </em><code class="sig-name descname">encodeException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">exception</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.encodeException" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response.encodeException">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encodeException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.encodeException" title="Link to this definition"></a></dt>
 <dd><p>Encodes a single exception for sending it over the Unix socket.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The encoded string representation of the exception.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="gpiosvr.client.Response.decodeExceptions">
-<em class="property">static </em><code class="sig-name descname">decodeExceptions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">errorMessages</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.decodeExceptions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response.decodeExceptions">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decodeExceptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errorMessages</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.decodeExceptions" title="Link to this definition"></a></dt>
 <dd><p>Decodes the error messages part of a response.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The corresponding <cite>Exception</cite> instances.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[Exception]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="gpiosvr.client.Response.decode">
-<em class="property">static </em><code class="sig-name descname">decode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.decode" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response.decode">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.decode" title="Link to this definition"></a></dt>
 <dd><p>Decodes an encoded representation of a response.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The corresponding <a class="reference internal" href="#gpiosvr.client.Response" title="gpiosvr.client.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a> instance.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#gpiosvr.client.Response" title="gpiosvr.client.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="gpiosvr.client.Response.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.encode" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.encode" title="Link to this definition"></a></dt>
 <dd><p>Encodes this response for sending it over the Unix socket.</p>
 <p>Considers the set result and all appended exceptions.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The encoded string representation of the response.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="gpiosvr.client.Response.append_exception">
-<code class="sig-name descname">append_exception</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">exception</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.append_exception" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response.append_exception">
+<span class="sig-name descname"><span class="pre">append_exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.append_exception" title="Link to this definition"></a></dt>
 <dd><p>Appends an exception to this response.</p>
 <p>It is up to the clients to evaluate all or only specific exceptions if
 there are more than one.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="gpiosvr.client.Response.result">
-<code class="sig-name descname">result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.result" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response.result">
+<span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.result" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The result/payload of the response.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="gpiosvr.client.Response.set_result">
-<code class="sig-name descname">set_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">result</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.set_result" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response.set_result">
+<span class="sig-name descname"><span class="pre">set_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.set_result" title="Link to this definition"></a></dt>
 <dd><p>Sets the result of the response.</p>
 <p>Automatically converts the data type to <cite>int</cite>, if 
 <a class="reference internal" href="#gpiosvr.client.Response.params.result" title="gpiosvr.client.Response"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">result</span></code></a> is a string containing only digits.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="gpiosvr.client.Response.set_exception">
-<code class="sig-name descname">set_exception</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">exception</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.set_exception" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response.set_exception">
+<span class="sig-name descname"><span class="pre">set_exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.set_exception" title="Link to this definition"></a></dt>
 <dd><p>By contrast to <a class="reference internal" href="#gpiosvr.client.Response.append_exception" title="gpiosvr.client.Response.append_exception"><code class="xref py py-meth docutils literal notranslate"><span class="pre">append_exception()</span></code></a>, sets only one
 exception, discarding all exceptions appended before.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="gpiosvr.client.Response.exception">
-<code class="sig-name descname">exception</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.exception" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response.exception">
+<span class="sig-name descname"><span class="pre">exception</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.exception" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The last exception appended to this response.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>Exception</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="gpiosvr.client.Response.exceptions">
-<code class="sig-name descname">exceptions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.exceptions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response.exceptions">
+<span class="sig-name descname"><span class="pre">exceptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.exceptions" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>All exceptions appended to this response.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[Exception]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="gpiosvr.client.Response.done">
-<code class="sig-name descname">done</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.done" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.Response.done">
+<span class="sig-name descname"><span class="pre">done</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.done" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><cite>True</cite> if a result and/or exception has already been set on 
 this response.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
@@ -332,96 +262,79 @@ this response.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="gpiosvr.client.SocketClient">
-<em class="property">class </em><code class="sig-prename descclassname">gpiosvr.client.</code><code class="sig-name descname">SocketClient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loop</span></em>, <em class="sig-param"><span class="n">socketPath</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">connectTimeout_ms</span><span class="o">=</span><span class="default_value">10000</span></em>, <em class="sig-param"><span class="n">responseBufferSize</span><span class="o">=</span><span class="default_value">256</span></em>, <em class="sig-param"><span class="n">responseTimeout_ms</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">isKeepAlive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.SocketClient" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.SocketClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.client.</span></span><span class="sig-name descname"><span class="pre">SocketClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socketPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectTimeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">responseBufferSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">responseTimeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isKeepAlive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.SocketClient" title="Link to this definition"></a></dt>
 <dd><p>Base class for establishing and operating a connection with a GPIO server
 via a Unix socket.</p>
 <dl class="py method">
-<dt id="gpiosvr.client.SocketClient.stop">
-<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.SocketClient.stop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.SocketClient.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.SocketClient.stop" title="Link to this definition"></a></dt>
 <dd><p>A non-async variant of <code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code> for 
 compatibility with <a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi" title="gpiosvr.client_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a>.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="constants-and-defaults">
-<h2><a class="toc-backref" href="#id2">Constants and defaults</a><a class="headerlink" href="#constants-and-defaults" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="constants-and-defaults">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Constants and defaults</a><a class="headerlink" href="#constants-and-defaults" title="Link to this heading"></a></h2>
 <dl class="py class">
-<dt id="gpiosvr.client.GpioDirection">
-<em class="property">class </em><code class="sig-prename descclassname">gpiosvr.client.</code><code class="sig-name descname">GpioDirection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.GpioDirection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.GpioDirection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.client.</span></span><span class="sig-name descname"><span class="pre">GpioDirection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.GpioDirection" title="Link to this definition"></a></dt>
 <dd><p>Constants representing the input/output direction of a GPIO.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="gpiosvr.client.GpioLevel">
-<em class="property">class </em><code class="sig-prename descclassname">gpiosvr.client.</code><code class="sig-name descname">GpioLevel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.GpioLevel" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.GpioLevel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.client.</span></span><span class="sig-name descname"><span class="pre">GpioLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.GpioLevel" title="Link to this definition"></a></dt>
 <dd><p>Constants representing the level of a GPIO.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="gpiosvr.client.GpioPull">
-<em class="property">class </em><code class="sig-prename descclassname">gpiosvr.client.</code><code class="sig-name descname">GpioPull</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.GpioPull" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.GpioPull">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.client.</span></span><span class="sig-name descname"><span class="pre">GpioPull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.GpioPull" title="Link to this definition"></a></dt>
 <dd><p>Constants corresponding to the internal pull resistors of a GPIO.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="gpiosvr.client.RequestDelimiters">
-<em class="property">class </em><code class="sig-prename descclassname">gpiosvr.client.</code><code class="sig-name descname">RequestDelimiters</code><a class="headerlink" href="#gpiosvr.client.RequestDelimiters" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gpiosvr.client.RequestDelimiters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.client.</span></span><span class="sig-name descname"><span class="pre">RequestDelimiters</span></span><a class="headerlink" href="#gpiosvr.client.RequestDelimiters" title="Link to this definition"></a></dt>
 <dd><p>Constant string values for delimiting certain parts of a request to a
 GPIO server.</p>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="client_pigpio.html" class="btn btn-neutral float-right" title="client_pigpio module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="signal.html" class="btn btn-neutral float-left" title="signal module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="client_pigpio.html" class="btn btn-neutral float-right" title="client_pigpio module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2026, xoocoon.
-
-    </p>
+    <p>&#169; Copyright 2026, xoocoon.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
