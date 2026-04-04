@@ -9,7 +9,7 @@
   <title>client_pigs module &mdash; gpiosvr 1.0a1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=06783962" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -48,6 +48,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">gpiosvr</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="picossa.html">picossa module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">uart module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="signal.html">signal module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="client.html">client module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
@@ -94,17 +95,81 @@
              
   <section id="module-gpiosvr.client_pigs">
 <span id="client-pigs-module"></span><h1>client_pigs module<a class="headerlink" href="#module-gpiosvr.client_pigs" title="Link to this heading"></a></h1>
-<nav class="contents local" id="contents">
-<ul class="simple">
-<li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
-</ul>
-</nav>
 <section id="classes">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.client_pigs.</span></span><span class="sig-name descname"><span class="pre">PigpioSocketClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socketPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectTimeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">responseBufferSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">responseTimeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isKeepAlive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pigpioPigsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="client.html#gpiosvr.client.SocketClient" title="gpiosvr.client.SocketClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">SocketClient</span></code></a>, <a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi" title="gpiosvr.client_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a>, <a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioScriptApi" title="gpiosvr.client_pigpio.PigpioScriptApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioScriptApi</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.set_mode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gpio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.set_mode" title="Link to this definition"></a></dt>
+<dd><p>See <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#set_mode">pigpio</a></p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.get_mode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gpio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.get_mode" title="Link to this definition"></a></dt>
+<dd><p>See <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#get_mode">pigpio</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#mode">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.set_pull_up_down">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_pull_up_down</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gpio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pud</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.set_pull_up_down" title="Link to this definition"></a></dt>
+<dd><p>See <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#set_pull_up_down">pigpio</a></p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.read">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gpio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.read" title="Link to this definition"></a></dt>
+<dd><p>See <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#read">pigpio</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.write">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gpio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.write" title="Link to this definition"></a></dt>
+<dd><p>See <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#write">pigpio</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.get_current_tick">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_current_tick</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.get_current_tick" title="Link to this definition"></a></dt>
+<dd><p>See <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#get_current_tick">pigpio</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.store_script">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">store_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.store_script" title="Link to this definition"></a></dt>
+<dd><p>See <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#store_script">pigpio</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.run_script">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scriptId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.run_script" title="Link to this definition"></a></dt>
+<dd><p>See <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#run_script">pigpio</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.script_status">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">script_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scriptId</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.script_status" title="Link to this definition"></a></dt>
+<dd><p>See <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#script_status">pigpio</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.delete_script">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scriptId</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.delete_script" title="Link to this definition"></a></dt>
+<dd><p>See <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#delete_script">pigpio</a></p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.stop">
 <span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.stop" title="Link to this definition"></a></dt>

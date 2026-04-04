@@ -48,6 +48,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">gpiosvr</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="picossa.html">picossa module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">uart module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="signal.html">signal module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="client.html">client module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
@@ -101,12 +102,12 @@
 <span id="shell-module"></span><h1>shell module<a class="headerlink" href="#module-gpiosvr.shell" title="Link to this heading"></a></h1>
 <p>Base classes for implementing CLI utilities and service daemons requiring
 a GPIO client.</p>
-<p>Class <code class="xref py py-class docutils literal notranslate"><span class="pre">GpioControl</span></code> holds a GPIO client in addition to the resources
-of <code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code>.</p>
-<p>Classes <a class="reference internal" href="#gpiosvr.shell.GpioControlShell" title="gpiosvr.shell.GpioControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioControlShell</span></code></a> and <code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceControlShell</span></code> serve
-as a Python context managers for CLI utilities. They take care of the GPIO 
-client lifecycle, in addition to the lifecycle management of 
-<code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code>.</p>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioControl</span></code> holds a GPIO client in addition to the resources of
+<a class="reference external" href="https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.ControlShell" title="(in ctlbase)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.shell.ControlShell</span></code></a>.</p>
+<p><a class="reference internal" href="#gpiosvr.shell.GpioControlShell" title="gpiosvr.shell.GpioControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioControlShell</span></code></a> and <a class="reference internal" href="#gpiosvr.shell.GpioServiceControlShell" title="gpiosvr.shell.GpioServiceControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioServiceControlShell</span></code></a> serve as
+Python context managers. They take care of the GPIO client lifecycle, in
+addition to the lifecycle management provided by
+<a class="reference external" href="https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.ControlShell" title="(in ctlbase)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.shell.ControlShell</span></code></a>.</p>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
@@ -117,27 +118,31 @@ client lifecycle, in addition to the lifecycle management of
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.shell.GpioControlShell">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.shell.</span></span><span class="sig-name descname"><span class="pre">GpioControlShell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioStrategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.shell.GpioControlShell" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></p>
-<p>A context manager for creating CLI utilities internally using a GPIO
-client.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.shell.</span></span><span class="sig-name descname"><span class="pre">GpioControlShell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioStrategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.shell.GpioControlShell" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.ControlShell" title="(in ctlbase)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a></p>
+<p>A context manager for creating CLI utilities requiring a GPIO client.</p>
+<p>It adds the following features to 
+<a class="reference external" href="https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.ControlShell" title="(in ctlbase)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.shell.ControlShell</span></code></a>:</p>
+<ul class="simple">
+<li><p>Auto-creation and lifecycle management for a GPIO client.</p></li>
+</ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.shell.GpioControlShell.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioStrategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.shell.GpioControlShell.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioStrategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.shell.GpioControlShell.__init__" title="Link to this definition"></a></dt>
 <dd><p>Creates and lifecycle-manages a GPIO client. To this end, the strategy
 given in the <code class="docutils literal notranslate"><span class="pre">--strategy</span></code> command line argument is applied together 
 with the socket path given in the <code class="docutils literal notranslate"><span class="pre">-s</span></code> | <code class="docutils literal notranslate"><span class="pre">--socket</span></code> argument. If the
 latter is not given but required, the auto-detection of 
 <a class="reference internal" href="client.html#gpiosvr.client.SocketClient" title="gpiosvr.client.SocketClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">SocketClient</span></code></a> will take effect.</p>
 <p>Arguments with the same name have the same meaning as with 
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">ctlbase.shell.ControlShell.__init__()</span></code>.</p>
+<a class="reference external" href="https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.ControlShell.__init__" title="(in ctlbase)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ctlbase.shell.ControlShell.__init__()</span></code></a>.</p>
 <p>The following parameter takes effect only if no <code class="docutils literal notranslate"><span class="pre">--strategy</span></code> command 
 line argument is given.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="target" id="gpiosvr.shell.GpioControlShell.params.gpioStrategy"></span><strong>gpioStrategy</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.shell.GpioControlShell.params.gpioStrategy">¶</a> (<a class="reference internal" href="#gpiosvr.shell.GpioStrategy" title="gpiosvr.shell.GpioStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioStrategy</span></code></a> | True) – The strategy to apply for creating a GPIO client
 for a specific GPIO server.
-<code class="docutils literal notranslate"><span class="pre">True</span></code> is equivalent to <code class="xref py py-data docutils literal notranslate"><span class="pre">SERVER_FIRST</span></code> (as a
+<cite>True</cite> is equivalent to <code class="xref py py-data docutils literal notranslate"><span class="pre">SERVER_FIRST</span></code> (as a
 default).</p>
 </dd>
 </dl>
@@ -146,9 +151,13 @@ default).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.shell.GpioControlShell.addStandardArgs">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">addStandardArgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategyKey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socketPathKey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nameKey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.shell.GpioControlShell.addStandardArgs" title="Link to this definition"></a></dt>
-<dd><p>For uniform arguments of executable scripts, amends an 
-<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser">argument parser</a>
-with standard arguments.</p>
+<dd><p>For uniform arguments of executable scripts, amends an argument 
+parser with standard arguments.</p>
+<p>To create a control shell that handles the standard arguments 
+automatically, simply pass the amended parser to
+<a class="reference internal" href="#gpiosvr.shell.GpioControlShell.__init__" title="gpiosvr.shell.GpioControlShell.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+<p>It is recommended to add custom arguments first, before amending the
+parser with standard arguments.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">--strategy</span></code>: The name of a constant from <a class="reference internal" href="#gpiosvr.shell.GpioStrategy" title="gpiosvr.shell.GpioStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioStrategy</span></code></a>
 stating the strategy for auto-detecting an available GPIO server and a
@@ -158,6 +167,11 @@ Handled by <code class="xref py py-meth docutils literal notranslate"><span clas
 <li><p><code class="docutils literal notranslate"><span class="pre">--name</span></code>: A human-readable name identifying the client in the GPIO
 server. Handled by <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code>.</p></li>
 </ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="gpiosvr.shell.GpioControlShell.addStandardArgs.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.shell.GpioControlShell.addStandardArgs.params.parser">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">argparse.ArgumentParser</span></code></a>) – The argument parser to amend.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
@@ -170,15 +184,43 @@ server. Handled by <code class="xref py py-meth docutils literal notranslate"><s
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.shell.GpioServiceControlShell">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.shell.</span></span><span class="sig-name descname"><span class="pre">GpioServiceControlShell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.shell.GpioServiceControlShell" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#gpiosvr.shell.GpioControlShell" title="gpiosvr.shell.GpioControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioControlShell</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceControlShell</span></code></p>
-<p>A context manager for creating services internally using a GPIO client.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.shell.</span></span><span class="sig-name descname"><span class="pre">GpioServiceControlShell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.shell.GpioServiceControlShell" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gpiosvr.shell.GpioControlShell" title="gpiosvr.shell.GpioControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioControlShell</span></code></a>, <a class="reference external" href="https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.ServiceControlShell" title="(in ctlbase)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceControlShell</span></code></a></p>
+<p>A context manager for creating services requiring a GPIO client.</p>
+<p>It combines the features of <a class="reference internal" href="#gpiosvr.shell.GpioControlShell" title="gpiosvr.shell.GpioControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioControlShell</span></code></a> and
+<a class="reference external" href="https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.ServiceControlShell" title="(in ctlbase)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.shell.ServiceControlShell</span></code></a>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.shell.GpioServiceControlShell.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.shell.GpioServiceControlShell.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.shell.GpioServiceControlShell.__init__" title="Link to this definition"></a></dt>
 <dd><p>Accepts an additional
 <a class="reference internal" href="#gpiosvr.shell.GpioControlShell.params.gpioStrategy" title="gpiosvr.shell.GpioControlShell"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">gpioStrategy</span></code></a> parameter for 
 creating a GPIO client for a specific GPIO server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.shell.GpioServiceControlShell.addStandardArgs">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">addStandardArgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategyKey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socketPathKey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nameKey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.shell.GpioServiceControlShell.addStandardArgs" title="Link to this definition"></a></dt>
+<dd><p>For uniform arguments of executable scripts, amends an argument 
+parser with standard arguments.</p>
+<p>To create a control shell that handles the standard arguments 
+automatically, simply pass the amended parser to
+<a class="reference internal" href="#gpiosvr.shell.GpioControlShell.__init__" title="gpiosvr.shell.GpioControlShell.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+<p>It is recommended to add custom arguments first, before amending the
+parser with standard arguments.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--strategy</span></code>: The name of a constant from <a class="reference internal" href="#gpiosvr.shell.GpioStrategy" title="gpiosvr.shell.GpioStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioStrategy</span></code></a>
+stating the strategy for auto-detecting an available GPIO server and a
+corresponding client. Handled by <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-s</span></code> | <code class="docutils literal notranslate"><span class="pre">--socket</span></code>: Socket path of the GPIO server to connect to.
+Handled by <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--name</span></code>: A human-readable name identifying the client in the GPIO
+server. Handled by <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="gpiosvr.shell.GpioServiceControlShell.addStandardArgs.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.shell.GpioServiceControlShell.addStandardArgs.params.parser">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">argparse.ArgumentParser</span></code></a>) – The argument parser to amend.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

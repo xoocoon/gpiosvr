@@ -19,7 +19,9 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="signal module" href="signal.html" />
+    <link rel="prev" title="picossa_pigs module" href="picossa_pigs.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,8 +44,29 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">gpiosvr</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">gpiosvr</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="picossa.html">picossa module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">uart module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.uart.UartParameters"><code class="docutils literal notranslate"><span class="pre">UartParameters</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client.html">client module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pigs.html">pigs executable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leds.html">leds executable</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -60,6 +83,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">gpiosvr</a></li>
       <li class="breadcrumb-item active">uart module</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -69,37 +93,107 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-uart">
-<span id="uart-module"></span><h1>uart module<a class="headerlink" href="#module-uart" title="Link to this heading"></a></h1>
+  <section id="module-gpiosvr.uart">
+<span id="uart-module"></span><h1>uart module<a class="headerlink" href="#module-gpiosvr.uart" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
+</ul>
+</nav>
+<section id="classes">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="uart.UartConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uart.</span></span><span class="sig-name descname"><span class="pre">UartConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uartConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uart.UartConfig" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dt class="sig sig-object py" id="gpiosvr.uart.UartParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.uart.</span></span><span class="sig-name descname"><span class="pre">UartParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">uartParameterConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.uart.UartParameters" title="Link to this definition"></a></dt>
+<dd><p>Properties describing the UART parameters for a specific UART channel.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="uart.UartConfig.getGpios">
-<span class="sig-name descname"><span class="pre">getGpios</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uart.UartConfig.getGpios" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="gpiosvr.uart.UartParameters.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">uartParameterConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.uart.UartParameters.__init__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gpiosvr.uart.UartParameters.params.channel"></span><strong>channel</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.uart.UartParameters.params.channel">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The UART channel for which the parameters are valid.</p></li>
+<li><p><span class="target" id="gpiosvr.uart.UartParameters.params.uartParameterConfig"></span><strong>uartParameterConfig</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.uart.UartParameters.params.uartParameterConfig">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – <div class="line-block">
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">baud</span></code> (<cite>str</cite>), the <cite>dict</cite> must contain an <cite>int</cite> 
+value. It determines the baud rate of the UART connection.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">dataBitCount</span></code> (<cite>str</cite>), the <cite>dict</cite> may contain an
+<cite>int</cite> value. It determines the number of data bits in the UART
+communication.
+Defaults to <code class="docutils literal notranslate"><span class="pre">8</span></code>.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">stopBitCount</span></code> (<cite>str</cite>), the <cite>dict</cite> may contain an
+<cite>int</cite> value. It determines the number of stop bits in the UART
+communication.
+Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">parity</span></code> (<cite>str</cite>), the <cite>dict</cite> may contain a parity
+value listed in <a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Uart" title="gpiosvr.client_picod.Uart"><code class="xref py py-class docutils literal notranslate"><span class="pre">Uart</span></code></a>. It determines the parity type in 
+the UART communication.
+Defaults to <a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Uart.PARITY_NONE" title="gpiosvr.client_picod.Uart.PARITY_NONE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PARITY_NONE</span></code></a>.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">isCloseOnExit</span></code> (<cite>str</cite>), the <cite>dict</cite> may contain a
+<cite>bool</cite> value. If <cite>True</cite>, the UART connection will be closed as 
+soon as the opening process is terminating. If <cite>False</cite>, the UART
+connection will stay open.
+Defaults to <cite>True</cite>.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">uartPauseBeforeReading_ms</span></code> (<cite>str</cite>), the <cite>dict</cite> 
+may contain an <cite>int</cite> value. It determines the pause in
+milliseconds after a command was sent via the UART channel, before
+reading any bytes in response.
+Defaults to the value of <a class="reference internal" href="picossa.html#gpiosvr.picossa.UART_PAUSE_BEFORE_READING_DEFAULT_MS" title="gpiosvr.picossa.UART_PAUSE_BEFORE_READING_DEFAULT_MS"><code class="xref py py-data docutils literal notranslate"><span class="pre">UART_PAUSE_BEFORE_READING_DEFAULT_MS</span></code></a>.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">uartReadTimeout_ms</span></code> (<cite>str</cite>), the <cite>dict</cite> may 
+contain an <cite>int</cite> value. When trying to read bytes from the UART
+channel, the value determines the maximum time span in milliseconds 
+to wait. If no byte was received within that time span, reading 
+will be aborted.
+Defaults to the value of <a class="reference internal" href="picossa.html#gpiosvr.picossa.UART_READ_TIMEOUT_DEFAULT_MS" title="gpiosvr.picossa.UART_READ_TIMEOUT_DEFAULT_MS"><code class="xref py py-data docutils literal notranslate"><span class="pre">UART_READ_TIMEOUT_DEFAULT_MS</span></code></a>.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">uartReadBufferBytes</span></code> (<cite>str</cite>), the <cite>dict</cite> may 
+contain an <cite>int</cite> value. When reading bytes from the UART channel, 
+the value determines the maximum number of bytes to read in one 
+go.
+Defaults to the value of <a class="reference internal" href="picossa.html#gpiosvr.picossa.UART_READ_BUFFER_BYTES_DEFAULT" title="gpiosvr.picossa.UART_READ_BUFFER_BYTES_DEFAULT"><code class="xref py py-data docutils literal notranslate"><span class="pre">UART_READ_BUFFER_BYTES_DEFAULT</span></code></a>.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">uartReadDelimiter</span></code> (<cite>str</cite>), the <cite>dict</cite> may 
+contain a <cite>str</cite>, <cite>bytes</cite> or a <cite>bytearray</cite>. When reading bytes from 
+an UART channel, the byte sequence serves as a delimiter. A <cite>str</cite> 
+prefixed with <cite>0x`</cite> is interpreted as a hexadecimal value.
+Defaults to the value of <a class="reference internal" href="picossa.html#gpiosvr.picossa.UART_READ_DELIMITER_DEFAULT" title="gpiosvr.picossa.UART_READ_DELIMITER_DEFAULT"><code class="xref py py-data docutils literal notranslate"><span class="pre">UART_READ_DELIMITER_DEFAULT</span></code></a>.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">uartReadDelimiterMinCount</span></code> (<cite>str</cite>), the <cite>dict</cite> 
+may contain an <cite>int</cite> value. When reading bytes from an UART 
+channel, the the value determines the minimum number of 
+occurrences of the delimiter. That is, if the delimiter specified 
+under the key <code class="docutils literal notranslate"><span class="pre">uartReadBufferBytes</span></code> occurs at least that many
+times anywhere in the byte sequence read so far, reading will be 
+stopped. Any surplus bytes will be discarded.
+Defaults to the value of <a class="reference internal" href="picossa.html#gpiosvr.picossa.UART_READ_DELIMITER_MIN_COUNT_DEFAULT" title="gpiosvr.picossa.UART_READ_DELIMITER_MIN_COUNT_DEFAULT"><code class="xref py py-data docutils literal notranslate"><span class="pre">UART_READ_DELIMITER_MIN_COUNT_DEFAULT</span></code></a>.</div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>ValueError if a value in the configuration is outside the allowed
+range.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="uart.UartContext">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uart.</span></span><span class="sig-name descname"><span class="pre">UartContext</span></span><a class="headerlink" href="#uart.UartContext" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="uart.UartParameters">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uart.</span></span><span class="sig-name descname"><span class="pre">UartParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uartParameterConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uart.UartParameters" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
+</section>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="picossa_pigs.html" class="btn btn-neutral float-left" title="picossa_pigs module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="signal.html" class="btn btn-neutral float-right" title="signal module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

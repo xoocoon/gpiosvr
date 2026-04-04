@@ -9,7 +9,7 @@
   <title>client module &mdash; gpiosvr 1.0a1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=06783962" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -48,6 +48,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">gpiosvr</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="picossa.html">picossa module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">uart module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="signal.html">signal module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">client module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
@@ -123,9 +124,8 @@
 <dt class="sig sig-object py" id="gpiosvr.client.Response">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.client.</span></span><span class="sig-name descname"><span class="pre">Response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response" title="Link to this definition"></a></dt>
 <dd><p>Response from a GPIO server, with methods for encoding and decoding.</p>
-<p>Mimics <a class="reference external" href="https://docs.python.org/3/library/asyncio-future.html#future-object">asyncio.Future</a>.
-Other than <cite>asyncio.Future</cite>, a server response can hold more than one
-exception, if several errors occurred om the server side.</p>
+<p>Mimics <a class="reference external" href="https://docs.python.org/3/library/asyncio-future.html#asyncio.Future" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Future</span></code></a>. By contrast, a server response can
+hold more than one exception, if several errors occurred om the server side.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client.Response.encodeException">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encodeException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.encodeException" title="Link to this definition"></a></dt>
@@ -135,7 +135,7 @@ exception, if several errors occurred om the server side.</p>
 <dd class="field-odd"><p>The encoded string representation of the exception.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -149,14 +149,14 @@ exception, if several errors occurred om the server side.</p>
 <dd class="field-odd"><p>The corresponding <cite>Exception</cite> instances.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[Exception]</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.14)">Exception</a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client.Response.decode">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.decode" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client.Response.decode" title="Link to this definition"></a></dt>
 <dd><p>Decodes an encoded representation of a response.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -178,7 +178,7 @@ exception, if several errors occurred om the server side.</p>
 <dd class="field-odd"><p>The encoded string representation of the response.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -199,7 +199,7 @@ there are more than one.</p>
 <dd class="field-odd"><p>The result/payload of the response.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>object</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)">object</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -227,7 +227,7 @@ exception, discarding all exceptions appended before.</p>
 <dd class="field-odd"><p>The last exception appended to this response.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Exception</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.14)">Exception</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -240,7 +240,7 @@ exception, discarding all exceptions appended before.</p>
 <dd class="field-odd"><p>All exceptions appended to this response.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[Exception]</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.14)">Exception</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -254,7 +254,7 @@ exception, discarding all exceptions appended before.</p>
 this response.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>

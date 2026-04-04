@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="client module" href="client.html" />
-    <link rel="prev" title="picossa_pigs module" href="picossa_pigs.html" /> 
+    <link rel="prev" title="uart module" href="uart.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,6 +48,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">gpiosvr</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="picossa.html">picossa module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">uart module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">signal module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuration-classes">Configuration classes</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.signal.SignalConfig"><code class="docutils literal notranslate"><span class="pre">SignalConfig</span></code></a></li>
@@ -179,44 +180,50 @@ The following is a sample JSON representation of a signal configuration:</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.signal.SignalConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.signal.</span></span><span class="sig-name descname"><span class="pre">SignalConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signalConfig:</span> <span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic='signal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocolClass_=&lt;class</span> <span class="pre">'gpiosvr.signal.SignalProtocolDescription'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerConfigClass_=&lt;class</span> <span class="pre">'gpiosvr.signal.SignalListenerConfig'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalConfig" title="Link to this definition"></a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="gpiosvr.signal.SignalConfig.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signalConfig:</span> <span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic='signal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocolClass_=&lt;class</span> <span class="pre">'gpiosvr.signal.SignalProtocolDescription'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerConfigClass_=&lt;class</span> <span class="pre">'gpiosvr.signal.SignalListenerConfig'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalConfig.__init__" title="Link to this definition"></a></dt>
 <dd><p>Properties describing a compound configuration for signal processing
 on multiple GPIOs.</p>
 <p>They combine the configurations of signal protocols
 (<a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription" title="gpiosvr.signal.SignalProtocolDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalProtocolDescription</span></code></a>), signal listeners
 (<a class="reference internal" href="#gpiosvr.signal.SignalListenerConfig" title="gpiosvr.signal.SignalListenerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalListenerConfig</span></code></a>) and GPIO mappings.</p>
-<dl class="field-list simple">
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.signal.SignalConfig.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signalConfig:</span> <span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic='signal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocolClass_=&lt;class</span> <span class="pre">'gpiosvr.signal.SignalProtocolDescription'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerConfigClass_=&lt;class</span> <span class="pre">'gpiosvr.signal.SignalListenerConfig'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalConfig.__init__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gpiosvr.signal.SignalConfig.params.signalConfig"></span><strong>signalConfig</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalConfig.params.signalConfig">¶</a> (<em>dict</em>) – <p>Under the key <code class="docutils literal notranslate"><span class="pre">evdevName</span></code> (<cite>str</cite>), the <cite>dict</cite> 
+<li><p><span class="target" id="gpiosvr.signal.SignalConfig.params.signalConfig"></span><strong>signalConfig</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalConfig.params.signalConfig">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – <div class="line-block">
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">evdevName</span></code> (<cite>str</cite>), the <cite>dict</cite> 
 must contain a <cite>str</cite> for the logical name of the event device to 
 which key events will be published. This is <em>not</em> the name of the 
 event device under <code class="docutils literal notranslate"><span class="pre">/dev/input/</span></code>. Instead, it is a logical name
 that can be referenced in the <code class="docutils literal notranslate"><span class="pre">inputDeviceName</span></code> positional
-parameter of the <a class="reference internal" href="key_monitor.html#module-gpiosvr.bin.key_monitor" title="gpiosvr.bin.key_monitor"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gpiosvr.bin.key_monitor</span></code></a> executable.</p>
-<p>Under the key <code class="docutils literal notranslate"><span class="pre">gpios</span></code> (<cite>str</cite>), the <cite>dict</cite> must  contain a <cite>dict</cite> 
+parameter of the <a class="reference internal" href="key_monitor.html#module-gpiosvr.bin.key_monitor" title="gpiosvr.bin.key_monitor"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gpiosvr.bin.key_monitor</span></code></a> executable.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">gpios</span></code> (<cite>str</cite>), the <cite>dict</cite> must  contain a <cite>dict</cite> 
 mapping GPIO BCM numbers to protocol names. For instance, the GPIO 
 number <code class="docutils literal notranslate"><span class="pre">0</span></code> (<cite>str</cite>) can be mapped to a protocol name <code class="docutils literal notranslate"><span class="pre">mybutton</span></code>. 
 This protocol name must then be referenced in the following signal
-protocol descriptions.</p>
-<p>Under the key <code class="docutils literal notranslate"><span class="pre">signalProtocols</span></code> (<cite>str</cite>), the <cite>dict</cite> must  contain 
+protocol descriptions.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">signalProtocols</span></code> (<cite>str</cite>), the <cite>dict</cite> must contain 
 a <cite>list</cite> of signal protocol descriptions. These in turn must be 
 <cite>dict</cite>  instances to be passed to 
 <a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription.fromConfig" title="gpiosvr.signal.SignalProtocolDescription.fromConfig"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fromConfig()</span></code></a>.
 To map a protocol description to a specific GPIO, a  
 <a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.name" title="gpiosvr.signal.SignalProtocolDescription"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">name</span></code></a> must be provided for 
-each signal protocol.</p>
-<p>In a addition to a <cite>name</cite>, each signal protocol must feature a
-<code class="docutils literal notranslate"><span class="pre">keys</span></code> (<cite>str</cite>) key with another <cite>dict</cite> mapping hex codes to Linux
-key names. See <code class="xref py py-class docutils literal notranslate"><span class="pre">gpiosvr.key.KeysConfig</span></code> for reference.</p>
-<p>Optionally, each signal protocol may each feature a
+each signal protocol.</div>
+<div class="line"><br /></div>
+<div class="line">In a addition to a <cite>name</cite>, each signal protocol must feature a
+<code class="docutils literal notranslate"><span class="pre">keys</span></code> (<cite>str</cite>) key with another <cite>dict</cite> mapping hex codes to 
+Linux key names. See <code class="xref py py-class docutils literal notranslate"><span class="pre">gpiosvr.key.KeysConfig</span></code> for reference.</div>
+<div class="line"><br /></div>
+<div class="line">Optionally, each signal protocol may each feature a
 <code class="docutils literal notranslate"><span class="pre">signalListener</span></code> (<cite>str</cite>) key with another <cite>dict</cite> configuring
 the listener for that specific combination of GPIO and protocol.
-See <a class="reference internal" href="#gpiosvr.signal.SignalListenerConfig.__init__" title="gpiosvr.signal.SignalListenerConfig.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> for reference.</p>
+See <a class="reference internal" href="#gpiosvr.signal.SignalListenerConfig.__init__" title="gpiosvr.signal.SignalListenerConfig.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> for reference.</div>
+</div>
 </p></li>
-<li><p><span class="target" id="gpiosvr.signal.SignalConfig.params.topic"></span><strong>topic</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalConfig.params.topic">¶</a> (<em>str</em><em>, </em><em>optional</em>) – For extensibility, an identifier for handling specific 
+<li><p><span class="target" id="gpiosvr.signal.SignalConfig.params.topic"></span><strong>topic</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalConfig.params.topic">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><em>optional</em>) – For extensibility, an identifier for handling specific 
 types of protocols. It is used as a prefix for configuration keys
 when parsing the configuration given in
 <a class="reference internal" href="#gpiosvr.signal.SignalConfig.params.signalConfig" title="gpiosvr.signal.SignalConfig"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">signalConfig</span></code></a>.
@@ -242,51 +249,51 @@ instance. Defaults to <a class="reference internal" href="#gpiosvr.signal.Signal
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.signal.SignalProtocolDescription">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.signal.</span></span><span class="sig-name descname"><span class="pre">SignalProtocolDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basePulse_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerancePercentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minEdgeCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basePulseCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preamble_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postamble_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codeStartBit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bitOrder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgeEvaluationInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debounce_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalProtocolDescription" title="Link to this definition"></a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="gpiosvr.signal.SignalProtocolDescription.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basePulse_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerancePercentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minEdgeCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basePulseCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preamble_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postamble_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codeStartBit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bitOrder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgeEvaluationInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debounce_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalProtocolDescription.__init__" title="Link to this definition"></a></dt>
 <dd><p>Parameters describing a signal protocol, i.e. the expected pulses or
-edges and how to translate them to hex codes. The hex codes can be
-mapped to Linux key names in the scope of <a class="reference internal" href="#gpiosvr.signal.SignalConfig" title="gpiosvr.signal.SignalConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalConfig</span></code></a>.</p>
+edges and how to translate them to hex codes. The hex codes can be mapped
+to Linux key names in the scope of <a class="reference internal" href="#gpiosvr.signal.SignalConfig" title="gpiosvr.signal.SignalConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalConfig</span></code></a>.</p>
 <p>Before translating a signal to a hex code, it is first translated to a
 sequence of logical bits. The translation algorithm can be extended by
 custom signal listeners.</p>
-<p>In the basic <a class="reference internal" href="#gpiosvr.signal.SignalListener" title="gpiosvr.signal.SignalListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalListener</span></code></a>, the logical bit is simply 
-alternating with the GPIO level. To set the first logical bit, use the
-parameter <a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.codeStartBit" title="gpiosvr.signal.SignalProtocolDescription"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">codeStartBit</span></code></a>.
-The number of bits decoded from the signal, the so called <code class="docutils literal notranslate"><span class="pre">bitCount</span></code>,
-is derived from the parameters
+<p>In the basic <a class="reference internal" href="#gpiosvr.signal.SignalListener" title="gpiosvr.signal.SignalListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalListener</span></code></a>, the logical bit is simply alternating
+with the GPIO level. The value of 
+<a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.codeStartBit" title="gpiosvr.signal.SignalProtocolDescription"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">codeStartBit</span></code></a> determines the first bit.
+The number of bits decoded from the signal, the so called <code class="docutils literal notranslate"><span class="pre">bitCount</span></code>, is
+derived from the parameters
 <a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.basePulse_μs" title="gpiosvr.signal.SignalProtocolDescription"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">basePulse_μs</span></code></a>,
 <a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.minEdgeCount" title="gpiosvr.signal.SignalProtocolDescription"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">minEdgeCount</span></code></a> and
 <a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.basePulseCount" title="gpiosvr.signal.SignalProtocolDescription"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">basePulseCount</span></code></a>. See
 <a class="reference internal" href="#gpiosvr.signal.PulseHelper.paramsToBitCount" title="gpiosvr.signal.PulseHelper.paramsToBitCount"><code class="xref py py-func docutils literal notranslate"><span class="pre">paramsToBitCount()</span></code></a>.</p>
-<dl class="field-list simple">
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.signal.SignalProtocolDescription.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basePulse_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerancePercentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minEdgeCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basePulseCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preamble_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postamble_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codeStartBit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bitOrder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgeEvaluationInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debounce_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalProtocolDescription.__init__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.name"></span><strong>name</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.name">¶</a> (<em>str</em><em>, </em><em>optional</em>) – Identifying name of the protocol for mapping it to a 
+<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.name"></span><strong>name</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.name">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><em>optional</em>) – Identifying name of the protocol for mapping it to a 
 specific GPIO. Also used in messages and asyncio task names.
-Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.basePulse_μs"></span><strong>basePulse_μs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.basePulse_μs">¶</a> (<em>int</em><em>, </em><em>optional</em>) – For a signal with a fixed pulse length, the base
+Defaults to <cite>None</cite>.</p></li>
+<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.basePulse_μs"></span><strong>basePulse_μs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.basePulse_μs">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – For a signal with a fixed pulse length, the base
 pulse length in microseconds. Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.tolerancePercentage"></span><strong>tolerancePercentage</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.tolerancePercentage">¶</a> (<em>int</em><em>, </em><em>optional</em>) – For a signal with a fixed pulse length, the
+<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.tolerancePercentage"></span><strong>tolerancePercentage</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.tolerancePercentage">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – For a signal with a fixed pulse length, the
 maximum tolerated deviation of
 <a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.basePulse_μs" title="gpiosvr.signal.SignalProtocolDescription"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">basePulse_μs</span></code></a> (plus or minus).
 Specified as a percentage value from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">50</span></code>.
 Defaults to <a class="reference internal" href="#gpiosvr.signal.TOLERANCE_PERCENTAGE_DEFAULT" title="gpiosvr.signal.TOLERANCE_PERCENTAGE_DEFAULT"><code class="xref py py-data docutils literal notranslate"><span class="pre">TOLERANCE_PERCENTAGE_DEFAULT</span></code></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.minEdgeCount"></span><strong>minEdgeCount</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.minEdgeCount">¶</a> (<em>int</em><em>, </em><em>optional</em>) – For a signal with variable pulse lengths or for
+<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.minEdgeCount"></span><strong>minEdgeCount</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.minEdgeCount">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – For a signal with variable pulse lengths or for
 individual edges, the minimum number of expected edges that marks
 the end of the signal. Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.basePulseCount"></span><strong>basePulseCount</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.basePulseCount">¶</a> (<em>int</em><em>, </em><em>optional</em>) – For a signal with a fixed pulse length, the 
+<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.basePulseCount"></span><strong>basePulseCount</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.basePulseCount">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – For a signal with a fixed pulse length, the 
 number of base pulses that marks the end of the signal. For
 instance, for a <cite>basePulse_μs</cite> of <code class="docutils literal notranslate"><span class="pre">45</span></code>, and a <cite>basePulseCount</cite> of
 <code class="docutils literal notranslate"><span class="pre">10</span></code>, a hex code will be produced after <code class="docutils literal notranslate"><span class="pre">45</span> <span class="pre">*</span> <span class="pre">10</span></code> = <code class="docutils literal notranslate"><span class="pre">450</span></code> 
-microseconds. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.preamble_ms"></span><strong>preamble_ms</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.preamble_ms">¶</a> (<em>int</em><em>, </em><em>optional</em>) – The duration of “silence” in milliseconds, that 
+microseconds. Defaults to <cite>None</cite>.</p></li>
+<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.preamble_ms"></span><strong>preamble_ms</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.preamble_ms">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – The duration of “silence” in milliseconds, that 
 marks the start of a signal on the first edge. For instance, if set
 to <code class="docutils literal notranslate"><span class="pre">150</span></code>, a signal will be considered “started” on the first edge 
 after at least <code class="docutils literal notranslate"><span class="pre">150</span></code> milliseconds without any other edge. 
 Defaults to <code class="docutils literal notranslate"><span class="pre">basePulse_μs</span> <span class="pre">*</span> <span class="pre">1.5</span> <span class="pre">//</span> <span class="pre">1000</span></code>.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.postamble_ms"></span><strong>postamble_ms</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.postamble_ms">¶</a> (<em>int</em><em>, </em><em>optional</em>) – The duration of “silence” in milliseconds, that
+<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.postamble_ms"></span><strong>postamble_ms</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.postamble_ms">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – The duration of “silence” in milliseconds, that
 marks the end of the signal after the previous edge. For instance, 
 if set to <code class="docutils literal notranslate"><span class="pre">300</span></code>, the signal will be considered “ended” if no 
 other edge has occurred for at least <code class="docutils literal notranslate"><span class="pre">300</span></code> milliseconds since the
@@ -296,7 +303,7 @@ The value must be larger than
 signal is considered “started” before the current signal is 
 considered “ended”.
 Defaults to <code class="docutils literal notranslate"><span class="pre">(bitCount</span> <span class="pre">+</span> <span class="pre">0.5)</span> <span class="pre">*</span> <span class="pre">basePulse_μs</span> <span class="pre">//</span> <span class="pre">1000</span></code>.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.codeStartBit"></span><strong>codeStartBit</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.codeStartBit">¶</a> (<em>int</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – The first logical bit in the decoded signal.
+<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.codeStartBit"></span><strong>codeStartBit</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.codeStartBit">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><em>optional</em>) – The first logical bit in the decoded signal.
 It may be <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code> for a fixed logical value. 
 It may also be <code class="docutils literal notranslate"><span class="pre">GPIO_LEVEL</span></code> (<cite>str</cite>) for the actual GPIO level
 of the first edge that marks the start of the signal. 
@@ -307,14 +314,14 @@ a logical bit sequence of <code class="docutils literal notranslate"><span class
 code <code class="docutils literal notranslate"><span class="pre">0x4d</span></code> if the bit order is <a class="reference internal" href="#gpiosvr.signal.BitOrder.MSB_FIRST" title="gpiosvr.signal.BitOrder.MSB_FIRST"><code class="xref py py-data docutils literal notranslate"><span class="pre">MSB_FIRST</span></code></a>. 
 By contrast, it will be translated to <code class="docutils literal notranslate"><span class="pre">0x59</span></code>, if the bit order 
 is <a class="reference internal" href="#gpiosvr.signal.BitOrder.LSB_FIRST" title="gpiosvr.signal.BitOrder.LSB_FIRST"><code class="xref py py-data docutils literal notranslate"><span class="pre">LSB_FIRST</span></code></a>. Defaults to <a class="reference internal" href="#gpiosvr.signal.BIT_ORDER_DEFAULT" title="gpiosvr.signal.BIT_ORDER_DEFAULT"><code class="xref py py-data docutils literal notranslate"><span class="pre">BIT_ORDER_DEFAULT</span></code></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.edgeEvaluationInterval_ms"></span><strong>edgeEvaluationInterval_ms</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.edgeEvaluationInterval_ms">¶</a> (<em>int</em><em>, </em><em>optional</em>) – The interval in milliseconds in which
+<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.edgeEvaluationInterval_ms"></span><strong>edgeEvaluationInterval_ms</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.edgeEvaluationInterval_ms">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – The interval in milliseconds in which
 queued edges are evaluated as fixed or variable-length pulses or 
 individual edges. 
 For bursts of pulses, the value must be high enough to completely
 queue all edges before evaluating them. However, if too long, the 
 decoding into logical bits and translating them to a hex code could
 be perceptibly delayed. Lower values result in higher CPU load.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.debounce_μs"></span><strong>debounce_μs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.debounce_μs">¶</a> (<em>int</em><em>, </em><em>optional</em>) – The time span in microseconds, within which two 
+<li><p><span class="target" id="gpiosvr.signal.SignalProtocolDescription.params.debounce_μs"></span><strong>debounce_μs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalProtocolDescription.params.debounce_μs">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>optional</em>) – The time span in microseconds, within which two 
 edges shall be ignored. Useful e.g. for hardware buttons that may
 produce high-frequency edges due to mechanical bouncing.
 May also be used to filter out high-frequency noise on a line.
@@ -322,7 +329,7 @@ Defaults to <a class="reference internal" href="#gpiosvr.signal.DEBOUNCE_S_DEFAU
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – if a parameter value is missing or is invalid, given 
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – if a parameter value is missing or is invalid, given 
 the other parameter values.</p>
 </dd>
 </dl>
@@ -330,9 +337,8 @@ the other parameter values.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.signal.SignalProtocolDescription.fromConfig">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocolConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalProtocolDescription.fromConfig" title="Link to this definition"></a></dt>
-<dd><p>Convenience method for creating a signal protocol description from
-a configuration <cite>dict</cite>.</p>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocolConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalProtocolDescription.fromConfig" title="Link to this definition"></a></dt>
+<dd><p>Creates a signal protocol description from a configuration <cite>dict</cite>.</p>
 <p>The <cite>dict</cite> entries may only contain the parameter names and values of
 <a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription.__init__" title="gpiosvr.signal.SignalProtocolDescription.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
 <dl class="field-list simple">
@@ -355,33 +361,37 @@ passed in via
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.signal.SignalListenerConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.signal.</span></span><span class="sig-name descname"><span class="pre">SignalListenerConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signaListenerConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalListenerConfig" title="Link to this definition"></a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="gpiosvr.signal.SignalListenerConfig.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signaListenerConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalListenerConfig.__init__" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.signal.</span></span><span class="sig-name descname"><span class="pre">SignalListenerConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signaListenerConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalListenerConfig" title="Link to this definition"></a></dt>
 <dd><p>Properties describing a signal listener configuration.</p>
-<dl class="field-list simple">
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.signal.SignalListenerConfig.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signaListenerConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalListenerConfig.__init__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="gpiosvr.signal.SignalListenerConfig.params.signaListenerConfig"></span><strong>signaListenerConfig</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListenerConfig.params.signaListenerConfig">¶</a> (<em>dict</em>) – <p>Under the key <code class="docutils literal notranslate"><span class="pre">mayInject</span></code> (<cite>str</cite>), the 
-<cite>dict</cite> may contain a <cite>bool</cite> value. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the signal listener
-will accept key  events injected via the 
-<a class="reference internal" href="#gpiosvr.signal.SignalListener.injectKeyCode" title="gpiosvr.signal.SignalListener.injectKeyCode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">injectKeyCode()</span></code></a> method. This is 
-security-relevant, as key codes can then be injected by malicious 
-software without the need to be physically attached to the 
-corresponding GPIO.</p>
-<p>Under the key <code class="docutils literal notranslate"><span class="pre">isDebugOutput</span></code> (<cite>str</cite>), the <cite>dict</cite> may contain a
-<cite>bool</cite> value. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, debug messages will be written to the
-message buffer of the signal listener, if any. Defaults to <cite>None</cite>.</p>
-<p>Under the key <code class="docutils literal notranslate"><span class="pre">isTesting</span></code> (<cite>str</cite>), the <cite>dict</cite> may contain a <cite>bool</cite> value.
-If <code class="docutils literal notranslate"><span class="pre">True</span></code>, more verbose messages about occurring edges will be 
-written to the message buffer of the signal listener, if any. Useful
-for finding out the actual pulse or edge sequences on a line.
-Always implies <code class="docutils literal notranslate"><span class="pre">isDebugOutput</span> <span class="pre">==</span> <span class="pre">True</span></code>. Defaults to <cite>None</cite>.</p>
+<dd class="field-odd"><p><span class="target" id="gpiosvr.signal.SignalListenerConfig.params.signaListenerConfig"></span><strong>signaListenerConfig</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListenerConfig.params.signaListenerConfig">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – <div class="line-block">
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">mayInject</span></code> (<cite>str</cite>), the 
+<cite>dict</cite> may contain a <cite>bool</cite> value. If <cite>True</cite>, the signal listener
+will accept key  events injected via 
+<a class="reference internal" href="#gpiosvr.signal.SignalListener.injectKeyCode" title="gpiosvr.signal.SignalListener.injectKeyCode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">injectKeyCode()</span></code></a>. This is security-relevant,
+as key codes can then be injected by malicious software without 
+the need to be physically attached to the corresponding GPIO.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">isDebugOutput</span></code> (<cite>str</cite>), the <cite>dict</cite> may contain a
+<cite>bool</cite> value. If <cite>True</cite>, debug messages will be written to the
+message buffer of the signal listener, if any. Defaults to <cite>None</cite>.</div>
+<div class="line"><br /></div>
+<div class="line">Under the key <code class="docutils literal notranslate"><span class="pre">isTesting</span></code> (<cite>str</cite>), the <cite>dict</cite> may contain a 
+<cite>bool</cite> value. If <cite>True</cite>, more verbose messages about occurring 
+edges will be written to the message buffer of the signal 
+listener, if any. Useful for finding out the actual pulse or edge
+sequences on a line.
+Always implies <code class="docutils literal notranslate"><span class="pre">isDebugOutput</span> <span class="pre">==</span> <span class="pre">True</span></code>. Defaults to <cite>None</cite>.</div>
+</div>
 </p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p>ValueError if <cite>isDebugOutput</cite> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code> while
-<cite>isTesting</cite> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<dd class="field-even"><p>ValueError if <cite>isDebugOutput</cite> is set to <cite>False</cite> while
+<cite>isTesting</cite> is set to <cite>True</cite></p>
 </dd>
 </dl>
 </dd></dl>
@@ -393,14 +403,14 @@ Always implies <code class="docutils literal notranslate"><span class="pre">isDe
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">Pulse event classes</a><a class="headerlink" href="#pulse-event-classes" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.signal.PulseEvent">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.signal.</span></span><span class="sig-name descname"><span class="pre">PulseEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulses_μs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulseStartLevel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_μs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.PulseEvent" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.signal.</span></span><span class="sig-name descname"><span class="pre">PulseEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulses_μs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulseStartLevel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_μs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.PulseEvent" title="Link to this definition"></a></dt>
 <dd><p>Represents a completed pulse sequence.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.signal.PulsesInterrupted">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.signal.</span></span><span class="sig-name descname"><span class="pre">PulsesInterrupted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulses_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulseStartLevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.PulsesInterrupted" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#gpiosvr.signal.PulseEvent" title="gpiosvr.signal.PulseEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PulseEvent</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#gpiosvr.signal.PulseEvent" title="gpiosvr.signal.PulseEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PulseEvent</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
 <p>Represents an incompleted pulse sequence, i.e. some interruption to a
 pulse sequence.</p>
 </dd></dl>
@@ -413,9 +423,9 @@ pulse sequence.</p>
 on a signal protocol description. The iterator yields instances of
 <a class="reference internal" href="#gpiosvr.signal.PulseEvent" title="gpiosvr.signal.PulseEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PulseEvent</span></code></a> that can be interpreted as signals, decoded into
 logical bits and translated to hex codes.</p>
-<p>The iterator lazily sets up the edge callback with its <cite>gpioClient</cite> instance once
-the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__anext__()</span></code> method is called for the first
-time. Once started, the iterator runs indefinitely, until 
+<p>The iterator lazily sets up the edge callback with its <cite>gpioClient</cite> instance 
+once <code class="xref py py-meth docutils literal notranslate"><span class="pre">__anext__()</span></code> is called for the first time.
+Once started, the iterator runs indefinitely, until 
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">aclose()</span></code> is called.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.signal.PulseEventIterator.__init__">
@@ -423,13 +433,13 @@ time. Once started, the iterator runs indefinitely, until
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gpiosvr.signal.PulseEventIterator.params.loop"></span><strong>loop</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseEventIterator.params.loop">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html">asyncio.EventLoop</a>) – The asyncio event loop iterating over pulse evemts.</p></li>
+<li><p><span class="target" id="gpiosvr.signal.PulseEventIterator.params.loop"></span><strong>loop</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseEventIterator.params.loop">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.EventLoop" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.EventLoop</span></code></a>) – The asyncio event loop iterating over pulse evemts.</p></li>
 <li><p><span class="target" id="gpiosvr.signal.PulseEventIterator.params.gpioClient"></span><strong>gpioClient</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseEventIterator.params.gpioClient">¶</a> (<a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi" title="gpiosvr.client_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a> +
 <a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioCallbackApi" title="gpiosvr.client_pigpio.PigpioCallbackApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioCallbackApi</span></code></a>) – The GPIO API for setting up the edge callback.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.PulseEventIterator.params.gpio"></span><strong>gpio</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseEventIterator.params.gpio">¶</a> (<em>int</em>) – The GPIO on which to set up the edge callback.</p></li>
+<li><p><span class="target" id="gpiosvr.signal.PulseEventIterator.params.gpio"></span><strong>gpio</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseEventIterator.params.gpio">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO on which to set up the edge callback.</p></li>
 <li><p><span class="target" id="gpiosvr.signal.PulseEventIterator.params.protocol"></span><strong>protocol</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseEventIterator.params.protocol">¶</a> (<a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription" title="gpiosvr.signal.SignalProtocolDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalProtocolDescription</span></code></a>) – The signal protocol for determining the start and end
 of individual signals.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.PulseEventIterator.params.maxBasePulseCount"></span><strong>maxBasePulseCount</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseEventIterator.params.maxBasePulseCount">¶</a> (<em>int</em>) – The maximum number of base pulses accepted in
+<li><p><span class="target" id="gpiosvr.signal.PulseEventIterator.params.maxBasePulseCount"></span><strong>maxBasePulseCount</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseEventIterator.params.maxBasePulseCount">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The maximum number of base pulses accepted in
 one signal. This prevents the CPU from overloading due to noise on
 the line. Defaults to <a class="reference internal" href="#gpiosvr.signal.MAX_BASE_PULSE_COUNT" title="gpiosvr.signal.MAX_BASE_PULSE_COUNT"><code class="xref py py-data docutils literal notranslate"><span class="pre">MAX_BASE_PULSE_COUNT</span></code></a>.</p></li>
 <li><p><span class="target" id="gpiosvr.signal.PulseEventIterator.params.isDebugOutput"></span><strong>isDebugOutput</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseEventIterator.params.isDebugOutput">¶</a> – See <a class="reference internal" href="#gpiosvr.signal.SignalListenerConfig.params.signaListenerConfig" title="gpiosvr.signal.SignalListenerConfig"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">signaListenerConfig</span></code></a></p></li>
@@ -447,7 +457,7 @@ triggered an artificial edge via
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">provokeArtificialEdge()</span></code>.</p>
 <p>The implementation is expected to put a corresponding 
 <a class="reference internal" href="#gpiosvr.signal.PulseEvent" title="gpiosvr.signal.PulseEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PulseEvent</span></code></a> instance into the event queue, then return 
-<code class="docutils literal notranslate"><span class="pre">True</span></code> to show that the event has been handled.</p>
+<cite>True</cite> to show that the event has been handled.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -456,12 +466,12 @@ triggered an artificial edge via
 <dd><p>Internal event callback.. It is called when the pulse sequence has
 been interrupted, considering the protocol.</p>
 <p>If the implementation wishes to discard the incomplete pulse sequence,
-it must return <code class="docutils literal notranslate"><span class="pre">True</span></code>.
+it must return True.
 If the implementation wishes to append further pulses to the incomplete
-pulse sequence, it must return <code class="docutils literal notranslate"><span class="pre">False</span></code>. This is the default.</p>
+pulse sequence, it must return <cite>False</cite>. This is the default.</p>
 <p>If the implementation whishes to notify coroutines iterating over
 <a class="reference internal" href="#gpiosvr.signal.PulseEvent" title="gpiosvr.signal.PulseEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PulseEvent</span></code></a> instances, it must put an instance of
-<a class="reference internal" href="#gpiosvr.signal.PulsesInterrupted" title="gpiosvr.signal.PulsesInterrupted"><code class="xref py py-class docutils literal notranslate"><span class="pre">PulsesInterrupted</span></code></a> into the event queue, then return <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<a class="reference internal" href="#gpiosvr.signal.PulsesInterrupted" title="gpiosvr.signal.PulsesInterrupted"><code class="xref py py-class docutils literal notranslate"><span class="pre">PulsesInterrupted</span></code></a> into the event queue, then return True.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -471,7 +481,7 @@ pulse sequence, it must return <code class="docutils literal notranslate"><span 
 completed, considering the protocol.</p>
 <p>The implementation is expected to put a corresponding 
 <a class="reference internal" href="#gpiosvr.signal.PulseEvent" title="gpiosvr.signal.PulseEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PulseEvent</span></code></a> instance into the event queue, then return 
-<code class="docutils literal notranslate"><span class="pre">True</span></code> to show that the event has been handled.</p>
+<cite>True</cite> to show that the event has been handled.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -481,7 +491,7 @@ completed, considering the protocol.</p>
 single edges and a corresponding edge has occurred.</p>
 <p>The implementation is expected to put a corresponding 
 <a class="reference internal" href="#gpiosvr.signal.PulseEvent" title="gpiosvr.signal.PulseEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PulseEvent</span></code></a> instance into the event queue, then return 
-<code class="docutils literal notranslate"><span class="pre">True</span></code> to show that the event has been handled.</p>
+<cite>True</cite> to show that the event has been handled.</p>
 </dd></dl>
 
 </dd></dl>
@@ -498,12 +508,12 @@ hex codes, eventually mapped and exposed as key events.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gpiosvr.signal.SignalListener.params.loop"></span><strong>loop</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListener.params.loop">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html">asyncio.EventLoop</a>) – The asyncio event loop of the thread waiting listening to
+<li><p><span class="target" id="gpiosvr.signal.SignalListener.params.loop"></span><strong>loop</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListener.params.loop">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.EventLoop" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.EventLoop</span></code></a>) – The asyncio event loop of the thread waiting listening to
 signals.</p></li>
 <li><p><span class="target" id="gpiosvr.signal.SignalListener.params.gpioClient"></span><strong>gpioClient</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListener.params.gpioClient">¶</a> (<a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi" title="gpiosvr.client_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a> +
 <a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioCallbackApi" title="gpiosvr.client_pigpio.PigpioCallbackApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioCallbackApi</span></code></a>) – The GPIO API to use, connected with an appropriate
 GPIO backend.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.SignalListener.params.gpio"></span><strong>gpio</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListener.params.gpio">¶</a> (<em>int</em>) – The GPIO on which to listen.</p></li>
+<li><p><span class="target" id="gpiosvr.signal.SignalListener.params.gpio"></span><strong>gpio</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListener.params.gpio">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO on which to listen.</p></li>
 <li><p><span class="target" id="gpiosvr.signal.SignalListener.params.mayInject"></span><strong>mayInject</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListener.params.mayInject">¶</a> – See <a class="reference internal" href="#gpiosvr.signal.SignalListenerConfig.params.signaListenerConfig" title="gpiosvr.signal.SignalListenerConfig"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">signaListenerConfig</span></code></a></p></li>
 <li><p><span class="target" id="gpiosvr.signal.SignalListener.params.protocol"></span><strong>protocol</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListener.params.protocol">¶</a> (<a class="reference internal" href="#gpiosvr.signal.SignalProtocolDescription" title="gpiosvr.signal.SignalProtocolDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalProtocolDescription</span></code></a>) – The signal protocol for translating pulses to logical 
 bits.</p></li>
@@ -518,11 +528,10 @@ bits.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.signal.SignalListener.fromConfig">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioClient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerConfig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.SignalListener.fromConfig" title="Link to this definition"></a></dt>
-<dd><p>Convenience method for creating a signal listener from a
-configuration.</p>
+<dd><p>Creates a signal listener from a configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="gpiosvr.signal.SignalListener.fromConfig.params.listenerConfig"></span><strong>listenerConfig</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListener.fromConfig.params.listenerConfig">¶</a> (<em>object</em>) – Either a <cite>dict</cite> or an instance of
+<dd class="field-odd"><p><span class="target" id="gpiosvr.signal.SignalListener.fromConfig.params.listenerConfig"></span><strong>listenerConfig</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListener.fromConfig.params.listenerConfig">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><em>object</em></a>) – Either a <cite>dict</cite> or an instance of
 <a class="reference internal" href="#gpiosvr.signal.SignalListenerConfig" title="gpiosvr.signal.SignalListenerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalListenerConfig</span></code></a>. If the former, the <cite>dict</cite> keys must
 be identical to the parameter names of 
 <a class="reference internal" href="#gpiosvr.signal.SignalListenerConfig.__init__" title="gpiosvr.signal.SignalListenerConfig.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
@@ -591,7 +600,7 @@ from received signals.</p>
 a key code directly instead of waiting for the next authentic signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="gpiosvr.signal.SignalListener.injectKeyCode.params.keyCode"></span><strong>keyCode</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListener.injectKeyCode.params.keyCode">¶</a> (<em>str</em>) – The key code to inject as a string starting with
+<dd class="field-odd"><p><span class="target" id="gpiosvr.signal.SignalListener.injectKeyCode.params.keyCode"></span><strong>keyCode</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.SignalListener.injectKeyCode.params.keyCode">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The key code to inject as a string starting with
 <code class="docutils literal notranslate"><span class="pre">0x</span></code>.</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -612,7 +621,7 @@ a human-readable form (in English).</p>
 <dd class="field-odd"><p>The description.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -684,7 +693,7 @@ signals with the given parameters.</p>
 <dd class="field-odd"><p>The number of logical bits.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -697,7 +706,7 @@ contained bases pulses. Applicable only if a fixed base pulse length
 is given.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="gpiosvr.signal.PulseHelper.sequenceToBasePulseCount.params.pulses_μs"></span><strong>pulses_μs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseHelper.sequenceToBasePulseCount.params.pulses_μs">¶</a> (<em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>tuple</em><em>[</em><em>int</em><em>]</em>) – The sequence of actual pulse lengths in microseconds
+<dd class="field-odd"><p><span class="target" id="gpiosvr.signal.PulseHelper.sequenceToBasePulseCount.params.pulses_μs"></span><strong>pulses_μs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseHelper.sequenceToBasePulseCount.params.pulses_μs">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>) – The sequence of actual pulse lengths in microseconds
 to be evaluated.</p>
 </dd>
 </dl>
@@ -708,29 +717,29 @@ meanings as with <a class="reference internal" href="#gpiosvr.signal.SignalProto
 <dd class="field-odd"><p>The total number of base pulses contained in the pulse sequence.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.signal.PulseHelper.sequenceToHexCodes">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sequenceToHexCodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulses_μs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basePulse_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerancePercentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bitCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bitOrder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">BitOrder.MSB_FIRST</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulseStartLevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forceSingleCode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debugOutput</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">StringIO</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.PulseHelper.sequenceToHexCodes" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sequenceToHexCodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulses_μs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basePulse_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerancePercentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bitCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bitOrder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">BitOrder.MSB_FIRST</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulseStartLevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forceSingleCode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debugOutput</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">StringIO</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.signal.PulseHelper.sequenceToHexCodes" title="Link to this definition"></a></dt>
 <dd><p>Produces a hex code for an actual pulse sequence, first converting
 the pulse sequence to logical bits.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.pulses_μs"></span><strong>pulses_μs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.pulses_μs">¶</a> (<em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>tuple</em><em>[</em><em>int</em><em>]</em>) – The sequence of actual pulse lengths in microseconds
+<li><p><span class="target" id="gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.pulses_μs"></span><strong>pulses_μs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.pulses_μs">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>) – The sequence of actual pulse lengths in microseconds
 to be evaluated.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.pulseStartLevel"></span><strong>pulseStartLevel</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.pulseStartLevel">¶</a> (<em>int</em>) – The actual GPIO level of the first edge in the
+<li><p><span class="target" id="gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.pulseStartLevel"></span><strong>pulseStartLevel</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.pulseStartLevel">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The actual GPIO level of the first edge in the
 pulse sequence. May be either <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
-<li><p><span class="target" id="gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.forceSingleCode"></span><strong>forceSingleCode</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.forceSingleCode">¶</a> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, returns at most one hex code.
-If <code class="docutils literal notranslate"><span class="pre">False</span></code>, returns as many hex codes as are contained in the
+<li><p><span class="target" id="gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.forceSingleCode"></span><strong>forceSingleCode</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.forceSingleCode">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, returns at most one hex code.
+If <cite>False</cite>, returns as many hex codes as are contained in the
 pulse sequence. For instance, if the pulse sequence is decoded to
 <code class="docutils literal notranslate"><span class="pre">12</span></code> logical bits and <cite>bitCount</cite> is <code class="docutils literal notranslate"><span class="pre">5</span></code>, the number of produced
 hex counts will be <code class="docutils literal notranslate"><span class="pre">math.ceil(12</span> <span class="pre">/</span> <span class="pre">5)</span></code> = <code class="docutils literal notranslate"><span class="pre">3</span></code>.
-Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+Defaults to <cite>False</cite>.</p></li>
 <li><p><span class="target" id="gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.debugOutput"></span><strong>debugOutput</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.debugOutput">¶</a> (<em>StringIO</em><em>, </em><em>optional</em>) – A string buffer for appending debug messages.
 Useful for analysing unexpected hex codes. Defaults to <cite>None</cite>.</p></li>
 </ul>
@@ -745,7 +754,7 @@ Useful for analysing unexpected hex codes. Defaults to <cite>None</cite>.</p></l
 lowercase.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[str]</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -759,7 +768,7 @@ lowercase.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="picossa_pigs.html" class="btn btn-neutral float-left" title="picossa_pigs module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="uart.html" class="btn btn-neutral float-left" title="uart module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="client.html" class="btn btn-neutral float-right" title="client module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

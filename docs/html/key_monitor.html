@@ -9,7 +9,7 @@
   <title>key_monitor executable &mdash; gpiosvr 1.0a1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=06783962" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -48,6 +48,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">gpiosvr</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="picossa.html">picossa module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">uart module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="signal.html">signal module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="client.html">client module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
@@ -106,7 +107,8 @@ device, e.g. <code class="docutils literal notranslate"><span class="pre">/dev/i
 </ul>
 <p>Additionally, the standard arguments from 
 <a class="reference internal" href="shell.html#gpiosvr.shell.GpioControlShell.addStandardArgs" title="gpiosvr.shell.GpioControlShell.addStandardArgs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">gpiosvr.shell.GpioControlShell.addStandardArgs()</span></code></a> and
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">ctlbase.shell.ServiceControlShell.addStandardArgs()</span></code> are accepted.</p>
+<a class="reference external" href="https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.ServiceControlShell.addStandardArgs" title="(in ctlbase)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ctlbase.shell.ServiceControlShell.addStandardArgs()</span></code></a> are
+accepted.</p>
 <p>If key events shall be aligned with LEDs connected to specific GPIOs, the 
 arguments <code class="docutils literal notranslate"><span class="pre">--strategy</span></code> and possibly <code class="docutils literal notranslate"><span class="pre">--socket</span></code> are required to connect to
 the corresponding GPIO server. As an alternative to these arguments, the 
