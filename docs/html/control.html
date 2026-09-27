@@ -1,0 +1,270 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>control module &mdash; gpiosvr 1.0a1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9f7e994e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
+
+  
+      <script src="_static/jquery.js?v=8e38b574"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6ac1bee6"></script>
+      <script src="_static/doctools.js?v=4ed4bc18"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="shell module" href="shell.html" />
+    <link rel="prev" title="key module" href="key.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            gpiosvr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Common modules:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">control module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-classes">Main classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.control.GpioControl"><code class="docutils literal notranslate"><span class="pre">GpioControl</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.control.GpioControl.__init__"><code class="docutils literal notranslate"><span class="pre">GpioControl.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.control.GpioControl.getPropertiesJson"><code class="docutils literal notranslate"><span class="pre">GpioControl.getPropertiesJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.control.GpioControl.getPropertiesTextEn"><code class="docutils literal notranslate"><span class="pre">GpioControl.getPropertiesTextEn()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">input module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">gpiosvr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">control module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-gpiosvr.control">
+<span id="control-module"></span><h1>control module<a class="headerlink" href="#module-gpiosvr.control" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#main-classes" id="id1">Main classes</a></p></li>
+</ul>
+</nav>
+<section id="main-classes">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Main classes</a><a class="headerlink" href="#main-classes" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="gpiosvr.control.GpioControl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.control.</span></span><span class="sig-name descname"><span class="pre">GpioControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioClient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commandExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isSkipPendingMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jsonIndent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.control.GpioControl" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://xoocoon.github.io/ctlbase/html/control.html#ctlbase.control.Control" title="(in ctlbase)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">SyncMixin</span></code></p>
+<p><a class="reference internal" href="#gpiosvr.control.GpioControl" title="gpiosvr.control.GpioControl"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioControl</span></code></a> holds a GPIO client in addition to the resources of
+<a class="reference external" href="https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.ControlShell" title="(in ctlbase)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.shell.ControlShell</span></code></a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.control.GpioControl.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioClient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commandExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isSkipPendingMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jsonIndent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.control.GpioControl.__init__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gpiosvr.control.GpioControl.params.loop"></span><strong>loop</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.params.loop">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.EventLoop" title="(in Python v3.14)"><em>asyncio.EventLoop</em></a>) – The asyncio event loop in which the control performs its
+actions.</p></li>
+<li><p><span class="target" id="gpiosvr.control.GpioControl.params.commandExecutor"></span><strong>commandExecutor</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.params.commandExecutor">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">CommandExecutor</span></code> | None) – A process executor for executing commands in a
+subprocess. <cite>None</cite> if the control does not need to execute commands.</p></li>
+<li><p><span class="target" id="gpiosvr.control.GpioControl.params.envConfig"></span><strong>envConfig</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.params.envConfig">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – <p>An environment configuration in one of the following 
+forms:</p>
+<ul>
+<li><p>A tuple of an absolute file path and a <cite>dict</cite> representing the
+parsed configuration.</p></li>
+<li><p>The filename of the Bash-style configuration file to be parsed.
+It may include a relative or absolute path specification.
+See <code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code> for the discovery algorithm.</p></li>
+<li><p><cite>True</cite> for auto-discovering a configuration file based on the 
+caller’s normalized module name as returned by 
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">getName()</span></code>.
+See <code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code> for the discovery algorithm.</p></li>
+<li><p><cite>None</cite> if the control does not need an environment configuration.</p></li>
+</ul>
+<div class="line-block">
+<div class="line">See <code class="xref py py-class docutils literal notranslate"><span class="pre">BashHelper</span></code> for the supported configuration syntax.</div>
+<div class="line">A possibly existing <code class="xref py py-data docutils literal notranslate"><span class="pre">MODE_DIR_NAME_ENVKEY</span></code> environment 
+value is used for discovering the mode directory.
+This is only relevant if <code class="xref py py-paramref docutils literal notranslate"><span class="pre">modeType</span></code> is not 
+<cite>None</cite>.</div>
+</div>
+</p></li>
+<li><p><span class="target" id="gpiosvr.control.GpioControl.params.actionType"></span><strong>actionType</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.params.actionType">¶</a> (<em>Enum</em>) – The action <cite>Enum</cite> class.</p></li>
+<li><p><span class="target" id="gpiosvr.control.GpioControl.params.modeType"></span><strong>modeType</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.params.modeType">¶</a> (<em>Enum</em><em> | </em><em>None</em>) – The mode <cite>Enum</cite> class. <cite>None</cite> if the control does not
+support different modes.</p></li>
+<li><p><span class="target" id="gpiosvr.control.GpioControl.params.isSkipPendingMode"></span><strong>isSkipPendingMode</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.params.isSkipPendingMode">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_SET</span></code> and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_UNSET</span></code> actions always related to the
+active mode. The pending mode is skipped. Only relevant if
+<code class="xref py py-paramref docutils literal notranslate"><span class="pre">modeType</span></code> is not <cite>None</cite>.</p></li>
+<li><p><span class="target" id="gpiosvr.control.GpioControl.params.propertyType"></span><strong>propertyType</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.params.propertyType">¶</a> (<em>Enum</em><em> | </em><em>None</em>) – The property <cite>Enum</cite> class. <cite>None</cite> if the control 
+does not support any property.</p></li>
+<li><p><span class="target" id="gpiosvr.control.GpioControl.params.msgBuffer"></span><strong>msgBuffer</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.params.msgBuffer">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">MessageBuffer</span></code> | True) – The message buffer to which all occurring messages are
+appended. <cite>True</cite> for auto-creation.</p></li>
+<li><p><span class="target" id="gpiosvr.control.GpioControl.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>True</em><em> | </em><em>None</em>) – The message namespace to use when writing messages to the
+message buffer. If <cite>True</cite>, the namespace is derived from the 
+caller’s normalized module name, as returned by 
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">getName()</span></code>. If auto-creating a message
+buffer, the namespace set as its default namespace.</p></li>
+<li><p><span class="target" id="gpiosvr.control.GpioControl.params.jsonIndent"></span><strong>jsonIndent</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.params.jsonIndent">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The number of spaces used to indent one hierarchy
+level in JSON output.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.control.GpioControl.getPropertiesJson">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPropertiesJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">propertiesListsEn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.control.GpioControl.getPropertiesJson" title="Link to this definition"></a></dt>
+<dd><p>Creates a JSON-formatted list of all current property values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="gpiosvr.control.GpioControl.getPropertiesJson.params.propertiesListsEn"></span><strong>propertiesListsEn</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.getPropertiesJson.params.propertiesListsEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – The property lists to be rendered in JSON 
+format, as returned by <code class="xref py py-meth docutils literal notranslate"><span class="pre">_getPropertiesListsEn()</span></code>.
+Only the first two elements of each property list are used.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The properties list in JSON format.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.control.GpioControl.getPropertiesTextEn">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPropertiesTextEn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">propertiesListsEn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstColumnWidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">28</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.control.GpioControl.getPropertiesTextEn" title="Link to this definition"></a></dt>
+<dd><p>Creates a human-readable listing of all current property values in
+English (<cite>en</cite>).</p>
+<p>The following is an example of such a listing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mode</span> <span class="n">pending</span><span class="p">:</span>               <span class="n">none</span>
+<span class="n">Mode</span> <span class="n">active</span><span class="p">:</span>                <span class="n">up</span>
+</pre></div>
+</div>
+<p>The output contains two text columns for each property:</p>
+<ol class="arabic simple">
+<li><p>The capitalized human-readable name of the property. If the property
+value matches <code class="xref py py-data docutils literal notranslate"><span class="pre">TRUE_VALUE_PATTERN</span></code> or
+<code class="xref py py-data docutils literal notranslate"><span class="pre">FALSE_VALUE_PATTERN</span></code>, a question mark is appended. For
+instance, <code class="docutils literal notranslate"><span class="pre">is-powered-on</span></code> becomes <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">powered</span> <span class="pre">on?</span></code>. If the
+property value has any other type, a colon is appended.</p></li>
+<li><p>The corresponding human-readable value.</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gpiosvr.control.GpioControl.getPropertiesTextEn.params.propertiesListsEn"></span><strong>propertiesListsEn</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.getPropertiesTextEn.params.propertiesListsEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – The property lists to be rendered as plain text,
+as returned by <code class="xref py py-meth docutils literal notranslate"><span class="pre">_getPropertiesListsEn()</span></code>.
+Only the last two elements of each property list are used.</p></li>
+<li><p><span class="target" id="gpiosvr.control.GpioControl.getPropertiesTextEn.params.firstColumnWidth"></span><strong>firstColumnWidth</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.control.GpioControl.getPropertiesTextEn.params.firstColumnWidth">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The width of the first column in the log
+output, as number of characters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The human-readable property listing.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="key.html" class="btn btn-neutral float-left" title="key module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="shell.html" class="btn btn-neutral float-right" title="shell module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, xoocoon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

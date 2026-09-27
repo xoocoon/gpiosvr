@@ -8,19 +8,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>client_picod module &mdash; gpiosvr 1.0a1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9f7e994e" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/jquery.js?v=8e38b574"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=6ac1bee6"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/doctools.js?v=4ed4bc18"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="shell module" href="shell.html" />
+    <link rel="next" title="pigs executable" href="pigs.html" />
     <link rel="prev" title="client_pigs module" href="client_pigs.html" /> 
 </head>
 
@@ -43,37 +43,87 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Common modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">control module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">input module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">gpiosvr</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="picossa.html">picossa module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">uart module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="signal.html">signal module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client.html">client module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">client_picod module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#interfaces">Interfaces</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.PicodApi"><code class="docutils literal notranslate"><span class="pre">PicodApi</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction"><code class="docutils literal notranslate"><span class="pre">GpioFunction</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Status"><code class="docutils literal notranslate"><span class="pre">Status</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Uart"><code class="docutils literal notranslate"><span class="pre">Uart</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Pwm"><code class="docutils literal notranslate"><span class="pre">Pwm</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">client_picod module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#interfaces">Interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.client_picod.PicodApi"><code class="docutils literal notranslate"><span class="pre">PicodApi</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open"><code class="docutils literal notranslate"><span class="pre">PicodApi.serial_open()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.PicodApi.serial_read"><code class="docutils literal notranslate"><span class="pre">PicodApi.serial_read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.PicodApi.serial_write"><code class="docutils literal notranslate"><span class="pre">PicodApi.serial_write()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.PicodApi.serial_close"><code class="docutils literal notranslate"><span class="pre">PicodApi.serial_close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.PicodApi.reset"><code class="docutils literal notranslate"><span class="pre">PicodApi.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.PicodApi.uid"><code class="docutils literal notranslate"><span class="pre">PicodApi.uid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.PicodApi.sleep"><code class="docutils literal notranslate"><span class="pre">PicodApi.sleep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.PicodApi.tick"><code class="docutils literal notranslate"><span class="pre">PicodApi.tick()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pigs.html">pigs executable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="leds.html">leds executable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction"><code class="docutils literal notranslate"><span class="pre">GpioFunction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction.XIP"><code class="docutils literal notranslate"><span class="pre">GpioFunction.XIP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction.SPI"><code class="docutils literal notranslate"><span class="pre">GpioFunction.SPI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction.UART"><code class="docutils literal notranslate"><span class="pre">GpioFunction.UART</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction.I2C"><code class="docutils literal notranslate"><span class="pre">GpioFunction.I2C</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction.PWM"><code class="docutils literal notranslate"><span class="pre">GpioFunction.PWM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction.GPIO"><code class="docutils literal notranslate"><span class="pre">GpioFunction.GPIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction.PIO0"><code class="docutils literal notranslate"><span class="pre">GpioFunction.PIO0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction.PIO1"><code class="docutils literal notranslate"><span class="pre">GpioFunction.PIO1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction.GPCK"><code class="docutils literal notranslate"><span class="pre">GpioFunction.GPCK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction.USB"><code class="docutils literal notranslate"><span class="pre">GpioFunction.USB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.GpioFunction.NULL"><code class="docutils literal notranslate"><span class="pre">GpioFunction.NULL</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.client_picod.Status"><code class="docutils literal notranslate"><span class="pre">Status</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Status.OKAY"><code class="docutils literal notranslate"><span class="pre">Status.OKAY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Status.BAD_CHANNEL"><code class="docutils literal notranslate"><span class="pre">Status.BAD_CHANNEL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Status.CHANNEL_CLOSED"><code class="docutils literal notranslate"><span class="pre">Status.CHANNEL_CLOSED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Status.NO_REPLY"><code class="docutils literal notranslate"><span class="pre">Status.NO_REPLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Status.GPIO_IN_USE"><code class="docutils literal notranslate"><span class="pre">Status.GPIO_IN_USE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Status.TIMED_OUT"><code class="docutils literal notranslate"><span class="pre">Status.TIMED_OUT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Status.ERROR"><code class="docutils literal notranslate"><span class="pre">Status.ERROR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.client_picod.Uart"><code class="docutils literal notranslate"><span class="pre">Uart</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Uart.TX"><code class="docutils literal notranslate"><span class="pre">Uart.TX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Uart.RX"><code class="docutils literal notranslate"><span class="pre">Uart.RX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Uart.CTS"><code class="docutils literal notranslate"><span class="pre">Uart.CTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Uart.RTS"><code class="docutils literal notranslate"><span class="pre">Uart.RTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Uart.PARITY_NONE"><code class="docutils literal notranslate"><span class="pre">Uart.PARITY_NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Uart.PARITY_EVEN"><code class="docutils literal notranslate"><span class="pre">Uart.PARITY_EVEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Uart.PARITY_ODD"><code class="docutils literal notranslate"><span class="pre">Uart.PARITY_ODD</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.client_picod.Pwm"><code class="docutils literal notranslate"><span class="pre">Pwm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.client_picod.Pwm.CLOCK_HZ"><code class="docutils literal notranslate"><span class="pre">Pwm.CLOCK_HZ</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
 
         </div>
@@ -90,7 +140,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">gpiosvr</a></li>
       <li class="breadcrumb-item active">client_picod module</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -122,27 +171,27 @@ the actual result (payload).</p>
 <a class="reference external" href="https://github.com/joan2937/picod/blob/master/PYTHON/picod.py">picod class</a>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client_picod.PicodApi.serial_open">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serial_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">baud</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">255</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">255</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_bits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_bits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.serial_open" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serial_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">baud</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">255</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">255</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_bits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_bits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.serial_open" title="Link to this definition"></a></dt>
 <dd><p>Opens a serial UART channel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.channel"></span><strong>channel</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.channel">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The UART channel to open on the Pico device, <code class="docutils literal notranslate"><span class="pre">0</span></code> or
+<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.channel"></span><strong>channel</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.channel">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The UART channel to open on the Pico device, <code class="docutils literal notranslate"><span class="pre">0</span></code> or
 <code class="docutils literal notranslate"><span class="pre">1</span></code>. Note: In 
 <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#serial_read">pigpio</a>, 
 the parameter is called <cite>handle</cite>.</p></li>
-<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.tx"></span><strong>tx</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.tx">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for transmit. The allowed values depend on
-the channel. See <a class="reference internal" href="#gpiosvr.client_picod.Uart.TX" title="gpiosvr.client_picod.Uart.TX"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TX</span></code></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.rx"></span><strong>rx</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.rx">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for receive. The allowed values depend on
-the channel. See <a class="reference internal" href="#gpiosvr.client_picod.Uart.RX" title="gpiosvr.client_picod.Uart.RX"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RX</span></code></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.baud"></span><strong>baud</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.baud">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The baud rate in bits per second, from <code class="docutils literal notranslate"><span class="pre">120</span></code> to
+<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.tx"></span><strong>tx</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.tx">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for transmission. The allowed values depend
+on the channel. See <a class="reference internal" href="#gpiosvr.client_picod.Uart.TX" title="gpiosvr.client_picod.Uart.TX"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TX</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.rx"></span><strong>rx</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.rx">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for receiving. The allowed values depend on the
+channel. See <a class="reference internal" href="#gpiosvr.client_picod.Uart.RX" title="gpiosvr.client_picod.Uart.RX"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RX</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.baud"></span><strong>baud</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.baud">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The baud rate in bits per second, from <code class="docutils literal notranslate"><span class="pre">120</span></code> to
 <code class="docutils literal notranslate"><span class="pre">4000000</span></code>.</p></li>
-<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.cts"></span><strong>cts</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.cts">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for CTS. The allowed values depend on
+<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.cts"></span><strong>cts</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.cts">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for CTS. The allowed values depend on
 the channel. See <a class="reference internal" href="#gpiosvr.client_picod.Uart.CTS" title="gpiosvr.client_picod.Uart.CTS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CTS</span></code></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.rts"></span><strong>rts</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.rts">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for RTS. The allowed values depend on
+<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.rts"></span><strong>rts</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.rts">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for RTS. The allowed values depend on
 the channel. See <a class="reference internal" href="#gpiosvr.client_picod.Uart.RTS" title="gpiosvr.client_picod.Uart.RTS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RTS</span></code></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.data_bits"></span><strong>data_bits</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.data_bits">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The number of data bits, from <code class="docutils literal notranslate"><span class="pre">5</span></code> to <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p></li>
-<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.stop_bits"></span><strong>stop_bits</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.stop_bits">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The number of stop bits, <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
+<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.data_bits"></span><strong>data_bits</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.data_bits">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The number of data bits, from <code class="docutils literal notranslate"><span class="pre">5</span></code> to <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p></li>
+<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.stop_bits"></span><strong>stop_bits</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.stop_bits">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The number of stop bits, <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
 <li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_open.params.parity"></span><strong>parity</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_open.params.parity">¶</a> (int | <a class="reference internal" href="#gpiosvr.client_picod.Uart.PARITY_NONE" title="gpiosvr.client_picod.Uart.PARITY_NONE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PARITY_NONE</span></code></a> | 
 <a class="reference internal" href="#gpiosvr.client_picod.Uart.PARITY_EVEN" title="gpiosvr.client_picod.Uart.PARITY_EVEN"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PARITY_EVEN</span></code></a> | <a class="reference internal" href="#gpiosvr.client_picod.Uart.PARITY_ODD" title="gpiosvr.client_picod.Uart.PARITY_ODD"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PARITY_ODD</span></code></a>) – The parity bit.</p></li>
 </ul>
@@ -158,11 +207,11 @@ the channel. See <a class="reference internal" href="#gpiosvr.client_picod.Uart.
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client_picod.PicodApi.serial_read">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serial_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.serial_read" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serial_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.serial_read" title="Link to this definition"></a></dt>
 <dd><p>Reads bytes from a serial UART channel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_read.params.channel"></span><strong>channel</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_read.params.channel">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The UART channel to read from. Note: In 
+<dd class="field-odd"><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_read.params.channel"></span><strong>channel</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_read.params.channel">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The UART channel to read from. Note: In 
 <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#serial_read">pigpio</a>, 
 the parameter is called <cite>handle</cite>.</p>
 </dd>
@@ -178,12 +227,12 @@ the parameter is called <cite>handle</cite>.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client_picod.PicodApi.serial_write">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serial_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.14)"><span class="pre">bytes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.serial_write" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serial_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.14)"><span class="pre">bytes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.serial_write" title="Link to this definition"></a></dt>
 <dd><p>Writes bytes to a serial UART channel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_write.params.channel"></span><strong>channel</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_write.params.channel">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The UART channel to write to. Note: In 
+<li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_write.params.channel"></span><strong>channel</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_write.params.channel">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The UART channel to write to. Note: In 
 <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#serial_write">pigpio</a>, 
 the parameter is called <cite>handle</cite>.</p></li>
 <li><p><span class="target" id="gpiosvr.client_picod.PicodApi.serial_write.params.data"></span><strong>data</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.serial_write.params.data">¶</a> – The bytes to write.</p></li>
@@ -203,7 +252,7 @@ the parameter is called <cite>handle</cite>.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client_picod.PicodApi.serial_close">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serial_close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.serial_close" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serial_close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.serial_close" title="Link to this definition"></a></dt>
 <dd><p>Closes a serial UART channel and frees the associated GPIO.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -222,7 +271,7 @@ the parameter is called <cite>handle</cite>.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client_picod.PicodApi.reset">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.reset" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.reset" title="Link to this definition"></a></dt>
 <dd><p>Resets the Pico device, i.e. frees GPIOs, closes I2C, SPI, serial
 (UART) and PWM interfaces.</p>
 <p>All the GPIOs will be unassigned.</p>
@@ -238,7 +287,7 @@ the parameter is called <cite>handle</cite>.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client_picod.PicodApi.uid">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.uid" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.uid" title="Link to this definition"></a></dt>
 <dd><p>Returns the unique ID of the Pico device (64-bit number).</p>
 <p>The Raspberry Pico does not have an on-board unique identifier as all
 instances of RP2040 silicon are identical and have no persistent state. 
@@ -258,14 +307,14 @@ a unique identifier.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client_picod.PicodApi.sleep">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.sleep" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.sleep" title="Link to this definition"></a></dt>
 <dd><p>Sleeps the Pico device for the given duration in seconds.</p>
 <p>Sleeping the Pico device may be useful if you are expecting a burst of 
 GPIO level changes. Sleeping will help prevent USB activity during the 
 burst, minimizing lost GPIO level changes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="gpiosvr.client_picod.PicodApi.sleep.params.time_s"></span><strong>time_s</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.sleep.params.time_s">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – The sleep time in seconds, which may also be a fraction
+<dd class="field-odd"><p><span class="target" id="gpiosvr.client_picod.PicodApi.sleep.params.time_s"></span><strong>time_s</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.client_picod.PicodApi.sleep.params.time_s">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – The sleep time in seconds, which may also be a fraction
 of a second.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -279,7 +328,7 @@ of a second.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client_picod.PicodApi.tick">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tick</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.tick" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tick</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#gpiosvr.client_picod.PicodApi.tick" title="Link to this definition"></a></dt>
 <dd><p>Returns the current tick of the Pico device, i.e. a value 
 representing its internal clock time.</p>
 <dl class="field-list simple">
@@ -459,7 +508,7 @@ representing its internal clock time.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="client_pigs.html" class="btn btn-neutral float-left" title="client_pigs module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="shell.html" class="btn btn-neutral float-right" title="shell module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pigs.html" class="btn btn-neutral float-right" title="pigs executable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

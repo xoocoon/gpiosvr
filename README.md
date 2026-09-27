@@ -1,5 +1,5 @@
 # gpiosvr
-An asyncio-based server providing uniform access to the GPIOs of a Linux SBC.
+An asyncio-based server providing uniform access to the GPIOs of a Linux single-board computer (SBC).
 
 Main features:
 
@@ -14,10 +14,13 @@ Developed and tested for Raspberry Pi variants, namely:
 * Pi 3B
 * Pi 4B 
 * Pico 1 (connected via USB 2.0)
+* Pico 2 (connected via USB 2.0)
 
 On the Pi 3B and Pi 4B, [pigpiod](https://abyz.me.uk/rpi/pigpio/pigpiod.html) is used as a backend for evaluating GPIO edges. On the Pico, the [picossa](https://xoocoon.github.io/gpiosvr/html/picossa.html) module is used as a backend. It is a custom development based on the C daemon from [picod project](https://abyz.me.uk/picod/index.html). 
 
-For a minimal setup, one running instance of `gpio_server.py` is required on a Linux SBC with a built-in GPIO chip. It can be accessed with the `pigs` executable that reads and writes GPIO levels, among other features. More advanced is the definition of signals that may be received and translated into native Linux key events. A signal in this context is a specific pattern of GPIO level changes, with a specific tolerance. 
+For a minimal setup, one running instance of `gpio_server.py` is required on a Linux SBC with a built-in GPIO chip. It can be accessed with the `pigs` executable that reads and writes GPIO levels, among other features.
+
+Somewhat more advanced is the definition of signals that may be received and translated into native Linux key events. A signal in this context is a specific pattern of GPIO level changes, with a specific tolerance. For an introduction to this "signal-to-key" feature, see the apidoc of the [input](https://xoocoon.github.io/gpiosvr/html/input.html#core-concepts) module.
 
 In a setup with an additional Raspberry Pico, one instance of `gpio_server.py` is attached to the built-in GPIO chip of the host Linux machine, and another one is attached to the GPIOs of the Pico device. The following example shows how to connect to both servers with the `pigs` utility:
 
@@ -29,7 +32,7 @@ pigs --socket=/var/run/pico/pico.sock r 23  # read the level of GPIO 23
 ```
 See [Environment configuration](#environment-configuration) for the configuration a default GPIO server.
 
-Since *gpiosvr* is based on asyncio, and asyncio in turn is backed by a C implementation in CPython, it runs fast enough for most use cases, even on Single Board Computers (SBCs). As an example, infrared signals from remote controls with pulse bursts in the range of microseconds can easily be decoded.
+Since *gpiosvr* is based on asyncio, and asyncio in turn is backed by a C implementation in CPython, it runs fast enough for most use cases. As an example, infrared signals from remote controls with pulse bursts in the range of microseconds can easily be decoded.
 
 For apidocs, see [https://xoocoon.github.io/gpiosvr](https://xoocoon.github.io/gpiosvr/html/).
 
@@ -156,22 +159,22 @@ For a reference of supported configuration keys, please see the documentation of
 
 The following packages need to be installed:
 
-- [ctlbase](https://github.com/xoocoon/ctlbase), for basing executable scripts
-- [evdev](https://pypi.org/project/evdev), for handling key events
+- [ctlbase](https://pypi.org/project/ctlbase/), as a framework for CLI utilities and service daemons
+- [evdev](https://pypi.org/project/evdev/), for handling key events
 - [systemd-python](https://pypi.org/project/systemd-python/), for running `gpio_server.py` and/or `key_monitor.py` as systemd service units
-- [pyserial](https://pypi.org/project/pyserial), if the [picossa](https://xoocoon.github.io/gpiosvr/html/picossa.html) module shall be used as a GPIO backend for Raspberry Pico
+- [pyserial](https://pypi.org/project/pyserial/), if the [picossa](https://xoocoon.github.io/gpiosvr/html/picossa.html) module shall be used as a GPIO backend for Raspberry Pico
 - [pigpio](https://abyz.me.uk/rpi/pigpio/download.html), if *pigpiod* shall be used as a GPIO backend for Raspberry Pi up to 4B
 - [libgpiod](https://libgpiod.readthedocs.io/en/latest/python_api.html), if *libgpiod* shall be used as a GPIO backend – **Not yet integrated.**
 
-If you install *gpiosvr* in a virtual Python environment, as recommended under [Package installation](#package-installation), dependecies will be installed automatically as needed.
+If you install *gpiosvr* in a virtual Python environment, as recommended under [Package installation](#package-installation), dependencies will be installed automatically as needed.
 
-For completeness, on a Debian-based system, the dependencies can be installed as follows:
+On a Debian-based system, the dependencies can be installed as follows:
 
 ```
 sudo apt update && sudo apt install -y pigpiod gpiod python3-libgpiod python3-evdev python3-serial python3-systemd
 ```
 
-Note that the custom package `ctlbase` is not available as a Debian package.
+Note that the custom package `ctlbase` is not available as a Debian package but can be installed via [PyPI](https://pypi.org/project/ctlbase/).
 
 ## Linux prerequisites
 
@@ -182,22 +185,24 @@ lsmod | grep uinput  # must yield an output starting with 'uinput'
 ls /dev/uinput       # must yield the output '/dev/uinput'
 ```
 
+Note that if you prefer running a `gpio_server.py` instance with a user other than root, you must make sure the user is member of the `input` group. Otherwise it is not able to access the `/dev/uinput` device. If your host system assigns a group other than `input` to the `/dev/uinput` device, use that group instead.
+
 ## Package installation
 
-For installing the *gpiosvr* package you have at least to choices:
+For installing the *gpiosvr* package you have at least two choices:
 
 * Install the latest release from PyPI via `pip`.
 * Install directly from a local clone of the GitHub repo.
 
 In both cases, it is recommended to use a virtual Python environment to encapsulate all the required dependencies. See [https://docs.python.org/3/library/venv.html](https://docs.python.org/3/library/venv.html) for details on how to create one.
 
-For installing from PyPI, use the `pip` command of your Python environment as follows:
+For installing from PyPI, use the `pip` command of your target environment as follows:
 
 ```
 pip install gpiosvr
 ```
 
-For installing from a local clone of the GitHub repo, use the `pip` command of your Python environment as follows:
+For installing from a local clone of the GitHub repo, use the `pip` command of your target environment as follows:
 
 ```
 pip install $GPIOSVR
@@ -210,9 +215,8 @@ In both cases, if you want to deploy `gpio_server.py` and/or `key_monitor.py` as
 Note that for building *systemd-python*, the systemd headers must be available on the system. On Debian and derivatives, you can install them via `sudo apt update && sudo apt install -y libsystemd-dev`.
 
 > [!WARNING]
-> On some Linux distributions, Python packages are managed by the system's package manager, especially Debian and derivatives. Installing *gpiosvr* globally could break these system-wide packages. If you want to take the risk, install the system-wide packages listed under [Package dependencies](#package-dependencies). Then "dry-run" the *gpiosvr* installation first, to see if these system-wide packages satisfy *gpiosvr*'s dependencies. If only `Requirement already satisfied` messages occur, you may proceed with the actual installation.
+> On some Linux distributions, Python packages are managed by the system's package manager, especially Debian and derivatives. Installing *ctlbase* globally could break these system-wide packages. On these systems, a virtual Python environment is strongly recommended.
 
-For "dry-running" a global installation, consider the following command:
 
 ```
 sudo pip install $GPIOSVR_PATH --dry-run
@@ -236,7 +240,7 @@ PATH="$PATH:/usr/local/bin"
 
 To test the setup, simply call `pigs info`. It should print an info string from the connected GPIO server.
 
-All executables support the `--help` argument which shows the available command line arguments.
+All executables support the `--help` actionArg which shows the available command line arguments.
 
 Additionally, they can be looked up in the apidocs:
 
@@ -253,7 +257,7 @@ Based on the [ctlbase.config](https://xoocoon.github.io/ctlbase/html/config.html
 GPIO_SOCKET_PATH=/var/run/pico/pico.sock
 ```
 
-For the `pigs` executable to find it, this line must be placed somewhere up the directory tree in a file named `etc/pigs` or `etc/default/pigs`. Alternatively, for a system-wide setting, it can be placed in `/etc/default`.
+For the `pigs` executable to find it, this line must be placed somewhere up the directory tree in a filenamed `etc/pigs` or `etc/default/pigs`. Alternatively, for a system-wide setting, it can be placed in `/etc/default`.
 
 ## systemd service setup
 
@@ -270,6 +274,8 @@ By contrast, it is **not** recommended to have `pico_server.service` start up au
 ## Raspberry Pico setup
 
 To make a Raspberry Pico device work with *gpiosvr*, the picod daemon must be deployed to it. It is recommended to use the [xoocoon version](https://github.com/xoocoon/picod) and follow its installation instructions.
+
+Note that if you prefer running a `gpio_server.py` instance with a user other than root, you must make sure the user is member of the `dialout` group. Otherwise it is not able to access the `/dev/ttyACM*` device corresponding to the Pico device. If your host system assigns a group other than `dialout` to `/dev/ttyACM*` devices, use that group instead.
 
 # Project state
 

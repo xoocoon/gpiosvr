@@ -8,20 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>gpio_server executable &mdash; gpiosvr 1.0a1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9f7e994e" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/jquery.js?v=8e38b574"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=6ac1bee6"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/doctools.js?v=4ed4bc18"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="key_monitor executable" href="key_monitor.html" />
-    <link rel="prev" title="shell module" href="shell.html" /> 
+    <link rel="prev" title="uart module" href="uart.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,31 +43,45 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Common modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">control module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">gpiosvr</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="picossa.html">picossa module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">uart module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="signal.html">signal module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client.html">client module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">gpio_server executable</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#arguments">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.bin.gpio_server.UnixSocketServer"><code class="docutils literal notranslate"><span class="pre">UnixSocketServer</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">input module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">gpio_server executable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uart">UART</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main-classes">Main classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.bin.gpio_server.UnixSocketServer"><code class="docutils literal notranslate"><span class="pre">UnixSocketServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.bin.gpio_server.UnixSocketServer.__init__"><code class="docutils literal notranslate"><span class="pre">UnixSocketServer.__init__()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pigs.html">pigs executable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
 
         </div>
@@ -84,7 +98,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">gpiosvr</a></li>
       <li class="breadcrumb-item active">gpio_server executable</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -96,49 +109,94 @@
              
   <section id="module-gpiosvr.bin.gpio_server">
 <span id="gpio-server-executable"></span><h1>gpio_server executable<a class="headerlink" href="#module-gpiosvr.bin.gpio_server" title="Link to this heading"></a></h1>
-<p>Executable script for operating a GPIO server as a daemon.</p>
-<section id="arguments">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Arguments</a><a class="headerlink" href="#arguments" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">--signaldebug</span></code>, <code class="docutils literal notranslate"><span class="pre">--buttondebug</span></code>, <code class="docutils literal notranslate"><span class="pre">irdebug</span></code> flags: Write debug output
-from the condigured signal, button or IR listeners, respectively, to the log 
-file.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--sockdebug</span></code>: Write debug output from the GPIO server’s Unix socket to
-the log file, i.e. requests and responses.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> | <code class="docutils literal notranslate"><span class="pre">--pihost</span></code> and <code class="docutils literal notranslate"><span class="pre">-p``|</span> <span class="pre">``piport</span></code>: When using a <cite>pigpiod</cite> daemon
-as a backend, its host address and TCP port, respectively.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-u</span></code> | <cite>‘picouid`</cite>: When using <a class="reference internal" href="picossa.html#module-gpiosvr.picossa" title="gpiosvr.picossa"><code class="xref py py-mod docutils literal notranslate"><span class="pre">picossa</span></code></a> as a backend, the UID of the
-pico to connect to (20 digits).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--interval</span></code>: When using <a class="reference internal" href="picossa.html#module-gpiosvr.picossa" title="gpiosvr.picossa"><code class="xref py py-mod docutils literal notranslate"><span class="pre">picossa</span></code></a> as a backend, the interval in
-seconds for re-checking the connection to the Pico device.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--uartconfig</span></code>: Absolute path or file name (to be auto-detected) for the
-UART configuration, if UART channels shall be opened.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--signalconfig</span></code>, <code class="docutils literal notranslate"><span class="pre">--buttonconfig</span></code>, <code class="docutils literal notranslate"><span class="pre">irconfig</span></code>: Absolute path or file
-name (to be auto-detected) for the signal, button or IR listener 
-configuration file, respectively.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-g</span></code> | <code class="docutils literal notranslate"><span class="pre">--group</span></code>: Name of the group for which the GPIO server’s Unix 
-socket shall be accessible.</p></li>
-<li><p>Required positional argument: Absolute path for the Unix socket to be created
-by the GPIO server.</p></li>
-</ul>
-<p>Additionally, the standard arguments from 
-<a class="reference external" href="https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.ServiceControlShell.addStandardArgs" title="(in ctlbase)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ctlbase.shell.ServiceControlShell.addStandardArgs()</span></code></a> are
-accepted.</p>
-</section>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#arguments" id="id1">Arguments</a></p></li>
-<li><p><a class="reference internal" href="#classes" id="id2">Classes</a></p></li>
+<li><p><a class="reference internal" href="#features" id="id1">Features</a></p>
+<ul>
+<li><p><a class="reference internal" href="#uart" id="id2">UART</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#environment-variables" id="id3">Environment variables</a></p></li>
+<li><p><a class="reference internal" href="#arguments" id="id4">Arguments</a></p></li>
+<li><p><a class="reference internal" href="#main-classes" id="id5">Main classes</a></p></li>
 </ul>
 </nav>
-<section id="classes">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<p>Executable script operating a GPIO server as a daemon.</p>
+<section id="features">
+<span id="gpio-server-features"></span><h2><a class="toc-backref" href="#id1" role="doc-backlink">Features</a><a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<section id="uart">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">UART</a><a class="headerlink" href="#uart" title="Link to this heading"></a></h3>
+<p>Sending and receiving data via UART is only supported for Pico devices. That is,
+a GPIO backend must implement <a class="reference internal" href="client_picod.html#gpiosvr.client_picod.PicodApi" title="gpiosvr.client_picod.PicodApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PicodApi</span></code></a>.</p>
+</section>
+</section>
+<section id="environment-variables">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Environment variables</a><a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
+<p>To use a running <cite>pigpiod</cite> daemon as a GPIO backend, its endpoint can be set in
+the environment with the following variables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PIGPIO_ADDR</span></code> – The host name or IP address of the <cite>pigpiod</cite> daemon to be
+used as a GPIO backend. The <code class="docutils literal notranslate"><span class="pre">--pihost</span></code> argument takes precedence, if present.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PIGPIO_PORT</span></code> – The TCP port of the <cite>pigpiod</cite> daemon to be used as a GPIO
+backend. The <code class="docutils literal notranslate"><span class="pre">--piport</span></code> argument takes precedence, if present.</p></li>
+</ul>
+</section>
+<section id="arguments">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Arguments</a><a class="headerlink" href="#arguments" title="Link to this heading"></a></h2>
+<p>To use a running <cite>pigpiod</cite> daemon as a GPIO backend, its endpoint can be set
+with the following arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> | <code class="docutils literal notranslate"><span class="pre">--pihost</span></code> (<cite>str</cite>) – The host name or IP address of the <cite>pigpiod</cite>
+daemon to be used as a GPIO backend.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p``|</span> <span class="pre">``piport</span></code> (<cite>int</cite> | <cite>str</cite>) – The TCP port of the <cite>pigpiod</cite> daemon to
+be used as a GPIO backend.</p></li>
+</ul>
+<p>If using <cite>picod</cite> daemon and the <a class="reference internal" href="picossa.html#module-gpiosvr.picossa" title="gpiosvr.picossa"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gpiosvr.picossa</span></code></a> module as a GPIO backend
+on a Pico or Pico 2 device, the following arguments are valid:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-u</span></code> | <code class="docutils literal notranslate"><span class="pre">--picouid</span></code> (<cite>int</cite> | <cite>str</cite>) – The UID (<cite>ID_SERIAL</cite>) of the target
+device, either as a 20-digit decimal number or a 16-digit hexadecimal number.
+It can be obtained by calling <a class="reference internal" href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.uid" title="gpiosvr.picossa.PicoSerialAdapter.uid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">uid()</span></code></a> on the target
+device, or by executing <code class="docutils literal notranslate"><span class="pre">udevadm</span> <span class="pre">info</span> <span class="pre">/dev/ttyACMx</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">ID_SERIAL</span></code> on the
+command line, where <code class="docutils literal notranslate"><span class="pre">/dev/ttyACMx</span></code> represents the target device.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--uartconfig</span></code> (<cite>str</cite>) – Absolute path or filename (to be auto-detected)
+for the UART configuration, if one or two UART channels shall be opened.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--conncheck</span></code> (<cite>int</cite> | <cite>str</cite>) – The checking interval for the Pico
+connection in seconds. If, after the specified interval, the Pico target
+device is recognized as disconnected, the GPIO server is terminated. It
+defaults to 5 seconds.</p></li>
+</ul>
+<p>The following arguments are independent from the GPIO backend:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--signaldebug</span></code>, <code class="docutils literal notranslate"><span class="pre">--buttondebug</span></code>, <code class="docutils literal notranslate"><span class="pre">--irdebug</span></code> (flags) – If present,
+debug output is written to the log file. The flags correspond to the activity
+of signal listeners (<a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener" title="gpiosvr.signal.SignalListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalListener</span></code></a>), button listeners
+(<a class="reference internal" href="signal_button.html#signal_button.ButtonListener" title="signal_button.ButtonListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">ButtonListener</span></code></a>) and IR listeners (<a class="reference internal" href="signal_ir.html#signal_ir.IrListener" title="signal_ir.IrListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">IrListener</span></code></a>),
+respectively.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--sockdebug</span></code> (flag) – If present, debug output from the GPIO server’s Unix
+socket is written to the log file. It mainly includes requests received via
+the socket and the data written in response.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--signalconfig</span></code>, <code class="docutils literal notranslate"><span class="pre">--buttonconfig</span></code>, <code class="docutils literal notranslate"><span class="pre">irconfig</span></code> /<cite>str</cite>) – Absolute path
+to a configuration file or a filename for auto-discovery. The arguments
+correspond to a signal server configuration serving plain signals, button
+signals and IR signals, respectively.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-g</span></code> | <code class="docutils literal notranslate"><span class="pre">--group</span></code> (<cite>str</cite>) – Name of the group to which the GPIO server’s
+Unix socket shall be accessible.</p></li>
+<li><p>Required positional argument – Absolute path to the Unix socket to be created
+by the GPIO server.</p></li>
+</ul>
+<p>Additionally, the standard arguments from
+<a class="reference external" href="https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.DaemonControlShell.addStandardArgs" title="(in ctlbase)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ctlbase.shell.DaemonControlShell.addStandardArgs()</span></code></a> are
+accepted.</p>
+</section>
+<section id="main-classes">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Main classes</a><a class="headerlink" href="#main-classes" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.bin.gpio_server.UnixSocketServer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.bin.gpio_server.</span></span><span class="sig-name descname"><span class="pre">UnixSocketServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requestRxSocketPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pigsProcessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requestBufferSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1536</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.bin.gpio_server.UnixSocketServer" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.bin.gpio_server.</span></span><span class="sig-name descname"><span class="pre">UnixSocketServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requestRxSocketPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pigsProcessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requestBufferSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.bin.gpio_server.UnixSocketServer" title="Link to this definition"></a></dt>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.bin.gpio_server.UnixSocketServer.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requestRxSocketPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pigsProcessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requestBufferSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1536</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.bin.gpio_server.UnixSocketServer.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requestRxSocketPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pigsProcessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requestBufferSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.bin.gpio_server.UnixSocketServer.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -150,7 +208,7 @@ accepted.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="shell.html" class="btn btn-neutral float-left" title="shell module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="uart.html" class="btn btn-neutral float-left" title="uart module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="key_monitor.html" class="btn btn-neutral float-right" title="key_monitor executable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

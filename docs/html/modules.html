@@ -8,20 +8,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>gpiosvr &mdash; gpiosvr 1.0a1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9f7e994e" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/jquery.js?v=8e38b574"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=6ac1bee6"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/doctools.js?v=4ed4bc18"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="picossa module" href="picossa.html" />
-    <link rel="prev" title="Welcome to gpiosvr’s documentation!" href="index.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,24 +41,30 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">gpiosvr</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="picossa.html">picossa module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">uart module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="signal.html">signal module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client.html">client module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pigs.html">pigs executable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="leds.html">leds executable</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Common modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">control module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
 </ul>
-</li>
+<p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">input module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
 
         </div>
@@ -89,9 +93,89 @@
   <section id="gpiosvr">
 <h1>gpiosvr<a class="headerlink" href="#gpiosvr" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Common modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="key.html#core-concepts">Core concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="key.html#key-press">Key press</a></li>
+<li class="toctree-l3"><a class="reference internal" href="key.html#short-and-long-key-press">Short and long key press</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="key.html#configuration-classes">Configuration classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="key.html#gpiosvr.key.KeyHandlingConfig"><code class="docutils literal notranslate"><span class="pre">KeyHandlingConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyHandlingConfig.__init__"><code class="docutils literal notranslate"><span class="pre">KeyHandlingConfig.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyHandlingConfig.fromDict"><code class="docutils literal notranslate"><span class="pre">KeyHandlingConfig.fromDict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="key.html#gpiosvr.key.KeysConfig"><code class="docutils literal notranslate"><span class="pre">KeysConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeysConfig.__init__"><code class="docutils literal notranslate"><span class="pre">KeysConfig.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeysConfig.fromDict"><code class="docutils literal notranslate"><span class="pre">KeysConfig.fromDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeysConfig.longPressRepeatCount"><code class="docutils literal notranslate"><span class="pre">KeysConfig.longPressRepeatCount</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="key.html#main-classes">Main classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="key.html#gpiosvr.key.KeyEvent"><code class="docutils literal notranslate"><span class="pre">KeyEvent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyEvent.DOWN"><code class="docutils literal notranslate"><span class="pre">KeyEvent.DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyEvent.UP"><code class="docutils literal notranslate"><span class="pre">KeyEvent.UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyEvent.__init__"><code class="docutils literal notranslate"><span class="pre">KeyEvent.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyEvent.code"><code class="docutils literal notranslate"><span class="pre">KeyEvent.code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyEvent.keyHandlingConfig"><code class="docutils literal notranslate"><span class="pre">KeyEvent.keyHandlingConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyEvent.keyNames"><code class="docutils literal notranslate"><span class="pre">KeyEvent.keyNames</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyEvent.timestamp_s"><code class="docutils literal notranslate"><span class="pre">KeyEvent.timestamp_μs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyEvent.type"><code class="docutils literal notranslate"><span class="pre">KeyEvent.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="key.html#gpiosvr.key.KeyEventServer"><code class="docutils literal notranslate"><span class="pre">KeyEventServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyEventServer.AltSignal"><code class="docutils literal notranslate"><span class="pre">KeyEventServer.AltSignal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="key.html#gpiosvr.key.KeyEventServer.__init__"><code class="docutils literal notranslate"><span class="pre">KeyEventServer.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">control module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="control.html#main-classes">Main classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control.html#gpiosvr.control.GpioControl"><code class="docutils literal notranslate"><span class="pre">GpioControl</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#gpiosvr.control.GpioControl.__init__"><code class="docutils literal notranslate"><span class="pre">GpioControl.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#gpiosvr.control.GpioControl.getPropertiesJson"><code class="docutils literal notranslate"><span class="pre">GpioControl.getPropertiesJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#gpiosvr.control.GpioControl.getPropertiesTextEn"><code class="docutils literal notranslate"><span class="pre">GpioControl.getPropertiesTextEn()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell.html#main-classes">Main classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioControlShell"><code class="docutils literal notranslate"><span class="pre">GpioControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">GpioControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">GpioControlShell.addStandardArgs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioControlShell.gpioClient"><code class="docutils literal notranslate"><span class="pre">GpioControlShell.gpioClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioDaemonControlShell"><code class="docutils literal notranslate"><span class="pre">GpioDaemonControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioDaemonControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">GpioDaemonControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioDaemonControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">GpioDaemonControlShell.addStandardArgs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioStrategy"><code class="docutils literal notranslate"><span class="pre">GpioStrategy</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="picossa.html#classes-for-serial-communication">Classes for serial communication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="picossa.html#main-classes">Main classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.EdgeCallback"><code class="docutils literal notranslate"><span class="pre">EdgeCallback</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="picossa.html#gpiosvr.picossa.EdgeCallback.BOTH"><code class="docutils literal notranslate"><span class="pre">EdgeCallback.BOTH</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="picossa.html#gpiosvr.picossa.EdgeCallback.FALLING"><code class="docutils literal notranslate"><span class="pre">EdgeCallback.FALLING</span></code></a></li>
@@ -168,17 +252,17 @@
 <li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.SERIAL_RESPONSE_CHECKING_INTERVAL_DEFAULT_S"><code class="docutils literal notranslate"><span class="pre">SERIAL_RESPONSE_CHECKING_INTERVAL_DEFAULT_μS</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.SERIAL_READ_BUFFER_BYTES_DEFAULT"><code class="docutils literal notranslate"><span class="pre">SERIAL_READ_BUFFER_BYTES_DEFAULT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.CANCEL_CHECKING_INTERVAL_DEFAULT_MS"><code class="docutils literal notranslate"><span class="pre">CANCEL_CHECKING_INTERVAL_DEFAULT_MS</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.UART_PAUSE_BEFORE_READING_DEFAULT_MS"><code class="docutils literal notranslate"><span class="pre">UART_PAUSE_BEFORE_READING_DEFAULT_MS</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.UART_READ_TIMEOUT_DEFAULT_MS"><code class="docutils literal notranslate"><span class="pre">UART_READ_TIMEOUT_DEFAULT_MS</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.UART_READ_BUFFER_BYTES_DEFAULT"><code class="docutils literal notranslate"><span class="pre">UART_READ_BUFFER_BYTES_DEFAULT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.UART_READ_DELIMITER_DEFAULT"><code class="docutils literal notranslate"><span class="pre">UART_READ_DELIMITER_DEFAULT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.UART_READ_DELIMITER_MIN_COUNT_DEFAULT"><code class="docutils literal notranslate"><span class="pre">UART_READ_DELIMITER_MIN_COUNT_DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.PAUSE_BEFORE_READING_DEFAULT_MS"><code class="docutils literal notranslate"><span class="pre">PAUSE_BEFORE_READING_DEFAULT_MS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.READ_TIMEOUT_DEFAULT_MS"><code class="docutils literal notranslate"><span class="pre">READ_TIMEOUT_DEFAULT_MS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.READ_BUFFER_BYTES_DEFAULT"><code class="docutils literal notranslate"><span class="pre">READ_BUFFER_BYTES_DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.READ_DELIMITER_DEFAULT"><code class="docutils literal notranslate"><span class="pre">READ_DELIMITER_DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="picossa.html#gpiosvr.picossa.READ_DELIMITER_MIN_COUNT_DEFAULT"><code class="docutils literal notranslate"><span class="pre">READ_DELIMITER_MIN_COUNT_DEFAULT</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html#classes">Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="picossa_pigs.html#main-classes">Main classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="picossa_pigs.html#gpiosvr.picossa_pigs.PigsScript"><code class="docutils literal notranslate"><span class="pre">PigsScript</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="picossa_pigs.html#gpiosvr.picossa_pigs.PigsScript.__init__"><code class="docutils literal notranslate"><span class="pre">PigsScript.__init__()</span></code></a></li>
 </ul>
@@ -200,10 +284,72 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="uart.html#classes">Classes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="uart.html#gpiosvr.uart.UartParameters"><code class="docutils literal notranslate"><span class="pre">UartParameters</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="uart.html#gpiosvr.uart.UartParameters.__init__"><code class="docutils literal notranslate"><span class="pre">UartParameters.__init__()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">input module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="input.html#core-concepts">Core concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="input.html#input-type">Input type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input.html#scan-code">Scan code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input.html#input-family">Input family</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="input.html#extension-mechanism">Extension mechanism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input.html#configuration-classes">Configuration classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="input.html#gpiosvr.input.InputParameters"><code class="docutils literal notranslate"><span class="pre">InputParameters</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputParameters.__init__"><code class="docutils literal notranslate"><span class="pre">InputParameters.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputParameters.fromDict"><code class="docutils literal notranslate"><span class="pre">InputParameters.fromDict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="input.html#gpiosvr.input.CodeToKeysMapping"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMapping</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.CodeToKeysMapping.__init__"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMapping.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.CodeToKeysMapping.fromDict"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMapping.fromDict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="input.html#gpiosvr.input.CodeToKeysMappings"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMappings</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.CodeToKeysMappings.__init__"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMappings.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.CodeToKeysMappings.fromDict"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMappings.fromDict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="input.html#gpiosvr.input.InputListenerConfig"><code class="docutils literal notranslate"><span class="pre">InputListenerConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputListenerConfig.__init__"><code class="docutils literal notranslate"><span class="pre">InputListenerConfig.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputListenerConfig.fromDict"><code class="docutils literal notranslate"><span class="pre">InputListenerConfig.fromDict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="input.html#gpiosvr.input.InputServerConfig"><code class="docutils literal notranslate"><span class="pre">InputServerConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputServerConfig.__init__"><code class="docutils literal notranslate"><span class="pre">InputServerConfig.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputServerConfig.fromDict"><code class="docutils literal notranslate"><span class="pre">InputServerConfig.fromDict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="input.html#main-classes">Main classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="input.html#gpiosvr.input.InputEvent"><code class="docutils literal notranslate"><span class="pre">InputEvent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputEvent.END"><code class="docutils literal notranslate"><span class="pre">InputEvent.END</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputEvent.START"><code class="docutils literal notranslate"><span class="pre">InputEvent.START</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputEvent.__init__"><code class="docutils literal notranslate"><span class="pre">InputEvent.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputEvent.code"><code class="docutils literal notranslate"><span class="pre">InputEvent.code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputEvent.repeatCount"><code class="docutils literal notranslate"><span class="pre">InputEvent.repeatCount</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputEvent.timestamp_s"><code class="docutils literal notranslate"><span class="pre">InputEvent.timestamp_μs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputEvent.type"><code class="docutils literal notranslate"><span class="pre">InputEvent.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="input.html#gpiosvr.input.InputListener"><code class="docutils literal notranslate"><span class="pre">InputListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputListener.__init__"><code class="docutils literal notranslate"><span class="pre">InputListener.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputListener.describe"><code class="docutils literal notranslate"><span class="pre">InputListener.describe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputListener.injectScanCode"><code class="docutils literal notranslate"><span class="pre">InputListener.injectScanCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputListener.waitForInputEvents"><code class="docutils literal notranslate"><span class="pre">InputListener.waitForInputEvents()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="input.html#gpiosvr.input.InputServer"><code class="docutils literal notranslate"><span class="pre">InputServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputServer.__init__"><code class="docutils literal notranslate"><span class="pre">InputServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.InputServer.describe"><code class="docutils literal notranslate"><span class="pre">InputServer.describe()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="input.html#helper-classes">Helper classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="input.html#gpiosvr.input.ExtensionHelper"><code class="docutils literal notranslate"><span class="pre">ExtensionHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.ExtensionHelper.Purpose"><code class="docutils literal notranslate"><span class="pre">ExtensionHelper.Purpose</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.ExtensionHelper.createInputServers"><code class="docutils literal notranslate"><span class="pre">ExtensionHelper.createInputServers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="input.html#gpiosvr.input.ExtensionHelper.find"><code class="docutils literal notranslate"><span class="pre">ExtensionHelper.find()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -211,23 +357,21 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="signal.html#extension-mechanism">Extension mechanism</a></li>
 <li class="toctree-l2"><a class="reference internal" href="signal.html#configuration-classes">Configuration classes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalConfig"><code class="docutils literal notranslate"><span class="pre">SignalConfig</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalConfig.__init__"><code class="docutils literal notranslate"><span class="pre">SignalConfig.__init__()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalProtocolDescription"><code class="docutils literal notranslate"><span class="pre">SignalProtocolDescription</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalProtocolDescription.__init__"><code class="docutils literal notranslate"><span class="pre">SignalProtocolDescription.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalProtocolDescription.fromConfig"><code class="docutils literal notranslate"><span class="pre">SignalProtocolDescription.fromConfig()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalParameters"><code class="docutils literal notranslate"><span class="pre">SignalParameters</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalParameters.__init__"><code class="docutils literal notranslate"><span class="pre">SignalParameters.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalParameters.fromDict"><code class="docutils literal notranslate"><span class="pre">SignalParameters.fromDict()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListenerConfig"><code class="docutils literal notranslate"><span class="pre">SignalListenerConfig</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListenerConfig.__init__"><code class="docutils literal notranslate"><span class="pre">SignalListenerConfig.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListenerConfig.fromDict"><code class="docutils literal notranslate"><span class="pre">SignalListenerConfig.fromDict()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="signal.html#pulse-event-classes">Pulse event classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="signal.html#main-classes">Main classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="signal.html#gpiosvr.signal.PulseEvent"><code class="docutils literal notranslate"><span class="pre">PulseEvent</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="signal.html#gpiosvr.signal.PulsesInterrupted"><code class="docutils literal notranslate"><span class="pre">PulsesInterrupted</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="signal.html#gpiosvr.signal.PulseEventIterator"><code class="docutils literal notranslate"><span class="pre">PulseEventIterator</span></code></a><ul>
@@ -240,12 +384,15 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener"><code class="docutils literal notranslate"><span class="pre">SignalListener</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener.__init__"><code class="docutils literal notranslate"><span class="pre">SignalListener.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener.fromConfig"><code class="docutils literal notranslate"><span class="pre">SignalListener.fromConfig()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener.createPulseEventIterator"><code class="docutils literal notranslate"><span class="pre">SignalListener.createPulseEventIterator()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener.pulseEventToKeyEvents"><code class="docutils literal notranslate"><span class="pre">SignalListener.pulseEventToKeyEvents()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener.waitForKeyEvents"><code class="docutils literal notranslate"><span class="pre">SignalListener.waitForKeyEvents()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener.injectKeyCode"><code class="docutils literal notranslate"><span class="pre">SignalListener.injectKeyCode()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener.describeProtocol"><code class="docutils literal notranslate"><span class="pre">SignalListener.describeProtocol()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener.describe"><code class="docutils literal notranslate"><span class="pre">SignalListener.describe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener.injectScanCode"><code class="docutils literal notranslate"><span class="pre">SignalListener.injectScanCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener.pulseEventToInputEvents"><code class="docutils literal notranslate"><span class="pre">SignalListener.pulseEventToInputEvents()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalListener.waitForInputEvents"><code class="docutils literal notranslate"><span class="pre">SignalListener.waitForInputEvents()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalServer"><code class="docutils literal notranslate"><span class="pre">SignalServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.SignalServer.describe"><code class="docutils literal notranslate"><span class="pre">SignalServer.describe()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -267,15 +414,64 @@
 <li class="toctree-l3"><a class="reference internal" href="signal.html#gpiosvr.signal.PulseHelper"><code class="docutils literal notranslate"><span class="pre">PulseHelper</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.PulseHelper.paramsToBitCount"><code class="docutils literal notranslate"><span class="pre">PulseHelper.paramsToBitCount()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.PulseHelper.sequenceToBasePulseCount"><code class="docutils literal notranslate"><span class="pre">PulseHelper.sequenceToBasePulseCount()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.PulseHelper.sequenceToHexCodes"><code class="docutils literal notranslate"><span class="pre">PulseHelper.sequenceToHexCodes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="signal.html#gpiosvr.signal.PulseHelper.sequenceToScanCodes"><code class="docutils literal notranslate"><span class="pre">PulseHelper.sequenceToScanCodes()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="uart.html#configuration-classes">Configuration classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="uart.html#gpiosvr.uart.UartParameters"><code class="docutils literal notranslate"><span class="pre">UartParameters</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="uart.html#gpiosvr.uart.UartParameters.__init__"><code class="docutils literal notranslate"><span class="pre">UartParameters.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="uart.html#gpiosvr.uart.UartParameters.fromDict"><code class="docutils literal notranslate"><span class="pre">UartParameters.fromDict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="uart.html#gpiosvr.uart.UartConfig"><code class="docutils literal notranslate"><span class="pre">UartConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="uart.html#gpiosvr.uart.UartConfig.__init__"><code class="docutils literal notranslate"><span class="pre">UartConfig.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html#main-classes">Main classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="uart.html#gpiosvr.uart.UartContext"><code class="docutils literal notranslate"><span class="pre">UartContext</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="uart.html#gpiosvr.uart.UartContext.__init__"><code class="docutils literal notranslate"><span class="pre">UartContext.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="uart.html#gpiosvr.uart.UartContext.fromConfig"><code class="docutils literal notranslate"><span class="pre">UartContext.fromConfig()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="uart.html#gpiosvr.uart.UartContext.openChannels"><code class="docutils literal notranslate"><span class="pre">UartContext.openChannels()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpio_server.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gpio_server.html#uart">UART</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gpio_server.html#environment-variables">Environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpio_server.html#arguments">Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpio_server.html#main-classes">Main classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gpio_server.html#gpiosvr.bin.gpio_server.UnixSocketServer"><code class="docutils literal notranslate"><span class="pre">UnixSocketServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gpio_server.html#gpiosvr.bin.gpio_server.UnixSocketServer.__init__"><code class="docutils literal notranslate"><span class="pre">UnixSocketServer.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="key_monitor.html#arguments">Arguments</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="client.html">client module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="client.html#classes">Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="client.html#main-classes">Main classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="client.html#gpiosvr.client.Response"><code class="docutils literal notranslate"><span class="pre">Response</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="client.html#gpiosvr.client.Response.encodeException"><code class="docutils literal notranslate"><span class="pre">Response.encodeException()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="client.html#gpiosvr.client.Response.decodeExceptions"><code class="docutils literal notranslate"><span class="pre">Response.decodeExceptions()</span></code></a></li>
@@ -444,42 +640,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="shell.html#classes">Classes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioControlShell"><code class="docutils literal notranslate"><span class="pre">GpioControlShell</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">GpioControlShell.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">GpioControlShell.addStandardArgs()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioControlShell.gpioClient"><code class="docutils literal notranslate"><span class="pre">GpioControlShell.gpioClient</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioServiceControlShell"><code class="docutils literal notranslate"><span class="pre">GpioServiceControlShell</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioServiceControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">GpioServiceControlShell.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioServiceControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">GpioServiceControlShell.addStandardArgs()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="shell.html#constants-and-defaults">Constants and defaults</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="shell.html#gpiosvr.shell.GpioStrategy"><code class="docutils literal notranslate"><span class="pre">GpioStrategy</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gpio_server.html#arguments">Arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gpio_server.html#classes">Classes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gpio_server.html#gpiosvr.bin.gpio_server.UnixSocketServer"><code class="docutils literal notranslate"><span class="pre">UnixSocketServer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gpio_server.html#gpiosvr.bin.gpio_server.UnixSocketServer.__init__"><code class="docutils literal notranslate"><span class="pre">UnixSocketServer.__init__()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="key_monitor.html#arguments">Arguments</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pigs.html#arguments">Arguments</a></li>
 </ul>
@@ -495,10 +655,7 @@
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to gpiosvr’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="picossa.html" class="btn btn-neutral float-right" title="picossa module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

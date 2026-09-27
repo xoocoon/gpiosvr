@@ -9,8 +9,8 @@ picossa module
    :local:
    :depth: 2
    
-Classes for serial communication
---------------------------------
+Main classes
+------------
 
 .. autoclass:: EdgeCallback
    :members:
@@ -66,12 +66,12 @@ Constants and defaults
 
 .. autodata:: CANCEL_CHECKING_INTERVAL_DEFAULT_MS
 
-.. autodata:: UART_PAUSE_BEFORE_READING_DEFAULT_MS
+.. autodata:: PAUSE_BEFORE_READING_DEFAULT_MS
 
-.. autodata:: UART_READ_TIMEOUT_DEFAULT_MS
+.. autodata:: READ_TIMEOUT_DEFAULT_MS
 
-.. autodata:: UART_READ_BUFFER_BYTES_DEFAULT
+.. autodata:: READ_BUFFER_BYTES_DEFAULT
 
-.. autodata:: UART_READ_DELIMITER_DEFAULT
+.. autodata:: READ_DELIMITER_DEFAULT
 
-.. autodata:: UART_READ_DELIMITER_MIN_COUNT_DEFAULT
+.. autodata:: READ_DELIMITER_MIN_COUNT_DEFAULT

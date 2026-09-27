@@ -9,15 +9,15 @@ shell module
    :local:
    :depth: 2
 
-Classes
--------
+Main classes
+------------
 
 .. autoclass:: GpioControlShell
    :members:
    :special-members: __init__
    :show-inheritance:
 
-.. autoclass:: GpioServiceControlShell
+.. autoclass:: GpioDaemonControlShell
    :members:
    :special-members: __init__
    :show-inheritance:

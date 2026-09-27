@@ -8,18 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>key module &mdash; gpiosvr 1.0a1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9f7e994e" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/jquery.js?v=8e38b574"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=6ac1bee6"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/doctools.js?v=4ed4bc18"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="control module" href="control.html" />
+    <link rel="prev" title="Welcome to gpiosvr’s documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,9 +43,70 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Common modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">key module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#core-concepts">Core concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-press">Key press</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#short-and-long-key-press">Short and long key press</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-classes">Configuration classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.key.KeyHandlingConfig"><code class="docutils literal notranslate"><span class="pre">KeyHandlingConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyHandlingConfig.__init__"><code class="docutils literal notranslate"><span class="pre">KeyHandlingConfig.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyHandlingConfig.fromDict"><code class="docutils literal notranslate"><span class="pre">KeyHandlingConfig.fromDict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.key.KeysConfig"><code class="docutils literal notranslate"><span class="pre">KeysConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeysConfig.__init__"><code class="docutils literal notranslate"><span class="pre">KeysConfig.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeysConfig.fromDict"><code class="docutils literal notranslate"><span class="pre">KeysConfig.fromDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeysConfig.longPressRepeatCount"><code class="docutils literal notranslate"><span class="pre">KeysConfig.longPressRepeatCount</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#main-classes">Main classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.key.KeyEvent"><code class="docutils literal notranslate"><span class="pre">KeyEvent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyEvent.DOWN"><code class="docutils literal notranslate"><span class="pre">KeyEvent.DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyEvent.UP"><code class="docutils literal notranslate"><span class="pre">KeyEvent.UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyEvent.__init__"><code class="docutils literal notranslate"><span class="pre">KeyEvent.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyEvent.code"><code class="docutils literal notranslate"><span class="pre">KeyEvent.code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyEvent.keyHandlingConfig"><code class="docutils literal notranslate"><span class="pre">KeyEvent.keyHandlingConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyEvent.keyNames"><code class="docutils literal notranslate"><span class="pre">KeyEvent.keyNames</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyEvent.timestamp_s"><code class="docutils literal notranslate"><span class="pre">KeyEvent.timestamp_μs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyEvent.type"><code class="docutils literal notranslate"><span class="pre">KeyEvent.type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.key.KeyEventServer"><code class="docutils literal notranslate"><span class="pre">KeyEventServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyEventServer.AltSignal"><code class="docutils literal notranslate"><span class="pre">KeyEventServer.AltSignal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.key.KeyEventServer.__init__"><code class="docutils literal notranslate"><span class="pre">KeyEventServer.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">control module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">gpiosvr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">input module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
 
         </div>
@@ -69,175 +132,355 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-key">
-<span id="key-module"></span><h1>key module<a class="headerlink" href="#module-key" title="Link to this heading"></a></h1>
-<dl class="py exception">
-<dt class="sig sig-object py" id="key.InputDeviceError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">key.</span></span><span class="sig-name descname"><span class="pre">InputDeviceError</span></span><a class="headerlink" href="#key.InputDeviceError" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
-</dd></dl>
-
+  <section id="module-gpiosvr.key">
+<span id="key-module"></span><h1>key module<a class="headerlink" href="#module-gpiosvr.key" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#core-concepts" id="id2">Core concepts</a></p>
+<ul>
+<li><p><a class="reference internal" href="#key-press" id="id3">Key press</a></p></li>
+<li><p><a class="reference internal" href="#short-and-long-key-press" id="id4">Short and long key press</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#configuration-classes" id="id5">Configuration classes</a></p></li>
+<li><p><a class="reference internal" href="#main-classes" id="id6">Main classes</a></p></li>
+</ul>
+</nav>
+<section id="core-concepts">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Core concepts</a><a class="headerlink" href="#core-concepts" title="Link to this heading"></a></h2>
+<section id="key-press">
+<span id="id1"></span><h3><a class="toc-backref" href="#id3" role="doc-backlink">Key press</a><a class="headerlink" href="#key-press" title="Link to this heading"></a></h3>
+<p>A key press is a series of events starting when a key is held down and ending
+when the key is released again.</p>
+<p>In between, the key may be repeated periodically. The repeat interval depends on
+the hardware setup and kernel parameters in the case of a physical keyboard,
+remote control etc. In the case of artificial key presses generated by the
+<a class="reference internal" href="signal_button.html#module-signal_button" title="signal_button"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signal_button</span></code></a> module, the interval can be set with
+<a class="reference internal" href="signal_button.html#signal_button.ButtonListener.params.repeat_ms" title="signal_button.ButtonListener"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">repeat_ms</span></code></a>.</p>
+</section>
+<section id="short-and-long-key-press">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Short and long key press</a><a class="headerlink" href="#short-and-long-key-press" title="Link to this heading"></a></h3>
+<p>Whether a key press is considered “short” or “long” depends on the value of
+<a class="reference internal" href="#gpiosvr.key.KeysConfig.longPressRepeatCount" title="gpiosvr.key.KeysConfig.longPressRepeatCount"><code class="xref py py-attr docutils literal notranslate"><span class="pre">longPressRepeatCount</span></code></a>.</p>
+<ul class="simple">
+<li><p>A short press has less than <cite>longPressRepeatCount</cite> repeat events.</p></li>
+<li><p>A long press has exactly or more than <cite>longPressRepeatCount</cite> repeat events.</p></li>
+</ul>
+</section>
+</section>
+<section id="configuration-classes">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Configuration classes</a><a class="headerlink" href="#configuration-classes" title="Link to this heading"></a></h2>
+<p>The following is the JSON representation of an exemplary key configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;longPressRepeatCount&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="s2">&quot;KEY_VOLUMEDOWN&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;shortPressCommands&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;/usr/bin/curl&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;-s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;http://multiroom-1/stepVolume?step=-1&quot;</span>
+      <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;longPressCommands&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;/usr/bin/curl&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;-s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;http://multiroom-1/setMute?enable=true&quot;</span>
+      <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;ledColor&quot;</span><span class="p">:</span> <span class="s2">&quot;magenta&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;isRepeatable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;altKeyName&quot;</span><span class="p">:</span> <span class="s2">&quot;KEY_F9&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;KEY_VOLUMEUP&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;shortPressCommands&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="s2">&quot;/usr/bin/curl&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;-s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;http://multiroom-1/stepVolume?step=1&quot;</span>
+      <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;ledColor&quot;</span><span class="p">:</span> <span class="s2">&quot;magenta&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;isRepeatable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;altKeyName&quot;</span><span class="p">:</span> <span class="s2">&quot;KEY_F10&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <dl class="py class">
-<dt class="sig sig-object py" id="key.KeyDescription">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">key.</span></span><span class="sig-name descname"><span class="pre">KeyDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyCode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyDescription</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyDescription" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dt class="sig sig-object py" id="gpiosvr.key.KeyHandlingConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.key.</span></span><span class="sig-name descname"><span class="pre">KeyHandlingConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typeName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shortPressCommands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longPressCommands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onFailureCommands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ledColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isRepeatable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altKeyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.key.KeyHandlingConfig" title="Link to this definition"></a></dt>
+<dd><p>Properties describing the handling of a single key.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="key.KeyDescription.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyDescription.close" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="gpiosvr.key.KeyHandlingConfig.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typeName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shortPressCommands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longPressCommands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onFailureCommands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ledColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isRepeatable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altKeyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.key.KeyHandlingConfig.__init__" title="Link to this definition"></a></dt>
+<dd><p>Creates a handling configuration for a single key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gpiosvr.key.KeyHandlingConfig.params.keyName"></span><strong>keyName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyHandlingConfig.params.keyName">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The name of the key for which this configuration is
+valid. It must start with <code class="docutils literal notranslate"><span class="pre">KEY_</span></code> and reference a key constant from
+the Linux kernel as listed in
+<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h">input-event-codes.h</a>.</p></li>
+<li><p><span class="target" id="gpiosvr.key.KeyHandlingConfig.params.typeName"></span><strong>typeName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyHandlingConfig.params.typeName">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The logical name (<cite>str</cite>) of the signal type associated
+with the key. This name in turn may reference an external 
+signal-specific configuration and/or be used in messages.</p></li>
+<li><p><span class="target" id="gpiosvr.key.KeyHandlingConfig.params.shortPressCommands"></span><strong>shortPressCommands</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyHandlingConfig.params.shortPressCommands">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><em>None</em>) – A single command or a sequence of commands
+to execute upon a short key press. An individual command is
+specified as a <cite>list</cite> or a <cite>str</cite>, as described for 
+<a class="reference external" href="https://xoocoon.github.io/ctlbase/html/process.html#ctlbase.process.CommandExecutor._createProcess" title="(in ctlbase)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ctlbase.process.CommandExecutor._createProcess()</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.key.KeyHandlingConfig.params.longPressCommands"></span><strong>longPressCommands</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyHandlingConfig.params.longPressCommands">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><em>None</em>) – A single command or a sequence of commands to
+execute upon a long key press.</p></li>
+<li><p><span class="target" id="gpiosvr.key.KeyHandlingConfig.params.onFailureCommands"></span><strong>onFailureCommands</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyHandlingConfig.params.onFailureCommands">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><em>None</em>) – A single command or a sequence of commands to
+execute if at least one of the commands specified under
+<cite>shortPressCommands</cite> produces an error.  Only relevant if
+<cite>shortPressCommands</cite> is specified, too.</p></li>
+<li><p><span class="target" id="gpiosvr.key.KeyHandlingConfig.params.ledColor"></span><strong>ledColor</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyHandlingConfig.params.ledColor">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An RGB color. It is intended for an indicator light
+associated with the key. The color may either be specified as a 
+webcolor name like <code class="docutils literal notranslate"><span class="pre">lime</span></code> or as a hexadecimal value like
+<code class="docutils literal notranslate"><span class="pre">#00FF00</span></code>.</p></li>
+<li><p><span class="target" id="gpiosvr.key.KeyHandlingConfig.params.isRepeatable"></span><strong>isRepeatable</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyHandlingConfig.params.isRepeatable">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, the commands specified under
+<cite>shortPressCommands</cite> may be executed with each repeat event until
+<a class="reference internal" href="#gpiosvr.key.KeysConfig.longPressRepeatCount" title="gpiosvr.key.KeysConfig.longPressRepeatCount"><code class="xref py py-attr docutils literal notranslate"><span class="pre">longPressRepeatCount</span></code></a> is reached.</p></li>
+<li><p><span class="target" id="gpiosvr.key.KeyHandlingConfig.params.altKeyNames"></span><strong>altKeyNames</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyHandlingConfig.params.altKeyNames">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – One or more names of keys to inject when the
+alternate key mapping is active on the handling level. They must
+start with <code class="docutils literal notranslate"><span class="pre">KEY_</span></code> and reference key constants from the Linux
+kernel as listed in
+<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h">input-event-codes.h</a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.key.KeyHandlingConfig.fromDict">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyHandlingDict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.key.KeyHandlingConfig.fromDict" title="Link to this definition"></a></dt>
+<dd><p>Creates a handling configuration for a single key from a <cite>dict</cite>.</p>
+<p>Its keys and values correspond to the parameters of
+<a class="reference internal" href="#gpiosvr.key.KeyHandlingConfig.__init__" title="gpiosvr.key.KeyHandlingConfig.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A collection of technical parameters representing the <cite>dict</cite>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gpiosvr.key.KeyHandlingConfig" title="gpiosvr.key.KeyHandlingConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyHandlingConfig</span></code></a></p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Identical to <a class="reference internal" href="#gpiosvr.key.KeyHandlingConfig.__init__" title="gpiosvr.key.KeyHandlingConfig.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="key.KeyEvent">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">key.</span></span><span class="sig-name descname"><span class="pre">KeyEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyCode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signalName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEvent" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dt class="sig sig-object py" id="gpiosvr.key.KeysConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.key.</span></span><span class="sig-name descname"><span class="pre">KeysConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyHandlingConfigs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longPressRepeatCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.key.KeysConfig" title="Link to this definition"></a></dt>
+<dd><p>A collection of key handling configurations.</p>
+<p>It works like a <cite>dict</cite>, i.e. a specific configuration can be accessed via
+bracket syntax:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">keyConfig</span> <span class="o">=</span> <span class="n">keysConfig</span><span class="p">[</span><span class="s1">&#39;KEY_VOLUMEDOWN&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.key.KeysConfig.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyHandlingConfigs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longPressRepeatCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.key.KeysConfig.__init__" title="Link to this definition"></a></dt>
+<dd><p>Creates a collection of key handling configurations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gpiosvr.key.KeysConfig.params.keyHandlingConfigs"></span><strong>keyHandlingConfigs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeysConfig.params.keyHandlingConfigs">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – The key handling configurations
+(<a class="reference internal" href="#gpiosvr.key.KeyHandlingConfig" title="gpiosvr.key.KeyHandlingConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyHandlingConfig</span></code></a>). If they are given as a <cite>dict</cite>, it
+keys must be the names of keys referencing constants in the Linux
+kernel as given in
+<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h">input-event-codes.h</a>.</p></li>
+<li><p><span class="target" id="gpiosvr.key.KeysConfig.params.longPressRepeatCount"></span><strong>longPressRepeatCount</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeysConfig.params.longPressRepeatCount">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em> | </em><em>None</em>) – The value for
+<a class="reference internal" href="#gpiosvr.key.KeysConfig.longPressRepeatCount" title="gpiosvr.key.KeysConfig.longPressRepeatCount"><code class="xref py py-attr docutils literal notranslate"><span class="pre">longPressRepeatCount</span></code></a>. Required if at least one
+key handling configuration contains <code class="docutils literal notranslate"><span class="pre">longPressCommands</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.key.KeysConfig.fromDict">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keysDict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.key.KeysConfig.fromDict" title="Link to this definition"></a></dt>
+<dd><p>Creates a collection of key handling configurations from a <cite>dict</cite>.</p>
+<p>Its keys and values correspond to the parameters of
+<a class="reference internal" href="#gpiosvr.key.KeysConfig.__init__" title="gpiosvr.key.KeysConfig.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A collection of technical parameters representing the <cite>dict</cite>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gpiosvr.key.KeysConfig" title="gpiosvr.key.KeysConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeysConfig</span></code></a></p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Identical to <a class="reference internal" href="#gpiosvr.key.KeysConfig.__init__" title="gpiosvr.key.KeysConfig.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
-<dt class="sig sig-object py" id="key.KeyEvent.DOWN">
-<span class="sig-name descname"><span class="pre">DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#key.KeyEvent.DOWN" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="gpiosvr.key.KeysConfig.longPressRepeatCount">
+<span class="sig-name descname"><span class="pre">longPressRepeatCount</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#gpiosvr.key.KeysConfig.longPressRepeatCount" title="Link to this definition"></a></dt>
+<dd><p>The number of repeat events defining a “long” key press.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="main-classes">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Main classes</a><a class="headerlink" href="#main-classes" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEvent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.key.</span></span><span class="sig-name descname"><span class="pre">KeyEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typeName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.key.KeyEvent" title="Link to this definition"></a></dt>
+<dd><p>A single key event, i.e. a key held down (<a class="reference internal" href="#gpiosvr.key.KeyEvent.DOWN" title="gpiosvr.key.KeyEvent.DOWN"><code class="xref py py-attr docutils literal notranslate"><span class="pre">DOWN</span></code></a>) or
+released (<a class="reference internal" href="#gpiosvr.key.KeyEvent.UP" title="gpiosvr.key.KeyEvent.UP"><code class="xref py py-attr docutils literal notranslate"><span class="pre">UP</span></code></a>).</p>
+<p>A repeat event is simply a <a class="reference internal" href="#gpiosvr.key.KeyEvent.DOWN" title="gpiosvr.key.KeyEvent.DOWN"><code class="xref py py-attr docutils literal notranslate"><span class="pre">DOWN</span></code></a> event with a 
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">repeatCount</span></code> greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEvent.DOWN">
+<span class="sig-name descname"><span class="pre">DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#gpiosvr.key.KeyEvent.DOWN" title="Link to this definition"></a></dt>
+<dd><p>Identifier for a “key down” event.</p>
+</dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="key.KeyEvent.UP">
-<span class="sig-name descname"><span class="pre">UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#key.KeyEvent.UP" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEvent.UP">
+<span class="sig-name descname"><span class="pre">UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#gpiosvr.key.KeyEvent.UP" title="Link to this definition"></a></dt>
+<dd><p>Identifier for a “key up” event.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEvent.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typeName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.key.KeyEvent.__init__" title="Link to this definition"></a></dt>
+<dd><p>Creates a key event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gpiosvr.key.KeyEvent.params.type"></span><strong>type</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyEvent.params.type">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – See <a class="reference internal" href="#gpiosvr.key.KeyEvent.type" title="gpiosvr.key.KeyEvent.type"><code class="xref py py-attr docutils literal notranslate"><span class="pre">type</span></code></a></p></li>
+<li><p><span class="target" id="gpiosvr.key.KeyEvent.params.code"></span><strong>code</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyEvent.params.code">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#gpiosvr.key.KeyEvent.code" title="gpiosvr.key.KeyEvent.code"><code class="xref py py-attr docutils literal notranslate"><span class="pre">code</span></code></a></p></li>
+<li><p><span class="target" id="gpiosvr.key.KeyEvent.params.keyNames"></span><strong>keyNames</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyEvent.params.keyNames">¶</a> (<em>Iterable</em><em> | </em><em>None</em>) – See <a class="reference internal" href="#gpiosvr.key.KeyEvent.keyNames" title="gpiosvr.key.KeyEvent.keyNames"><code class="xref py py-attr docutils literal notranslate"><span class="pre">keyNames</span></code></a></p></li>
+<li><p><span class="target" id="gpiosvr.key.KeyEvent.params.typeName"></span><strong>typeName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyEvent.params.typeName">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The signal name associated with the key event, if
+any. If not <cite>None</cite>, an initial key handling configuration is created
+with the signal name and set as <a class="reference internal" href="#gpiosvr.key.KeyEvent.keyHandlingConfig" title="gpiosvr.key.KeyEvent.keyHandlingConfig"><code class="xref py py-attr docutils literal notranslate"><span class="pre">keyHandlingConfig</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.key.KeyEvent.params.timestamp_μs"></span><strong>timestamp_μs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.key.KeyEvent.params.timestamp_μs">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – See <a class="reference internal" href="#gpiosvr.key.KeyEvent.timestamp_s" title="gpiosvr.key.KeyEvent.timestamp_μs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">timestamp_μs</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If <a class="reference internal" href="#gpiosvr.key.KeyEvent.params.code" title="gpiosvr.key.KeyEvent"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">code</span></code></a> is a <cite>str</cite> 
+starting with <code class="docutils literal notranslate"><span class="pre">KEY_</span></code>, but a corresponding key constant does not
+existing in the Linux kernel.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEvent.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#gpiosvr.key.KeyEvent.code" title="Link to this definition"></a></dt>
+<dd><p>A scan code from some hardware, e.g. from a keyboard key or a
+remote control button or any other signal received on a GPIO. It may
+also reference a key constant in the Linux kernel. In summary, it
+may be given in one of the following forms:</p>
+<ul class="simple">
+<li><p>A <cite>str</cite> starting with <code class="docutils literal notranslate"><span class="pre">KEY_</span></code>, in which case it references the
+name of a constant in the Linux kernel as given in
+<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h">input-event-codes.h</a>.</p></li>
+<li><p>A <cite>str</cite> starting with <code class="docutils literal notranslate"><span class="pre">0x</span></code>, in which case it is interpreted as 
+a byte sequence in hexadecimal form. It either represents a scan
+code from some hardware, or the value of a constant in the Linux
+kernel in its hexadecimal form.</p></li>
+<li><p>Any other <cite>str</cite> in which case it is interpreted as a byte sequence
+in the form of ASCII characters. It represents a scan code from 
+some hardware.</p></li>
+<li><p>An <cite>int</cite>, in which case it is interpreted as a decimal number. It
+either represents a scan code from some hardware, or the value of
+a constant in the Linux kernel in its decimal form.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEvent.keyHandlingConfig">
+<span class="sig-name descname"><span class="pre">keyHandlingConfig</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#gpiosvr.key.KeyHandlingConfig" title="gpiosvr.key.KeyHandlingConfig"><span class="pre">KeyHandlingConfig</span></a></em><a class="headerlink" href="#gpiosvr.key.KeyEvent.keyHandlingConfig" title="Link to this definition"></a></dt>
+<dd><p>The key handling configuration corresponding to
+<a class="reference internal" href="#gpiosvr.key.KeyEvent.code" title="gpiosvr.key.KeyEvent.code"><code class="xref py py-attr docutils literal notranslate"><span class="pre">code</span></code></a>, if it is already loaded. <cite>None</cite> otherwise.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEvent.keyNames">
+<span class="sig-name descname"><span class="pre">keyNames</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span></em><a class="headerlink" href="#gpiosvr.key.KeyEvent.keyNames" title="Link to this definition"></a></dt>
+<dd><p>An optional iterable of key names corresponding to
+<a class="reference internal" href="#gpiosvr.key.KeyEvent.code" title="gpiosvr.key.KeyEvent.code"><code class="xref py py-attr docutils literal notranslate"><span class="pre">code</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEvent.timestamp_s">
+<span class="sig-name descname"><span class="pre">timestamp_μs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#gpiosvr.key.KeyEvent.timestamp_s" title="Link to this definition"></a></dt>
+<dd><p>The timestamp of the key event in microseconds since the epoch.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEvent.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#gpiosvr.key.KeyEvent.type" title="Link to this definition"></a></dt>
+<dd><p>The type of the key event, i.e. <a class="reference internal" href="#gpiosvr.key.KeyEvent.DOWN" title="gpiosvr.key.KeyEvent.DOWN"><code class="xref py py-attr docutils literal notranslate"><span class="pre">DOWN</span></code></a> or
+<a class="reference internal" href="#gpiosvr.key.KeyEvent.UP" title="gpiosvr.key.KeyEvent.UP"><code class="xref py py-attr docutils literal notranslate"><span class="pre">UP</span></code></a>.</p>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="key.KeyEventListener">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">key.</span></span><span class="sig-name descname"><span class="pre">KeyEventListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventDeviceName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceWaitTimeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceCheckingInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isGrabInputDevice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cancelCheckingInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEventListener" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="key.KeyEventListener.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEventListener.close" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="key.KeyEventListener.waitForKeyEvents">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">waitForKeyEvents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEventListener.waitForKeyEvents" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEventServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.key.</span></span><span class="sig-name descname"><span class="pre">KeyEventServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keysConfig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ledControl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceWaitTimeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceCheckingInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isGrabInputDevice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cancelCheckingInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.key.KeyEventServer" title="Link to this definition"></a></dt>
+<dd><p>A server receiving and handling key events.</p>
+<p>It uses a key event listener to wait for key events as soon
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">serve_forever()</span></code> is called and until
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code> is called.</p>
+<p>The server logs all occurring key presses to a message buffer and delegates
+the actual processing to <code class="xref py py-meth docutils literal notranslate"><span class="pre">handleKeyEvent()</span></code>.</p>
+<p>If an LED color is configured for a key and an LED control
+(<a class="reference internal" href="led.html#led.PiLedControl" title="led.PiLedControl"><code class="xref py py-class docutils literal notranslate"><span class="pre">PiLedControl</span></code></a>) is given, it synchs the corresponding key events
+with the LED.</p>
+<p>Furthermore, it toggles an alternate key mapping upon request and may
+indicate the change by a blinking LED.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="key.KeyEventServer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">key.</span></span><span class="sig-name descname"><span class="pre">KeyEventServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keysConfig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ledControl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceWaitTimeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceCheckingInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isGrabInputDevice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cancelCheckingInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEventServer" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py class">
-<dt class="sig sig-object py" id="key.KeyEventServer.AltSignal">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AltSignal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEventServer.AltSignal" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a></p>
-<p>An enumeration.</p>
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEventServer.AltSignal">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AltSignal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.key.KeyEventServer.AltSignal" title="Link to this definition"></a></dt>
+<dd><p>Signal names to identify key events related to the toggling of an
+alternate key mapping.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="key.KeyEventServer.AltSignal.OFF">
-<span class="sig-name descname"><span class="pre">OFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ALT_OFF'</span></em><a class="headerlink" href="#key.KeyEventServer.AltSignal.OFF" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEventServer.AltSignal.OFF">
+<span class="sig-name descname"><span class="pre">OFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ALT_OFF'</span></em><a class="headerlink" href="#gpiosvr.key.KeyEventServer.AltSignal.OFF" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="key.KeyEventServer.AltSignal.ON">
-<span class="sig-name descname"><span class="pre">ON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ALT_ON'</span></em><a class="headerlink" href="#key.KeyEventServer.AltSignal.ON" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEventServer.AltSignal.ON">
+<span class="sig-name descname"><span class="pre">ON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ALT_ON'</span></em><a class="headerlink" href="#gpiosvr.key.KeyEventServer.AltSignal.ON" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="key.KeyEventServer.AltSignal.TOGGLE">
-<span class="sig-name descname"><span class="pre">TOGGLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ALT_TOGGLE'</span></em><a class="headerlink" href="#key.KeyEventServer.AltSignal.TOGGLE" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEventServer.AltSignal.TOGGLE">
+<span class="sig-name descname"><span class="pre">TOGGLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ALT_TOGGLE'</span></em><a class="headerlink" href="#gpiosvr.key.KeyEventServer.AltSignal.TOGGLE" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="key.KeyEventServer.blinkLed">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">blinkLed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyEvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEventServer.blinkLed" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="key.KeyEventServer.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEventServer.close" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="key.KeyEventServer.handleKeyEvent">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">handleKeyEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyEvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEventServer.handleKeyEvent" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="key.KeyEventServer.serve_forever">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serve_forever</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEventServer.serve_forever" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="key.KeyEventServer.turnOffLed">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turnOffLed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyEvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEventServer.turnOffLed" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="key.KeyEventServer.turnOnLed">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turnOnLed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyEvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyEventServer.turnOnLed" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="key.KeyType">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">key.</span></span><span class="sig-name descname"><span class="pre">KeyType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeyType" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a></p>
-<p>An enumeration.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="key.KeyType.ALT">
-<span class="sig-name descname"><span class="pre">ALT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'alt'</span></em><a class="headerlink" href="#key.KeyType.ALT" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="key.KeyType.NORMAL">
-<span class="sig-name descname"><span class="pre">NORMAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'normal'</span></em><a class="headerlink" href="#key.KeyType.NORMAL" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="key.KeysConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">key.</span></span><span class="sig-name descname"><span class="pre">KeysConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keysConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeysConfig" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="key.KeysConfig.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#key.KeysConfig.close" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="key.KeysConfig.getKeyDescriptionForEvent">
-<span class="sig-name descname"><span class="pre">getKeyDescriptionForEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyEvent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#key.KeyEvent" title="key.KeyEvent"><span class="pre">KeyEvent</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeysConfig.getKeyDescriptionForEvent" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="key.KeysConfig.getKeyDescriptionForSignal">
-<span class="sig-name descname"><span class="pre">getKeyDescriptionForSignal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signalName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeysConfig.getKeyDescriptionForSignal" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="key.KeysConfig.getUInputEventsDict">
-<span class="sig-name descname"><span class="pre">getUInputEventsDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#key.KeyType" title="key.KeyType"><span class="pre">KeyType</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">KeyType.NORMAL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.KeysConfig.getUInputEventsDict" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="key.ProcessExecutingKeyEventServer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">key.</span></span><span class="sig-name descname"><span class="pre">ProcessExecutingKeyEventServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keysConfig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ledControl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isGrabInputDevice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.ProcessExecutingKeyEventServer" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#key.KeyEventServer" title="key.KeyEventServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyEventServer</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="key.ProcessExecutingKeyEventServer.handleKeyEvent">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">handleKeyEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyEvent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#key.ProcessExecutingKeyEventServer.handleKeyEvent" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.key.KeyEventServer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keysConfig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ledControl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceWaitTimeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventDeviceCheckingInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isGrabInputDevice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cancelCheckingInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.key.KeyEventServer.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
+</section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to gpiosvr’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="control.html" class="btn btn-neutral float-right" title="control module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

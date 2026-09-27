@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Index &mdash; gpiosvr 1.0a1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9f7e994e" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/jquery.js?v=8e38b574"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=6ac1bee6"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/doctools.js?v=4ed4bc18"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="#" />
@@ -40,9 +40,30 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Common modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">gpiosvr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">control module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">input module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
 
         </div>
@@ -82,6 +103,7 @@
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
  | <a href="#K"><strong>K</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
@@ -102,6 +124,32 @@
       <li><a href="gpio_server.html#gpiosvr.bin.gpio_server.UnixSocketServer.__init__">__init__() (gpiosvr.bin.gpio_server.UnixSocketServer method)</a>
 
       <ul>
+        <li><a href="control.html#gpiosvr.control.GpioControl.__init__">(gpiosvr.control.GpioControl method)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.CodeToKeysMapping.__init__">(gpiosvr.input.CodeToKeysMapping method)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.CodeToKeysMappings.__init__">(gpiosvr.input.CodeToKeysMappings method)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputEvent.__init__">(gpiosvr.input.InputEvent method)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputListener.__init__">(gpiosvr.input.InputListener method)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputListenerConfig.__init__">(gpiosvr.input.InputListenerConfig method)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputParameters.__init__">(gpiosvr.input.InputParameters method)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputServer.__init__">(gpiosvr.input.InputServer method)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputServerConfig.__init__">(gpiosvr.input.InputServerConfig method)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyEvent.__init__">(gpiosvr.key.KeyEvent method)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyEventServer.__init__">(gpiosvr.key.KeyEventServer method)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyHandlingConfig.__init__">(gpiosvr.key.KeyHandlingConfig method)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeysConfig.__init__">(gpiosvr.key.KeysConfig method)</a>
+</li>
         <li><a href="picossa.html#gpiosvr.picossa.EdgeCallback.__init__">(gpiosvr.picossa.EdgeCallback method)</a>
 </li>
         <li><a href="picossa.html#gpiosvr.picossa.PicoModem.__init__">(gpiosvr.picossa.PicoModem method)</a>
@@ -118,17 +166,19 @@
 </li>
         <li><a href="shell.html#gpiosvr.shell.GpioControlShell.__init__">(gpiosvr.shell.GpioControlShell method)</a>
 </li>
-        <li><a href="shell.html#gpiosvr.shell.GpioServiceControlShell.__init__">(gpiosvr.shell.GpioServiceControlShell method)</a>
+        <li><a href="shell.html#gpiosvr.shell.GpioDaemonControlShell.__init__">(gpiosvr.shell.GpioDaemonControlShell method)</a>
 </li>
         <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.__init__">(gpiosvr.signal.PulseEventIterator method)</a>
-</li>
-        <li><a href="signal.html#gpiosvr.signal.SignalConfig.__init__">(gpiosvr.signal.SignalConfig method)</a>
 </li>
         <li><a href="signal.html#gpiosvr.signal.SignalListener.__init__">(gpiosvr.signal.SignalListener method)</a>
 </li>
         <li><a href="signal.html#gpiosvr.signal.SignalListenerConfig.__init__">(gpiosvr.signal.SignalListenerConfig method)</a>
 </li>
-        <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.__init__">(gpiosvr.signal.SignalProtocolDescription method)</a>
+        <li><a href="signal.html#gpiosvr.signal.SignalParameters.__init__">(gpiosvr.signal.SignalParameters method)</a>
+</li>
+        <li><a href="uart.html#gpiosvr.uart.UartConfig.__init__">(gpiosvr.uart.UartConfig method)</a>
+</li>
+        <li><a href="uart.html#gpiosvr.uart.UartContext.__init__">(gpiosvr.uart.UartContext method)</a>
 </li>
         <li><a href="uart.html#gpiosvr.uart.UartParameters.__init__">(gpiosvr.uart.UartParameters method)</a>
 </li>
@@ -139,16 +189,30 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="control.html#gpiosvr.control.GpioControl.params.actionType">actionType (gpiosvr.control.GpioControl parameter)</a>
+</li>
+      <li><a href="signal_ir.html#signal_ir.IrParameters.address">address (signal_ir.IrParameters attribute)</a>
+</li>
+      <li><a href="signal_ir.html#signal_ir.IrBaseType.addressBitCount">addressBitCount (signal_ir.IrBaseType attribute)</a>
+
+      <ul>
+        <li><a href="signal_ir.html#signal_ir.IrParameters.addressBitCount">(signal_ir.IrParameters attribute)</a>
+</li>
+      </ul></li>
       <li><a href="shell.html#gpiosvr.shell.GpioControlShell.addStandardArgs">addStandardArgs() (gpiosvr.shell.GpioControlShell static method)</a>
 
       <ul>
-        <li><a href="shell.html#gpiosvr.shell.GpioServiceControlShell.addStandardArgs">(gpiosvr.shell.GpioServiceControlShell static method)</a>
+        <li><a href="shell.html#gpiosvr.shell.GpioDaemonControlShell.addStandardArgs">(gpiosvr.shell.GpioDaemonControlShell static method)</a>
 </li>
       </ul></li>
-      <li><a href="key.html#key.KeyType.ALT">ALT (key.KeyType attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="input.html#gpiosvr.input.CodeToKeysMapping.params.altKeyNames">altKeyNames (gpiosvr.input.CodeToKeysMapping parameter)</a>
+
+      <ul>
+        <li><a href="key.html#gpiosvr.key.KeyHandlingConfig.params.altKeyNames">(gpiosvr.key.KeyHandlingConfig parameter)</a>
+</li>
+      </ul></li>
       <li><a href="client.html#gpiosvr.client.Response.append_exception">append_exception() (gpiosvr.client.Response method)</a>
 </li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoModem.appendEdgeCallback">appendEdgeCallback() (gpiosvr.picossa.PicoModem method)</a>
@@ -163,9 +227,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="client_picod.html#gpiosvr.client_picod.Status.BAD_CHANNEL">BAD_CHANNEL (gpiosvr.client_picod.Status attribute)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.params.basePulse_μs">basePulse_μs (gpiosvr.signal.SignalProtocolDescription parameter)</a>
+      <li><a href="signal.html#gpiosvr.signal.SignalParameters.params.basePulse_μs">basePulse_μs (gpiosvr.signal.SignalParameters parameter)</a>
+
+      <ul>
+        <li><a href="signal_ir.html#signal_ir.IrBaseType.basePulse_s">(signal_ir.IrBaseType attribute)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.params.basePulseCount">basePulseCount (gpiosvr.signal.SignalProtocolDescription parameter)</a>
+      </ul></li>
+      <li><a href="signal.html#gpiosvr.signal.SignalParameters.params.basePulseCount">basePulseCount (gpiosvr.signal.SignalParameters parameter)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.PicodApi.serial_open.params.baud">baud (gpiosvr.client_picod.PicodApi.serial_open parameter)</a>
 
@@ -174,32 +242,38 @@
 </li>
         <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.baud">(gpiosvr.picossa.PicoSerialAdapter.serial_open parameter)</a>
 </li>
+        <li><a href="uart.html#gpiosvr.uart.UartParameters.params.baud">(gpiosvr.uart.UartParameters parameter)</a>
+</li>
       </ul></li>
       <li><a href="signal.html#gpiosvr.signal.BIT_ORDER_DEFAULT">BIT_ORDER_DEFAULT (in module gpiosvr.signal)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.BitOrder">BitOrder (class in gpiosvr.signal)</a>
-</li>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.params.bitOrder">bitOrder (gpiosvr.signal.SignalProtocolDescription parameter)</a>
+      <li><a href="signal_ir.html#signal_ir.IrListener.bitCount">bitCount (signal_ir.IrListener attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="led.html#led.PiLedControl.blink">blink() (led.PiLedControl method)</a>
+      <li><a href="signal.html#gpiosvr.signal.BitOrder">BitOrder (class in gpiosvr.signal)</a>
 </li>
-      <li><a href="key.html#key.KeyEventServer.blinkLed">blinkLed() (key.KeyEventServer method)</a>
+      <li><a href="signal.html#gpiosvr.signal.SignalParameters.params.bitOrder">bitOrder (gpiosvr.signal.SignalParameters parameter)</a>
+
+      <ul>
+        <li><a href="signal_ir.html#signal_ir.IrBaseType.bitOrder">(signal_ir.IrBaseType attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="led.html#led.PiLedControl.blink">blink() (led.PiLedControl method)</a>
 </li>
       <li><a href="led.html#led.BlinkstickLedControl">BlinkstickLedControl (class in led)</a>
 </li>
       <li><a href="picossa.html#gpiosvr.picossa.EdgeCallback.BOTH">BOTH (gpiosvr.picossa.EdgeCallback attribute)</a>
 </li>
-      <li><a href="signal_button.html#signal_button.ButtonConfig">ButtonConfig (class in signal_button)</a>
-</li>
       <li><a href="signal_button.html#signal_button.ButtonListener">ButtonListener (class in signal_button)</a>
 </li>
       <li><a href="signal_button.html#signal_button.ButtonListenerConfig">ButtonListenerConfig (class in signal_button)</a>
 </li>
-      <li><a href="signal_button.html#signal_button.ButtonProtocolDescription">ButtonProtocolDescription (class in signal_button)</a>
+      <li><a href="signal_button.html#signal_button.ButtonParameters">ButtonParameters (class in signal_button)</a>
 </li>
       <li><a href="signal_button.html#signal_button.ButtonPulseEventIterator">ButtonPulseEventIterator (class in signal_button)</a>
+</li>
+      <li><a href="signal_button.html#signal_button.ButtonServer">ButtonServer (class in signal_button)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -241,6 +315,12 @@
         <li><a href="picossa_pigs.html#gpiosvr.picossa_pigs.PigsScript.params.cancelCheckingInterval_μS">(gpiosvr.picossa_pigs.PigsScript parameter)</a>
 </li>
       </ul></li>
+      <li><a href="signal_ir.html#signal_ir.IrBaseType.carrierHertz">carrierHertz (signal_ir.IrBaseType attribute)</a>
+
+      <ul>
+        <li><a href="signal_ir.html#signal_ir.IrParameters.carrierHertz">(signal_ir.IrParameters attribute)</a>
+</li>
+      </ul></li>
       <li><a href="client_picod.html#gpiosvr.client_picod.PicodApi.serial_close.params.channel">channel (gpiosvr.client_picod.PicodApi.serial_close parameter)</a>
 
       <ul>
@@ -263,23 +343,15 @@
         <li><a href="uart.html#gpiosvr.uart.UartParameters.params.channel">(gpiosvr.uart.UartParameters parameter)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="client_picod.html#gpiosvr.client_picod.Status.CHANNEL_CLOSED">CHANNEL_CLOSED (gpiosvr.client_picod.Status attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="client_picod.html#gpiosvr.client_picod.Pwm.CLOCK_HZ">CLOCK_HZ (gpiosvr.client_picod.Pwm attribute)</a>
 </li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.close">close() (gpiosvr.picossa.PicoSerialAdapter method)</a>
 
       <ul>
-        <li><a href="key.html#key.KeyDescription.close">(key.KeyDescription method)</a>
-</li>
-        <li><a href="key.html#key.KeyEventListener.close">(key.KeyEventListener method)</a>
-</li>
-        <li><a href="key.html#key.KeyEventServer.close">(key.KeyEventServer method)</a>
-</li>
-        <li><a href="key.html#key.KeysConfig.close">(key.KeysConfig method)</a>
-</li>
         <li><a href="led.html#led.BlinkstickLedControl.close">(led.BlinkstickLedControl method)</a>
 </li>
         <li><a href="led.html#led.PiLedControl.close">(led.PiLedControl method)</a>
@@ -287,11 +359,43 @@
       </ul></li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.closeInput">closeInput() (gpiosvr.picossa.PicoSerialAdapter method)</a>
 </li>
+      <li><a href="input.html#gpiosvr.input.CodeToKeysMapping.params.code">code (gpiosvr.input.CodeToKeysMapping parameter)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.CodeToKeysMapping.fromDict.params.code">(gpiosvr.input.CodeToKeysMapping.fromDict parameter)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputEvent.code">(gpiosvr.input.InputEvent attribute)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputEvent.params.code">(gpiosvr.input.InputEvent parameter)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputListener.injectScanCode.params.code">(gpiosvr.input.InputListener.injectScanCode parameter)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyEvent.code">(gpiosvr.key.KeyEvent attribute)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyEvent.params.code">(gpiosvr.key.KeyEvent parameter)</a>
+</li>
+        <li><a href="signal.html#gpiosvr.signal.SignalListener.injectScanCode.params.code">(gpiosvr.signal.SignalListener.injectScanCode parameter)</a>
+</li>
+      </ul></li>
       <li><a href="signal.html#gpiosvr.signal.CODE_START_BIT_DEFAULT">CODE_START_BIT_DEFAULT (in module gpiosvr.signal)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.params.codeStartBit">codeStartBit (gpiosvr.signal.SignalProtocolDescription parameter)</a>
+      <li><a href="signal_ir.html#signal_ir.IrBaseType.codeBitCount">codeBitCount (signal_ir.IrBaseType attribute)</a>
+
+      <ul>
+        <li><a href="signal_ir.html#signal_ir.IrParameters.codeBitCount">(signal_ir.IrParameters attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="signal.html#gpiosvr.signal.SignalParameters.params.codeStartBit">codeStartBit (gpiosvr.signal.SignalParameters parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.CodeToKeysMapping">CodeToKeysMapping (class in gpiosvr.input)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.CodeToKeysMappings">CodeToKeysMappings (class in gpiosvr.input)</a>
 </li>
       <li><a href="led.html#led.PiLedControl.colorToLevels">colorToLevels() (led.PiLedControl method)</a>
+</li>
+      <li><a href="control.html#gpiosvr.control.GpioControl.params.commandExecutor">commandExecutor (gpiosvr.control.GpioControl parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers">createInputServers() (gpiosvr.input.ExtensionHelper static method)</a>
 </li>
       <li><a href="signal.html#gpiosvr.signal.SignalListener.createPulseEventIterator">createPulseEventIterator() (gpiosvr.signal.SignalListener method)</a>
 
@@ -323,24 +427,24 @@
         <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.data_bits">(gpiosvr.picossa.PicoSerialAdapter.serial_open parameter)</a>
 </li>
       </ul></li>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.params.debounce_μs">debounce_μs (gpiosvr.signal.SignalProtocolDescription parameter)</a>
+      <li><a href="uart.html#gpiosvr.uart.UartParameters.params.dataBitCount">dataBitCount (gpiosvr.uart.UartParameters parameter)</a>
+</li>
+      <li><a href="signal.html#gpiosvr.signal.SignalParameters.params.debounce_μs">debounce_μs (gpiosvr.signal.SignalParameters parameter)</a>
 </li>
       <li><a href="signal.html#gpiosvr.signal.DEBOUNCE_S_DEFAULT">DEBOUNCE_μS_DEFAULT (in module gpiosvr.signal)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.debugOutput">debugOutput (gpiosvr.signal.PulseHelper.sequenceToHexCodes parameter)</a>
+      <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToScanCodes.params.debugOutput">debugOutput (gpiosvr.signal.PulseHelper.sequenceToScanCodes parameter)</a>
 
       <ul>
-        <li><a href="signal.html#gpiosvr.signal.SignalListener.pulseEventToKeyEvents.params.debugOutput">(gpiosvr.signal.SignalListener.pulseEventToKeyEvents parameter)</a>
+        <li><a href="signal.html#gpiosvr.signal.SignalListener.pulseEventToInputEvents.params.debugOutput">(gpiosvr.signal.SignalListener.pulseEventToInputEvents parameter)</a>
 </li>
-        <li><a href="signal_button.html#signal_button.ButtonListener.pulseEventToKeyEvents.params.debugOutput">(signal_button.ButtonListener.pulseEventToKeyEvents parameter)</a>
+        <li><a href="signal_button.html#signal_button.ButtonListener.pulseEventToInputEvents.params.debugOutput">(signal_button.ButtonListener.pulseEventToInputEvents parameter)</a>
 </li>
-        <li><a href="signal_ir.html#signal_ir.IrListener.pulseEventToKeyEvents.params.debugOutput">(signal_ir.IrListener.pulseEventToKeyEvents parameter)</a>
+        <li><a href="signal_ir.html#signal_ir.IrListener.pulseEventToInputEvents.params.debugOutput">(signal_ir.IrListener.pulseEventToInputEvents parameter)</a>
 </li>
       </ul></li>
       <li><a href="client.html#gpiosvr.client.Response.decode">decode() (gpiosvr.client.Response static method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="client.html#gpiosvr.client.Response.decodeExceptions">decodeExceptions() (gpiosvr.client.Response static method)</a>
 </li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.PigpioScriptApi.delete_script">delete_script() (gpiosvr.client_pigpio.PigpioScriptApi method)</a>
@@ -349,12 +453,20 @@
         <li><a href="client_pigs.html#gpiosvr.client_pigs.PigpioSocketClient.delete_script">(gpiosvr.client_pigs.PigpioSocketClient method)</a>
 </li>
       </ul></li>
-      <li><a href="signal.html#gpiosvr.signal.SignalListener.describeProtocol">describeProtocol() (gpiosvr.signal.SignalListener method)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="input.html#gpiosvr.input.InputListener.describe">describe() (gpiosvr.input.InputListener method)</a>
 
       <ul>
-        <li><a href="signal_button.html#signal_button.ButtonListener.describeProtocol">(signal_button.ButtonListener method)</a>
+        <li><a href="input.html#gpiosvr.input.InputServer.describe">(gpiosvr.input.InputServer method)</a>
 </li>
-        <li><a href="signal_ir.html#signal_ir.IrListener.describeProtocol">(signal_ir.IrListener method)</a>
+        <li><a href="signal.html#gpiosvr.signal.SignalListener.describe">(gpiosvr.signal.SignalListener method)</a>
+</li>
+        <li><a href="signal.html#gpiosvr.signal.SignalServer.describe">(gpiosvr.signal.SignalServer method)</a>
+</li>
+        <li><a href="signal_button.html#signal_button.ButtonListener.describe">(signal_button.ButtonListener method)</a>
+</li>
+        <li><a href="signal_ir.html#signal_ir.IrListener.describe">(signal_ir.IrListener method)</a>
 </li>
       </ul></li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoModem.params.device">device (gpiosvr.picossa.PicoModem parameter)</a>
@@ -367,8 +479,14 @@
 </li>
       <li><a href="client.html#gpiosvr.client.Response.done">done() (gpiosvr.client.Response method)</a>
 </li>
-      <li><a href="key.html#key.KeyEvent.DOWN">DOWN (key.KeyEvent attribute)</a>
+      <li><a href="key.html#gpiosvr.key.KeyEvent.DOWN">DOWN (gpiosvr.key.KeyEvent attribute)</a>
 </li>
+      <li><a href="signal_ir.html#signal_ir.IrBaseType.dutyCyclePercentageOptions">dutyCyclePercentageOptions (signal_ir.IrBaseType attribute)</a>
+
+      <ul>
+        <li><a href="signal_ir.html#signal_ir.IrParameters.dutyCyclePercentageOptions">(signal_ir.IrParameters attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -381,18 +499,28 @@
 </li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoReceiverThread.params.edgeCallbacks">edgeCallbacks (gpiosvr.picossa.PicoReceiverThread parameter)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.params.edgeEvaluationInterval_ms">edgeEvaluationInterval_ms (gpiosvr.signal.SignalProtocolDescription parameter)</a>
+      <li><a href="signal.html#gpiosvr.signal.SignalParameters.params.edgeEvaluationInterval_ms">edgeEvaluationInterval_ms (gpiosvr.signal.SignalParameters parameter)</a>
+
+      <ul>
+        <li><a href="signal_ir.html#signal_ir.IrBaseType.edgeEvaluationInterval_ms">(signal_ir.IrBaseType attribute)</a>
 </li>
+      </ul></li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.pigpio.EITHER_EDGE">EITHER_EDGE (gpiosvr.client_pigpio.pigpio attribute)</a>
 </li>
       <li><a href="client.html#gpiosvr.client.Response.encode">encode() (gpiosvr.client.Response method)</a>
 </li>
       <li><a href="client.html#gpiosvr.client.Response.encodeException">encodeException() (gpiosvr.client.Response static method)</a>
 </li>
+      <li><a href="input.html#gpiosvr.input.InputEvent.END">END (gpiosvr.input.InputEvent attribute)</a>
+</li>
+      <li><a href="control.html#gpiosvr.control.GpioControl.params.envConfig">envConfig (gpiosvr.control.GpioControl parameter)</a>
+</li>
       <li><a href="client_picod.html#gpiosvr.client_picod.Status.ERROR">ERROR (gpiosvr.client_picod.Status attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="input.html#gpiosvr.input.InputServerConfig.params.evdevName">evdevName (gpiosvr.input.InputServerConfig parameter)</a>
+</li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoReceiverThread.params.excepthook">excepthook (gpiosvr.picossa.PicoReceiverThread parameter)</a>
 </li>
       <li><a href="client.html#gpiosvr.client.Response.exception">exception() (gpiosvr.client.Response method)</a>
@@ -411,6 +539,10 @@
 </li>
       <li><a href="picossa.html#gpiosvr.picossa.Expected">Expected (class in gpiosvr.picossa)</a>
 </li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper">ExtensionHelper (class in gpiosvr.input)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.Purpose">ExtensionHelper.Purpose (class in gpiosvr.input)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -421,24 +553,56 @@
 </li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.pigpio.FALLING_EDGE">FALLING_EDGE (gpiosvr.client_pigpio.pigpio attribute)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.forceSingleCode">forceSingleCode (gpiosvr.signal.PulseHelper.sequenceToHexCodes parameter)</a>
-</li>
-      <li><a href="signal.html#gpiosvr.signal.SignalListener.fromConfig">fromConfig() (gpiosvr.signal.SignalListener static method)</a>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.familyName">familyName (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
 
       <ul>
-        <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.fromConfig">(gpiosvr.signal.SignalProtocolDescription static method)</a>
+        <li><a href="input.html#gpiosvr.input.ExtensionHelper.find.params.familyName">(gpiosvr.input.ExtensionHelper.find parameter)</a>
 </li>
+        <li><a href="input.html#gpiosvr.input.InputServerConfig.fromDict.params.familyName">(gpiosvr.input.InputServerConfig.fromDict parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.find">find() (gpiosvr.input.ExtensionHelper static method)</a>
+</li>
+      <li><a href="control.html#gpiosvr.control.GpioControl.getPropertiesTextEn.params.firstColumnWidth">firstColumnWidth (gpiosvr.control.GpioControl.getPropertiesTextEn parameter)</a>
+</li>
+      <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToScanCodes.params.forceSingleCode">forceSingleCode (gpiosvr.signal.PulseHelper.sequenceToScanCodes parameter)</a>
+</li>
+      <li><a href="uart.html#gpiosvr.uart.UartContext.fromConfig">fromConfig() (gpiosvr.uart.UartContext static method)</a>
+
+      <ul>
         <li><a href="led.html#led.BlinkstickLedControl.fromConfig">(led.BlinkstickLedControl static method)</a>
 </li>
         <li><a href="led.html#led.PiLedControl.fromConfig">(led.PiLedControl static method)</a>
 </li>
-        <li><a href="signal_button.html#signal_button.ButtonListener.fromConfig">(signal_button.ButtonListener static method)</a>
+      </ul></li>
+      <li><a href="input.html#gpiosvr.input.CodeToKeysMapping.fromDict">fromDict() (gpiosvr.input.CodeToKeysMapping static method)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.CodeToKeysMappings.fromDict">(gpiosvr.input.CodeToKeysMappings static method)</a>
 </li>
-        <li><a href="signal_button.html#signal_button.ButtonProtocolDescription.fromConfig">(signal_button.ButtonProtocolDescription static method)</a>
+        <li><a href="input.html#gpiosvr.input.InputListenerConfig.fromDict">(gpiosvr.input.InputListenerConfig static method)</a>
 </li>
-        <li><a href="signal_ir.html#signal_ir.IrListener.fromConfig">(signal_ir.IrListener static method)</a>
+        <li><a href="input.html#gpiosvr.input.InputParameters.fromDict">(gpiosvr.input.InputParameters static method)</a>
 </li>
-        <li><a href="signal_ir.html#signal_ir.IrProtocolDescription.fromConfig">(signal_ir.IrProtocolDescription static method)</a>
+        <li><a href="input.html#gpiosvr.input.InputServerConfig.fromDict">(gpiosvr.input.InputServerConfig static method)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyHandlingConfig.fromDict">(gpiosvr.key.KeyHandlingConfig static method)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeysConfig.fromDict">(gpiosvr.key.KeysConfig static method)</a>
+</li>
+        <li><a href="signal.html#gpiosvr.signal.SignalListenerConfig.fromDict">(gpiosvr.signal.SignalListenerConfig static method)</a>
+</li>
+        <li><a href="signal.html#gpiosvr.signal.SignalParameters.fromDict">(gpiosvr.signal.SignalParameters static method)</a>
+</li>
+        <li><a href="uart.html#gpiosvr.uart.UartParameters.fromDict">(gpiosvr.uart.UartParameters static method)</a>
+</li>
+        <li><a href="signal_button.html#signal_button.ButtonListenerConfig.fromDict">(signal_button.ButtonListenerConfig static method)</a>
+</li>
+        <li><a href="signal_button.html#signal_button.ButtonParameters.fromDict">(signal_button.ButtonParameters static method)</a>
+</li>
+        <li><a href="signal_ir.html#signal_ir.IrListenerConfig.fromDict">(signal_ir.IrListenerConfig static method)</a>
+</li>
+        <li><a href="signal_ir.html#signal_ir.IrParameters.fromDict">(signal_ir.IrParameters static method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -479,13 +643,11 @@
 </li>
       <li><a href="signal_ir.html#signal_ir.IrRc6Helper.getCodeHex">getCodeHex() (signal_ir.IrRc6Helper static method)</a>
 </li>
-      <li><a href="key.html#key.KeysConfig.getKeyDescriptionForEvent">getKeyDescriptionForEvent() (key.KeysConfig method)</a>
-</li>
-      <li><a href="key.html#key.KeysConfig.getKeyDescriptionForSignal">getKeyDescriptionForSignal() (key.KeysConfig method)</a>
-</li>
       <li><a href="signal_ir.html#signal_ir.IrRc6Helper.getMarkSpaceSequence">getMarkSpaceSequence() (signal_ir.IrRc6Helper static method)</a>
 </li>
-      <li><a href="key.html#key.KeysConfig.getUInputEventsDict">getUInputEventsDict() (key.KeysConfig method)</a>
+      <li><a href="control.html#gpiosvr.control.GpioControl.getPropertiesJson">getPropertiesJson() (gpiosvr.control.GpioControl method)</a>
+</li>
+      <li><a href="control.html#gpiosvr.control.GpioControl.getPropertiesTextEn">getPropertiesTextEn() (gpiosvr.control.GpioControl method)</a>
 </li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoModem.getUsingProcessIds">getUsingProcessIds() (gpiosvr.picossa.PicoModem method)</a>
 </li>
@@ -515,29 +677,37 @@
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.Status.GPIO_IN_USE">GPIO_IN_USE (gpiosvr.client_picod.Status attribute)</a>
 </li>
-      <li><a href="picossa_pigs.html#gpiosvr.picossa_pigs.PigsExecutor.params.gpioClient">gpioClient (gpiosvr.picossa_pigs.PigsExecutor parameter)</a>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.gpioClient">gpioClient (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
 
       <ul>
+        <li><a href="input.html#gpiosvr.input.InputListener.params.gpioClient">(gpiosvr.input.InputListener parameter)</a>
+</li>
+        <li><a href="picossa_pigs.html#gpiosvr.picossa_pigs.PigsExecutor.params.gpioClient">(gpiosvr.picossa_pigs.PigsExecutor parameter)</a>
+</li>
         <li><a href="shell.html#gpiosvr.shell.GpioControlShell.gpioClient">(gpiosvr.shell.GpioControlShell attribute)</a>
 </li>
         <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.params.gpioClient">(gpiosvr.signal.PulseEventIterator parameter)</a>
 </li>
         <li><a href="signal.html#gpiosvr.signal.SignalListener.params.gpioClient">(gpiosvr.signal.SignalListener parameter)</a>
 </li>
+        <li><a href="uart.html#gpiosvr.uart.UartContext.params.gpioClient">(gpiosvr.uart.UartContext parameter)</a>
+</li>
       </ul></li>
+      <li><a href="control.html#gpiosvr.control.GpioControl">GpioControl (class in gpiosvr.control)</a>
+</li>
       <li><a href="shell.html#gpiosvr.shell.GpioControlShell">GpioControlShell (class in gpiosvr.shell)</a>
+</li>
+      <li><a href="shell.html#gpiosvr.shell.GpioDaemonControlShell">GpioDaemonControlShell (class in gpiosvr.shell)</a>
+</li>
+      <li><a href="client.html#gpiosvr.client.GpioDirection">GpioDirection (class in gpiosvr.client)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="client.html#gpiosvr.client.GpioDirection">GpioDirection (class in gpiosvr.client)</a>
-</li>
       <li><a href="client_picod.html#gpiosvr.client_picod.GpioFunction">GpioFunction (class in gpiosvr.client_picod)</a>
 </li>
       <li><a href="client.html#gpiosvr.client.GpioLevel">GpioLevel (class in gpiosvr.client)</a>
 </li>
       <li><a href="client.html#gpiosvr.client.GpioPull">GpioPull (class in gpiosvr.client)</a>
-</li>
-      <li><a href="shell.html#gpiosvr.shell.GpioServiceControlShell">GpioServiceControlShell (class in gpiosvr.shell)</a>
 </li>
       <li><a href="shell.html#gpiosvr.shell.GpioStrategy">GpioStrategy (class in gpiosvr.shell)</a>
 </li>
@@ -600,6 +770,27 @@
 </li>
       </ul></li>
       <li>
+    gpiosvr.control
+
+      <ul>
+        <li><a href="control.html#module-gpiosvr.control">module</a>
+</li>
+      </ul></li>
+      <li>
+    gpiosvr.input
+
+      <ul>
+        <li><a href="input.html#module-gpiosvr.input">module</a>
+</li>
+      </ul></li>
+      <li>
+    gpiosvr.key
+
+      <ul>
+        <li><a href="key.html#module-gpiosvr.key">module</a>
+</li>
+      </ul></li>
+      <li>
     gpiosvr.picossa
 
       <ul>
@@ -644,16 +835,16 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="key.html#key.KeyEventServer.handleKeyEvent">handleKeyEvent() (key.KeyEventServer method)</a>
-
-      <ul>
-        <li><a href="key.html#key.ProcessExecutingKeyEventServer.handleKeyEvent">(key.ProcessExecutingKeyEventServer method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.PigpioPwmApi.hardware_PWM">hardware_PWM() (gpiosvr.client_pigpio.PigpioPwmApi method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="signal_ir.html#signal_ir.IrBaseType.hasCheckBits">hasCheckBits (signal_ir.IrBaseType attribute)</a>
+
+      <ul>
+        <li><a href="signal_ir.html#signal_ir.IrParameters.hasCheckBits">(signal_ir.IrParameters attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -662,13 +853,27 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="client_picod.html#gpiosvr.client_picod.GpioFunction.I2C">I2C (gpiosvr.client_picod.GpioFunction attribute)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalListener.injectKeyCode">injectKeyCode() (gpiosvr.signal.SignalListener method)</a>
+      <li><a href="input.html#gpiosvr.input.InputListener.injectScanCode">injectScanCode() (gpiosvr.input.InputListener method)</a>
+
+      <ul>
+        <li><a href="signal.html#gpiosvr.signal.SignalListener.injectScanCode">(gpiosvr.signal.SignalListener method)</a>
 </li>
+      </ul></li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.pigpio.INPUT">INPUT (gpiosvr.client_pigpio.pigpio attribute)</a>
 </li>
-      <li><a href="key.html#key.InputDeviceError">InputDeviceError</a>
+      <li><a href="input.html#gpiosvr.input.InputEvent">InputEvent (class in gpiosvr.input)</a>
 </li>
-      <li><a href="signal_ir.html#signal_ir.IrConfig">IrConfig (class in signal_ir)</a>
+      <li><a href="input.html#gpiosvr.input.InputListener">InputListener (class in gpiosvr.input)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputListenerConfig">InputListenerConfig (class in gpiosvr.input)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputParameters">InputParameters (class in gpiosvr.input)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputServer">InputServer (class in gpiosvr.input)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputServerConfig">InputServerConfig (class in gpiosvr.input)</a>
+</li>
+      <li><a href="signal_ir.html#signal_ir.IrBaseType">IrBaseType (class in signal_ir)</a>
 </li>
       <li><a href="signal_ir.html#signal_ir.IrListener">IrListener (class in signal_ir)</a>
 </li>
@@ -676,56 +881,87 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="signal_ir.html#signal_ir.IrProtocol">IrProtocol (class in signal_ir)</a>
+      <li><a href="signal_ir.html#signal_ir.IrParameters">IrParameters (class in signal_ir)</a>
 </li>
-      <li><a href="signal_ir.html#signal_ir.IrProtocolDescription">IrProtocolDescription (class in signal_ir)</a>
+      <li><a href="signal_ir.html#signal_ir.IrProtocol">IrProtocol (class in signal_ir)</a>
 </li>
       <li><a href="signal_ir.html#signal_ir.IrPulse">IrPulse (class in signal_ir)</a>
 </li>
       <li><a href="signal_ir.html#signal_ir.IrRc6Helper">IrRc6Helper (class in signal_ir)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.params.isDebugOutput">isDebugOutput (gpiosvr.signal.PulseEventIterator parameter)</a>
+      <li><a href="signal_ir.html#signal_ir.IrServer">IrServer (class in signal_ir)</a>
+</li>
+      <li><a href="uart.html#gpiosvr.uart.UartParameters.params.isCloseOnExit">isCloseOnExit (gpiosvr.uart.UartParameters parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.isDebugOutput">isDebugOutput (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
 
       <ul>
-        <li><a href="signal.html#gpiosvr.signal.SignalListener.params.isDebugOutput">(gpiosvr.signal.SignalListener parameter)</a>
+        <li><a href="input.html#gpiosvr.input.InputListenerConfig.params.isDebugOutput">(gpiosvr.input.InputListenerConfig parameter)</a>
+</li>
+        <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.params.isDebugOutput">(gpiosvr.signal.PulseEventIterator parameter)</a>
 </li>
       </ul></li>
-      <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.params.isTesting">isTesting (gpiosvr.signal.PulseEventIterator parameter)</a>
+      <li><a href="input.html#gpiosvr.input.InputListenerConfig.params.isEnabled">isEnabled (gpiosvr.input.InputListenerConfig parameter)</a>
+</li>
+      <li><a href="key.html#gpiosvr.key.KeyHandlingConfig.params.isRepeatable">isRepeatable (gpiosvr.key.KeyHandlingConfig parameter)</a>
+</li>
+      <li><a href="control.html#gpiosvr.control.GpioControl.params.isSkipPendingMode">isSkipPendingMode (gpiosvr.control.GpioControl parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputListenerConfig.params.isTesting">isTesting (gpiosvr.input.InputListenerConfig parameter)</a>
 
       <ul>
-        <li><a href="signal.html#gpiosvr.signal.SignalListener.params.isTesting">(gpiosvr.signal.SignalListener parameter)</a>
+        <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.params.isTesting">(gpiosvr.signal.PulseEventIterator parameter)</a>
 </li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="control.html#gpiosvr.control.GpioControl.params.jsonIndent">jsonIndent (gpiosvr.control.GpioControl parameter)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    key
-
-      <ul>
-        <li><a href="key.html#module-key">module</a>
+      <li><a href="key.html#gpiosvr.key.KeyEvent">KeyEvent (class in gpiosvr.key)</a>
 </li>
-      </ul></li>
-      <li><a href="signal.html#gpiosvr.signal.SignalListener.injectKeyCode.params.keyCode">keyCode (gpiosvr.signal.SignalListener.injectKeyCode parameter)</a>
+      <li><a href="key.html#gpiosvr.key.KeyEventServer">KeyEventServer (class in gpiosvr.key)</a>
 </li>
-      <li><a href="key.html#key.KeyDescription">KeyDescription (class in key)</a>
+      <li><a href="key.html#gpiosvr.key.KeyEventServer.AltSignal">KeyEventServer.AltSignal (class in gpiosvr.key)</a>
 </li>
-      <li><a href="key.html#key.KeyEvent">KeyEvent (class in key)</a>
+      <li><a href="key.html#gpiosvr.key.KeyHandlingConfig">KeyHandlingConfig (class in gpiosvr.key)</a>
+</li>
+      <li><a href="key.html#gpiosvr.key.KeyEvent.keyHandlingConfig">keyHandlingConfig (gpiosvr.key.KeyEvent attribute)</a>
+</li>
+      <li><a href="key.html#gpiosvr.key.KeysConfig.params.keyHandlingConfigs">keyHandlingConfigs (gpiosvr.key.KeysConfig parameter)</a>
+</li>
+      <li><a href="key.html#gpiosvr.key.KeyHandlingConfig.params.keyName">keyName (gpiosvr.key.KeyHandlingConfig parameter)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="key.html#key.KeyEventListener">KeyEventListener (class in key)</a>
+      <li><a href="input.html#gpiosvr.input.CodeToKeysMapping.params.keyNames">keyNames (gpiosvr.input.CodeToKeysMapping parameter)</a>
+
+      <ul>
+        <li><a href="key.html#gpiosvr.key.KeyEvent.keyNames">(gpiosvr.key.KeyEvent attribute)</a>
 </li>
-      <li><a href="key.html#key.KeyEventServer">KeyEventServer (class in key)</a>
+        <li><a href="key.html#gpiosvr.key.KeyEvent.params.keyNames">(gpiosvr.key.KeyEvent parameter)</a>
 </li>
-      <li><a href="key.html#key.KeyEventServer.AltSignal">KeyEventServer.AltSignal (class in key)</a>
+      </ul></li>
+      <li><a href="key.html#gpiosvr.key.KeysConfig">KeysConfig (class in gpiosvr.key)</a>
 </li>
-      <li><a href="key.html#key.KeysConfig">KeysConfig (class in key)</a>
+      <li><a href="input.html#gpiosvr.input.InputServer.params.keysMapping">keysMapping (gpiosvr.input.InputServer parameter)</a>
 </li>
-      <li><a href="key.html#key.KeyType">KeyType (class in key)</a>
+      <li><a href="signal_button.html#signal_button.ButtonListener.keyUpCode">keyUpCode (signal_button.ButtonListener attribute)</a>
+
+      <ul>
+        <li><a href="signal_button.html#signal_button.ButtonListenerConfig.keyUpCode">(signal_button.ButtonListenerConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.kwargs">kwargs (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -733,6 +969,8 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="signal_ir.html#signal_ir.IrListener.lastToggleBit">lastToggleBit (signal_ir.IrListener attribute)</a>
+</li>
       <li>
     led
 
@@ -740,25 +978,67 @@
         <li><a href="led.html#module-led">module</a>
 </li>
       </ul></li>
+      <li><a href="key.html#gpiosvr.key.KeyHandlingConfig.params.ledColor">ledColor (gpiosvr.key.KeyHandlingConfig parameter)</a>
+</li>
       <li><a href="led.html#led.LedsConfig">LedsConfig (class in led)</a>
 </li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.setDirection.params.levelOrGpioPull">levelOrGpioPull (gpiosvr.picossa.PicoSerialAdapter.setDirection parameter)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalListener.fromConfig.params.listenerConfig">listenerConfig (gpiosvr.signal.SignalListener.fromConfig parameter)</a>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.Purpose.LISTENER">LISTENER (gpiosvr.input.ExtensionHelper.Purpose attribute)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputServer.params.listener">listener (gpiosvr.input.InputServer parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.Purpose.LISTENER_CONFIG">LISTENER_CONFIG (gpiosvr.input.ExtensionHelper.Purpose attribute)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.listenerClass_">listenerClass_ (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
 
       <ul>
-        <li><a href="signal_button.html#signal_button.ButtonListener.fromConfig.params.listenerConfig">(signal_button.ButtonListener.fromConfig parameter)</a>
+        <li><a href="input.html#gpiosvr.input.InputServerConfig.params.listenerClass_">(gpiosvr.input.InputServerConfig parameter)</a>
 </li>
-        <li><a href="signal_ir.html#signal_ir.IrListener.fromConfig.params.listenerConfig">(signal_ir.IrListener.fromConfig parameter)</a>
+        <li><a href="input.html#gpiosvr.input.InputServerConfig.fromDict.params.listenerClass_">(gpiosvr.input.InputServerConfig.fromDict parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="input.html#gpiosvr.input.InputListener.params.listenerConfig">listenerConfig (gpiosvr.input.InputListener parameter)</a>
+
+      <ul>
+        <li><a href="signal.html#gpiosvr.signal.SignalListener.params.listenerConfig">(gpiosvr.signal.SignalListener parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.listenerConfigClass_">listenerConfigClass_ (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.InputServerConfig.fromDict.params.listenerConfigClass_">(gpiosvr.input.InputServerConfig.fromDict parameter)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="signal.html#gpiosvr.signal.SignalConfig.params.listenerConfigClass_">listenerConfigClass_ (gpiosvr.signal.SignalConfig parameter)</a>
-</li>
-      <li><a href="picossa.html#gpiosvr.picossa.EdgeCallback.params.loop">loop (gpiosvr.picossa.EdgeCallback parameter)</a>
+      <li><a href="input.html#gpiosvr.input.InputListenerConfig.fromDict.params.listenerDict">listenerDict (gpiosvr.input.InputListenerConfig.fromDict parameter)</a>
 
       <ul>
+        <li><a href="signal.html#gpiosvr.signal.SignalListenerConfig.fromDict.params.listenerDict">(gpiosvr.signal.SignalListenerConfig.fromDict parameter)</a>
+</li>
+        <li><a href="signal_button.html#signal_button.ButtonListenerConfig.fromDict.params.listenerDict">(signal_button.ButtonListenerConfig.fromDict parameter)</a>
+</li>
+        <li><a href="signal_ir.html#signal_ir.IrListenerConfig.fromDict.params.listenerDict">(signal_ir.IrListenerConfig.fromDict parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="key.html#gpiosvr.key.KeyHandlingConfig.params.longPressCommands">longPressCommands (gpiosvr.key.KeyHandlingConfig parameter)</a>
+</li>
+      <li><a href="key.html#gpiosvr.key.KeysConfig.longPressRepeatCount">longPressRepeatCount (gpiosvr.key.KeysConfig attribute)</a>
+
+      <ul>
+        <li><a href="key.html#gpiosvr.key.KeysConfig.params.longPressRepeatCount">(gpiosvr.key.KeysConfig parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="control.html#gpiosvr.control.GpioControl.params.loop">loop (gpiosvr.control.GpioControl parameter)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.loop">(gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputListener.params.loop">(gpiosvr.input.InputListener parameter)</a>
+</li>
+        <li><a href="picossa.html#gpiosvr.picossa.EdgeCallback.params.loop">(gpiosvr.picossa.EdgeCallback parameter)</a>
+</li>
         <li><a href="picossa.html#gpiosvr.picossa.PicoModem.params.loop">(gpiosvr.picossa.PicoModem parameter)</a>
 </li>
         <li><a href="picossa.html#gpiosvr.picossa.ResponseFuture.params.loop">(gpiosvr.picossa.ResponseFuture parameter)</a>
@@ -776,6 +1056,12 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="input.html#gpiosvr.input.CodeToKeysMapping.fromDict.params.mappingDict">mappingDict (gpiosvr.input.CodeToKeysMapping.fromDict parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.CodeToKeysMappings.params.mappings">mappings (gpiosvr.input.CodeToKeysMappings parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.CodeToKeysMappings.fromDict.params.mappingsDict">mappingsDict (gpiosvr.input.CodeToKeysMappings.fromDict parameter)</a>
+</li>
       <li><a href="signal_ir.html#signal_ir.IrPulse.MARK">MARK (signal_ir.IrPulse attribute)</a>
 </li>
       <li><a href="signal.html#gpiosvr.signal.MAX_BASE_PULSE_COUNT">MAX_BASE_PULSE_COUNT (in module gpiosvr.signal)</a>
@@ -783,16 +1069,24 @@
       <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.params.maxBasePulseCount">maxBasePulseCount (gpiosvr.signal.PulseEventIterator parameter)</a>
 
       <ul>
-        <li><a href="signal.html#gpiosvr.signal.SignalListener.params.maxBasePulseCount">(gpiosvr.signal.SignalListener parameter)</a>
+        <li><a href="signal.html#gpiosvr.signal.SignalListenerConfig.params.maxBasePulseCount">(gpiosvr.signal.SignalListenerConfig parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.maxErrorCount">maxErrorCount (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.InputServer.params.maxErrorCount">(gpiosvr.input.InputServer parameter)</a>
 </li>
       </ul></li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.fromDiscovery.params.maxRetryCount">maxRetryCount (gpiosvr.picossa.PicoSerialAdapter.fromDiscovery parameter)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalListener.params.mayInject">mayInject (gpiosvr.signal.SignalListener parameter)</a>
+      <li><a href="input.html#gpiosvr.input.InputListenerConfig.params.mayInject">mayInject (gpiosvr.input.InputListenerConfig parameter)</a>
 </li>
       <li><a href="picossa.html#gpiosvr.picossa.MessageId">MessageId (class in gpiosvr.picossa)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.params.minEdgeCount">minEdgeCount (gpiosvr.signal.SignalProtocolDescription parameter)</a>
+      <li><a href="signal.html#gpiosvr.signal.SignalParameters.params.minEdgeCount">minEdgeCount (gpiosvr.signal.SignalParameters parameter)</a>
+</li>
+      <li><a href="control.html#gpiosvr.control.GpioControl.params.modeType">modeType (gpiosvr.control.GpioControl parameter)</a>
 </li>
       <li>
     module
@@ -814,6 +1108,12 @@
 </li>
         <li><a href="client_pigs.html#module-gpiosvr.client_pigs">gpiosvr.client_pigs</a>
 </li>
+        <li><a href="control.html#module-gpiosvr.control">gpiosvr.control</a>
+</li>
+        <li><a href="input.html#module-gpiosvr.input">gpiosvr.input</a>
+</li>
+        <li><a href="key.html#module-gpiosvr.key">gpiosvr.key</a>
+</li>
         <li><a href="picossa.html#module-gpiosvr.picossa">gpiosvr.picossa</a>
 </li>
         <li><a href="picossa_pigs.html#module-gpiosvr.picossa_pigs">gpiosvr.picossa_pigs</a>
@@ -824,8 +1124,6 @@
 </li>
         <li><a href="uart.html#module-gpiosvr.uart">gpiosvr.uart</a>
 </li>
-        <li><a href="key.html#module-key">key</a>
-</li>
         <li><a href="led.html#module-led">led</a>
 </li>
         <li><a href="signal_button.html#module-signal_button">signal_button</a>
@@ -835,16 +1133,34 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.modulePrefix">modulePrefix (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.ExtensionHelper.find.params.modulePrefix">(gpiosvr.input.ExtensionHelper.find parameter)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputServerConfig.fromDict.params.modulePrefix">(gpiosvr.input.InputServerConfig.fromDict parameter)</a>
+</li>
+      </ul></li>
       <li><a href="signal.html#gpiosvr.signal.BitOrder.MSB_FIRST">MSB_FIRST (gpiosvr.signal.BitOrder attribute)</a>
 </li>
+      <li><a href="control.html#gpiosvr.control.GpioControl.params.msgBuffer">msgBuffer (gpiosvr.control.GpioControl parameter)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.msgBuffer">(gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputListener.params.msgBuffer">(gpiosvr.input.InputListener parameter)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputServer.params.msgBuffer">(gpiosvr.input.InputServer parameter)</a>
+</li>
+        <li><a href="signal.html#gpiosvr.signal.SignalListener.params.msgBuffer">(gpiosvr.signal.SignalListener parameter)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.params.name">name (gpiosvr.signal.SignalProtocolDescription parameter)</a>
-</li>
       <li><a href="signal_ir.html#signal_ir.IrProtocol.NEC">NEC (signal_ir.IrProtocol attribute)</a>
 </li>
       <li><a href="signal_ir.html#signal_ir.IrProtocol.NEC_Acer">NEC_Acer (signal_ir.IrProtocol attribute)</a>
@@ -853,7 +1169,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="client_picod.html#gpiosvr.client_picod.Status.NO_REPLY">NO_REPLY (gpiosvr.client_picod.Status attribute)</a>
 </li>
-      <li><a href="key.html#key.KeyType.NORMAL">NORMAL (key.KeyType attribute)</a>
+      <li><a href="control.html#gpiosvr.control.GpioControl.params.ns">ns (gpiosvr.control.GpioControl parameter)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.GpioFunction.NULL">NULL (gpiosvr.client_picod.GpioFunction attribute)</a>
 </li>
@@ -863,13 +1179,15 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="key.html#key.KeyEventServer.AltSignal.OFF">OFF (key.KeyEventServer.AltSignal attribute)</a>
+      <li><a href="key.html#gpiosvr.key.KeyEventServer.AltSignal.OFF">OFF (gpiosvr.key.KeyEventServer.AltSignal attribute)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.Status.OKAY">OKAY (gpiosvr.client_picod.Status attribute)</a>
 </li>
-      <li><a href="key.html#key.KeyEventServer.AltSignal.ON">ON (key.KeyEventServer.AltSignal attribute)</a>
+      <li><a href="key.html#gpiosvr.key.KeyEventServer.AltSignal.ON">ON (gpiosvr.key.KeyEventServer.AltSignal attribute)</a>
 </li>
       <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.onArtificialEdge">onArtificialEdge() (gpiosvr.signal.PulseEventIterator method)</a>
+</li>
+      <li><a href="key.html#gpiosvr.key.KeyHandlingConfig.params.onFailureCommands">onFailureCommands (gpiosvr.key.KeyHandlingConfig parameter)</a>
 </li>
       <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.onPulseInterruption">onPulseInterruption() (gpiosvr.signal.PulseEventIterator method)</a>
 
@@ -883,6 +1201,8 @@
 </li>
       <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.onSingleEdge">onSingleEdge() (gpiosvr.signal.PulseEventIterator method)</a>
 </li>
+      <li><a href="uart.html#gpiosvr.uart.UartContext.openChannels">openChannels() (gpiosvr.uart.UartContext method)</a>
+</li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.openInput">openInput() (gpiosvr.picossa.PicoSerialAdapter method)</a>
 </li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.pigpio.OUTPUT">OUTPUT (gpiosvr.client_pigpio.pigpio attribute)</a>
@@ -893,12 +1213,42 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.Purpose.PARAMS">PARAMS (gpiosvr.input.ExtensionHelper.Purpose attribute)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputListener.params.params">params (gpiosvr.input.InputListener parameter)</a>
+
+      <ul>
+        <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.params.params">(gpiosvr.signal.PulseEventIterator parameter)</a>
+</li>
+        <li><a href="signal.html#gpiosvr.signal.SignalListener.params.params">(gpiosvr.signal.SignalListener parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.paramsClass_">paramsClass_ (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.InputServerConfig.fromDict.params.paramsClass_">(gpiosvr.input.InputServerConfig.fromDict parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="uart.html#gpiosvr.uart.UartParameters.fromDict.params.paramsConfig">paramsConfig (gpiosvr.uart.UartParameters.fromDict parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputParameters.fromDict.params.paramsDict">paramsDict (gpiosvr.input.InputParameters.fromDict parameter)</a>
+
+      <ul>
+        <li><a href="signal.html#gpiosvr.signal.SignalParameters.fromDict.params.paramsDict">(gpiosvr.signal.SignalParameters.fromDict parameter)</a>
+</li>
+        <li><a href="signal_button.html#signal_button.ButtonParameters.fromDict.params.paramsDict">(signal_button.ButtonParameters.fromDict parameter)</a>
+</li>
+        <li><a href="signal_ir.html#signal_ir.IrParameters.fromDict.params.paramsDict">(signal_ir.IrParameters.fromDict parameter)</a>
+</li>
+      </ul></li>
       <li><a href="signal.html#gpiosvr.signal.PulseHelper.paramsToBitCount">paramsToBitCount() (gpiosvr.signal.PulseHelper static method)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.PicodApi.serial_open.params.parity">parity (gpiosvr.client_picod.PicodApi.serial_open parameter)</a>
 
       <ul>
         <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.parity">(gpiosvr.picossa.PicoSerialAdapter.serial_open parameter)</a>
+</li>
+        <li><a href="uart.html#gpiosvr.uart.UartParameters.params.parity">(gpiosvr.uart.UartParameters parameter)</a>
 </li>
       </ul></li>
       <li><a href="client_picod.html#gpiosvr.client_picod.Uart.PARITY_EVEN">PARITY_EVEN (gpiosvr.client_picod.Uart attribute)</a>
@@ -910,9 +1260,13 @@
       <li><a href="shell.html#gpiosvr.shell.GpioControlShell.addStandardArgs.params.parser">parser (gpiosvr.shell.GpioControlShell.addStandardArgs parameter)</a>
 
       <ul>
-        <li><a href="shell.html#gpiosvr.shell.GpioServiceControlShell.addStandardArgs.params.parser">(gpiosvr.shell.GpioServiceControlShell.addStandardArgs parameter)</a>
+        <li><a href="shell.html#gpiosvr.shell.GpioDaemonControlShell.addStandardArgs.params.parser">(gpiosvr.shell.GpioDaemonControlShell.addStandardArgs parameter)</a>
 </li>
       </ul></li>
+      <li><a href="picossa.html#gpiosvr.picossa.PAUSE_BEFORE_READING_DEFAULT_MS">PAUSE_BEFORE_READING_DEFAULT_MS (in module gpiosvr.picossa)</a>
+</li>
+      <li><a href="uart.html#gpiosvr.uart.UartParameters.params.pauseBeforeReading_ms">pauseBeforeReading_ms (gpiosvr.uart.UartParameters parameter)</a>
+</li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.pigpio.PI_SCRIPT_FAILED">PI_SCRIPT_FAILED (gpiosvr.client_pigpio.pigpio attribute)</a>
 </li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.pigpio.PI_SCRIPT_HALTED">PI_SCRIPT_HALTED (gpiosvr.client_pigpio.pigpio attribute)</a>
@@ -941,6 +1295,8 @@
 </li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi">PigpioMinimalApi (class in gpiosvr.client_pigpio)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.PigpioPwmApi">PigpioPwmApi (class in gpiosvr.client_pigpio)</a>
 </li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.PigpioScriptApi">PigpioScriptApi (class in gpiosvr.client_pigpio)</a>
@@ -953,29 +1309,27 @@
 </li>
       <li><a href="led.html#led.PiLedControl">PiLedControl (class in led)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="led.html#led.PiLedControl.pinsToColor">pinsToColor() (led.PiLedControl method)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.GpioFunction.PIO0">PIO0 (gpiosvr.client_picod.GpioFunction attribute)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.GpioFunction.PIO1">PIO1 (gpiosvr.client_picod.GpioFunction attribute)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.params.postamble_ms">postamble_ms (gpiosvr.signal.SignalProtocolDescription parameter)</a>
+      <li><a href="signal.html#gpiosvr.signal.SignalParameters.params.postamble_ms">postamble_ms (gpiosvr.signal.SignalParameters parameter)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.params.preamble_ms">preamble_ms (gpiosvr.signal.SignalProtocolDescription parameter)</a>
+      <li><a href="signal.html#gpiosvr.signal.SignalParameters.params.preamble_ms">preamble_ms (gpiosvr.signal.SignalParameters parameter)</a>
 </li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoReceiverThread.processBytes">processBytes() (gpiosvr.picossa.PicoReceiverThread method)</a>
 </li>
-      <li><a href="key.html#key.ProcessExecutingKeyEventServer">ProcessExecutingKeyEventServer (class in key)</a>
-</li>
-      <li><a href="signal.html#gpiosvr.signal.PulseEventIterator.params.protocol">protocol (gpiosvr.signal.PulseEventIterator parameter)</a>
+      <li><a href="control.html#gpiosvr.control.GpioControl.getPropertiesJson.params.propertiesListsEn">propertiesListsEn (gpiosvr.control.GpioControl.getPropertiesJson parameter)</a>
 
       <ul>
-        <li><a href="signal.html#gpiosvr.signal.SignalListener.params.protocol">(gpiosvr.signal.SignalListener parameter)</a>
+        <li><a href="control.html#gpiosvr.control.GpioControl.getPropertiesTextEn.params.propertiesListsEn">(gpiosvr.control.GpioControl.getPropertiesTextEn parameter)</a>
 </li>
       </ul></li>
-      <li><a href="signal.html#gpiosvr.signal.SignalConfig.params.protocolClass_">protocolClass_ (gpiosvr.signal.SignalConfig parameter)</a>
+      <li><a href="control.html#gpiosvr.control.GpioControl.params.propertyType">propertyType (gpiosvr.control.GpioControl parameter)</a>
+</li>
+      <li><a href="signal_ir.html#signal_ir.IrParameters.protocolName">protocolName (signal_ir.IrParameters attribute)</a>
 </li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.pigpio.PUD_DOWN">PUD_DOWN (gpiosvr.client_pigpio.pigpio attribute)</a>
 </li>
@@ -989,20 +1343,20 @@
 </li>
       <li><a href="signal.html#gpiosvr.signal.PulseEventIterator">PulseEventIterator (class in gpiosvr.signal)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalListener.pulseEventToKeyEvents.params.pulseEventOrKeyCodes">pulseEventOrKeyCodes (gpiosvr.signal.SignalListener.pulseEventToKeyEvents parameter)</a>
+      <li><a href="signal.html#gpiosvr.signal.SignalListener.pulseEventToInputEvents.params.pulseEventOrKeyCodes">pulseEventOrKeyCodes (gpiosvr.signal.SignalListener.pulseEventToInputEvents parameter)</a>
 
       <ul>
-        <li><a href="signal_button.html#signal_button.ButtonListener.pulseEventToKeyEvents.params.pulseEventOrKeyCodes">(signal_button.ButtonListener.pulseEventToKeyEvents parameter)</a>
+        <li><a href="signal_button.html#signal_button.ButtonListener.pulseEventToInputEvents.params.pulseEventOrKeyCodes">(signal_button.ButtonListener.pulseEventToInputEvents parameter)</a>
 </li>
-        <li><a href="signal_ir.html#signal_ir.IrListener.pulseEventToKeyEvents.params.pulseEventOrKeyCodes">(signal_ir.IrListener.pulseEventToKeyEvents parameter)</a>
+        <li><a href="signal_ir.html#signal_ir.IrListener.pulseEventToInputEvents.params.pulseEventOrKeyCodes">(signal_ir.IrListener.pulseEventToInputEvents parameter)</a>
 </li>
       </ul></li>
-      <li><a href="signal.html#gpiosvr.signal.SignalListener.pulseEventToKeyEvents">pulseEventToKeyEvents() (gpiosvr.signal.SignalListener method)</a>
+      <li><a href="signal.html#gpiosvr.signal.SignalListener.pulseEventToInputEvents">pulseEventToInputEvents() (gpiosvr.signal.SignalListener method)</a>
 
       <ul>
-        <li><a href="signal_button.html#signal_button.ButtonListener.pulseEventToKeyEvents">(signal_button.ButtonListener method)</a>
+        <li><a href="signal_button.html#signal_button.ButtonListener.pulseEventToInputEvents">(signal_button.ButtonListener method)</a>
 </li>
-        <li><a href="signal_ir.html#signal_ir.IrListener.pulseEventToKeyEvents">(signal_ir.IrListener method)</a>
+        <li><a href="signal_ir.html#signal_ir.IrListener.pulseEventToInputEvents">(signal_ir.IrListener method)</a>
 </li>
       </ul></li>
       <li><a href="signal.html#gpiosvr.signal.PulseHelper">PulseHelper (class in gpiosvr.signal)</a>
@@ -1010,12 +1364,14 @@
       <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToBasePulseCount.params.pulses_μs">pulses_μs (gpiosvr.signal.PulseHelper.sequenceToBasePulseCount parameter)</a>
 
       <ul>
-        <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.pulses_μs">(gpiosvr.signal.PulseHelper.sequenceToHexCodes parameter)</a>
+        <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToScanCodes.params.pulses_μs">(gpiosvr.signal.PulseHelper.sequenceToScanCodes parameter)</a>
 </li>
       </ul></li>
       <li><a href="signal.html#gpiosvr.signal.PulsesInterrupted">PulsesInterrupted (class in gpiosvr.signal)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToHexCodes.params.pulseStartLevel">pulseStartLevel (gpiosvr.signal.PulseHelper.sequenceToHexCodes parameter)</a>
+      <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToScanCodes.params.pulseStartLevel">pulseStartLevel (gpiosvr.signal.PulseHelper.sequenceToScanCodes parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.find.params.purposes">purposes (gpiosvr.input.ExtensionHelper.find parameter)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.Pwm">Pwm (class in gpiosvr.client_picod)</a>
 </li>
@@ -1041,12 +1397,38 @@
         <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.read">(gpiosvr.picossa.PicoSerialAdapter method)</a>
 </li>
       </ul></li>
+      <li><a href="picossa.html#gpiosvr.picossa.READ_BUFFER_BYTES_DEFAULT">READ_BUFFER_BYTES_DEFAULT (in module gpiosvr.picossa)</a>
+</li>
+      <li><a href="picossa.html#gpiosvr.picossa.READ_DELIMITER_DEFAULT">READ_DELIMITER_DEFAULT (in module gpiosvr.picossa)</a>
+</li>
+      <li><a href="picossa.html#gpiosvr.picossa.READ_DELIMITER_MIN_COUNT_DEFAULT">READ_DELIMITER_MIN_COUNT_DEFAULT (in module gpiosvr.picossa)</a>
+</li>
+      <li><a href="picossa.html#gpiosvr.picossa.READ_TIMEOUT_DEFAULT_MS">READ_TIMEOUT_DEFAULT_MS (in module gpiosvr.picossa)</a>
+</li>
+      <li><a href="uart.html#gpiosvr.uart.UartParameters.params.readBufferBytes">readBufferBytes (gpiosvr.uart.UartParameters parameter)</a>
+</li>
+      <li><a href="uart.html#gpiosvr.uart.UartParameters.params.readDelimiter">readDelimiter (gpiosvr.uart.UartParameters parameter)</a>
+</li>
+      <li><a href="uart.html#gpiosvr.uart.UartParameters.params.readDelimiterMinCount">readDelimiterMinCount (gpiosvr.uart.UartParameters parameter)</a>
+</li>
+      <li><a href="uart.html#gpiosvr.uart.UartParameters.params.readTimeout_ms">readTimeout_ms (gpiosvr.uart.UartParameters parameter)</a>
+</li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoModem.removeEdgeCallback">removeEdgeCallback() (gpiosvr.picossa.PicoModem method)</a>
+</li>
+      <li><a href="signal_button.html#signal_button.ButtonListener.repeat_ms">repeat_ms (signal_button.ButtonListener attribute)</a>
+
+      <ul>
+        <li><a href="signal_button.html#signal_button.ButtonListenerConfig.repeat_ms">(signal_button.ButtonListenerConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="input.html#gpiosvr.input.InputEvent.repeatCount">repeatCount (gpiosvr.input.InputEvent attribute)</a>
 </li>
       <li><a href="client.html#gpiosvr.client.RequestDelimiters">RequestDelimiters (class in gpiosvr.client)</a>
 </li>
       <li><a href="picossa.html#gpiosvr.picossa.RequestType">RequestType (class in gpiosvr.picossa)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="picossa.html#gpiosvr.picossa.ResponseFuture.params.requestType">requestType (gpiosvr.picossa.ResponseFuture parameter)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.PicodApi.reset">reset() (gpiosvr.client_picod.PicodApi method)</a>
@@ -1065,8 +1447,6 @@
         <li><a href="picossa.html#gpiosvr.picossa.PicoReceiverThread.params.responseFutures">(gpiosvr.picossa.PicoReceiverThread parameter)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="picossa.html#gpiosvr.picossa.PicoModem.params.responseTimeout_ms">responseTimeout_ms (gpiosvr.picossa.PicoModem parameter)</a>
 
       <ul>
@@ -1117,7 +1497,7 @@
 </li>
       <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToBasePulseCount">sequenceToBasePulseCount() (gpiosvr.signal.PulseHelper static method)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToHexCodes">sequenceToHexCodes() (gpiosvr.signal.PulseHelper static method)</a>
+      <li><a href="signal.html#gpiosvr.signal.PulseHelper.sequenceToScanCodes">sequenceToScanCodes() (gpiosvr.signal.PulseHelper static method)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.PicodApi.serial_close">serial_close() (gpiosvr.client_picod.PicodApi method)</a>
 
@@ -1151,7 +1531,23 @@
       </ul></li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoReceiverThread.params.serialReadBufferBytes">serialReadBufferBytes (gpiosvr.picossa.PicoReceiverThread parameter)</a>
 </li>
-      <li><a href="key.html#key.KeyEventServer.serve_forever">serve_forever() (key.KeyEventServer method)</a>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.Purpose.SERVER">SERVER (gpiosvr.input.ExtensionHelper.Purpose attribute)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.Purpose.SERVER_CONFIG">SERVER_CONFIG (gpiosvr.input.ExtensionHelper.Purpose attribute)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.serverClass_">serverClass_ (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.InputServerConfig.params.serverClass_">(gpiosvr.input.InputServerConfig parameter)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputServerConfig.fromDict.params.serverClass_">(gpiosvr.input.InputServerConfig.fromDict parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.serverConfig">serverConfig (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.ExtensionHelper.createInputServers.params.serverConfigClass_">serverConfigClass_ (gpiosvr.input.ExtensionHelper.createInputServers parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputServerConfig.fromDict.params.serverConfigDict">serverConfigDict (gpiosvr.input.InputServerConfig.fromDict parameter)</a>
 </li>
       <li><a href="client.html#gpiosvr.client.Response.set_exception">set_exception() (gpiosvr.client.Response method)</a>
 
@@ -1185,6 +1581,8 @@
 </li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.PigpioPwmApi.set_PWM_frequency">set_PWM_frequency() (gpiosvr.client_pigpio.PigpioPwmApi method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.PigpioPwmApi.set_PWM_range">set_PWM_range() (gpiosvr.client_pigpio.PigpioPwmApi method)</a>
 </li>
       <li><a href="client.html#gpiosvr.client.Response.set_result">set_result() (gpiosvr.client.Response method)</a>
@@ -1193,8 +1591,6 @@
         <li><a href="picossa.html#gpiosvr.picossa.ResponseFuture.set_result">(gpiosvr.picossa.ResponseFuture method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.PigpioCallbackApi.set_watchdog">set_watchdog() (gpiosvr.client_pigpio.PigpioCallbackApi method)</a>
 
       <ul>
@@ -1208,6 +1604,8 @@
 </li>
       </ul></li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.setDirection">setDirection() (gpiosvr.picossa.PicoSerialAdapter method)</a>
+</li>
+      <li><a href="key.html#gpiosvr.key.KeyHandlingConfig.params.shortPressCommands">shortPressCommands (gpiosvr.key.KeyHandlingConfig parameter)</a>
 </li>
       <li>
     signal_button
@@ -1223,17 +1621,13 @@
         <li><a href="signal_ir.html#module-signal_ir">module</a>
 </li>
       </ul></li>
-      <li><a href="signal.html#gpiosvr.signal.SignalConfig">SignalConfig (class in gpiosvr.signal)</a>
-</li>
-      <li><a href="signal.html#gpiosvr.signal.SignalConfig.params.signalConfig">signalConfig (gpiosvr.signal.SignalConfig parameter)</a>
-</li>
-      <li><a href="signal.html#gpiosvr.signal.SignalListenerConfig.params.signaListenerConfig">signaListenerConfig (gpiosvr.signal.SignalListenerConfig parameter)</a>
-</li>
       <li><a href="signal.html#gpiosvr.signal.SignalListener">SignalListener (class in gpiosvr.signal)</a>
 </li>
       <li><a href="signal.html#gpiosvr.signal.SignalListenerConfig">SignalListenerConfig (class in gpiosvr.signal)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription">SignalProtocolDescription (class in gpiosvr.signal)</a>
+      <li><a href="signal.html#gpiosvr.signal.SignalParameters">SignalParameters (class in gpiosvr.signal)</a>
+</li>
+      <li><a href="signal.html#gpiosvr.signal.SignalServer">SignalServer (class in gpiosvr.signal)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.PicodApi.sleep">sleep() (gpiosvr.client_picod.PicodApi method)</a>
 
@@ -1246,6 +1640,8 @@
       <li><a href="signal_ir.html#signal_ir.IrPulse.SPACE">SPACE (signal_ir.IrPulse attribute)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.GpioFunction.SPI">SPI (gpiosvr.client_picod.GpioFunction attribute)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputEvent.START">START (gpiosvr.input.InputEvent attribute)</a>
 </li>
       <li><a href="led.html#led.PiLedControl.start">start() (led.PiLedControl method)</a>
 </li>
@@ -1269,6 +1665,8 @@
         <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.stop_bits">(gpiosvr.picossa.PicoSerialAdapter.serial_open parameter)</a>
 </li>
       </ul></li>
+      <li><a href="uart.html#gpiosvr.uart.UartParameters.params.stopBitCount">stopBitCount (gpiosvr.uart.UartParameters parameter)</a>
+</li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.PigpioScriptApi.store_script">store_script() (gpiosvr.client_pigpio.PigpioScriptApi method)</a>
 
       <ul>
@@ -1307,16 +1705,26 @@
 </li>
       <li><a href="client_pigpio.html#gpiosvr.client_pigpio.pigpio.TIMEOUT">TIMEOUT (gpiosvr.client_pigpio.pigpio attribute)</a>
 </li>
-      <li><a href="key.html#key.KeyEventServer.AltSignal.TOGGLE">TOGGLE (key.KeyEventServer.AltSignal attribute)</a>
+      <li><a href="input.html#gpiosvr.input.InputEvent.timestamp_s">timestamp_μs (gpiosvr.input.InputEvent attribute)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.InputEvent.params.timestamp_μs">(gpiosvr.input.InputEvent parameter)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyEvent.timestamp_s">(gpiosvr.key.KeyEvent attribute)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyEvent.params.timestamp_μs">(gpiosvr.key.KeyEvent parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="key.html#gpiosvr.key.KeyEventServer.AltSignal.TOGGLE">TOGGLE (gpiosvr.key.KeyEventServer.AltSignal attribute)</a>
 </li>
       <li><a href="signal.html#gpiosvr.signal.TOLERANCE_PERCENTAGE_DEFAULT">TOLERANCE_PERCENTAGE_DEFAULT (in module gpiosvr.signal)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="signal.html#gpiosvr.signal.SignalProtocolDescription.params.tolerancePercentage">tolerancePercentage (gpiosvr.signal.SignalProtocolDescription parameter)</a>
+      <li><a href="signal.html#gpiosvr.signal.SignalParameters.params.tolerancePercentage">tolerancePercentage (gpiosvr.signal.SignalParameters parameter)</a>
+
+      <ul>
+        <li><a href="signal_ir.html#signal_ir.IrBaseType.tolerancePercentage">(signal_ir.IrBaseType attribute)</a>
 </li>
-      <li><a href="signal.html#gpiosvr.signal.SignalConfig.params.topic">topic (gpiosvr.signal.SignalConfig parameter)</a>
-</li>
+      </ul></li>
       <li><a href="led.html#led.BlinkstickLedControl.turnOff">turnOff() (led.BlinkstickLedControl method)</a>
 
       <ul>
@@ -1329,15 +1737,55 @@
         <li><a href="led.html#led.PiLedControl.turnOffAfterTimeout">(led.PiLedControl method)</a>
 </li>
       </ul></li>
-      <li><a href="key.html#key.KeyEventServer.turnOffLed">turnOffLed() (key.KeyEventServer method)</a>
-</li>
-      <li><a href="key.html#key.KeyEventServer.turnOnLed">turnOnLed() (key.KeyEventServer method)</a>
-</li>
       <li><a href="client_picod.html#gpiosvr.client_picod.PicodApi.serial_open.params.tx">tx (gpiosvr.client_picod.PicodApi.serial_open parameter)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="client_picod.html#gpiosvr.client_picod.Uart.TX">TX (gpiosvr.client_picod.Uart attribute)</a>
 </li>
       <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.tx">tx (gpiosvr.picossa.PicoSerialAdapter.serial_open parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputEvent.type">type (gpiosvr.input.InputEvent attribute)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.InputEvent.params.type">(gpiosvr.input.InputEvent parameter)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyEvent.type">(gpiosvr.key.KeyEvent attribute)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyEvent.params.type">(gpiosvr.key.KeyEvent parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="input.html#gpiosvr.input.CodeToKeysMappings.params.typeName">typeName (gpiosvr.input.CodeToKeysMappings parameter)</a>
+
+      <ul>
+        <li><a href="input.html#gpiosvr.input.CodeToKeysMappings.fromDict.params.typeName">(gpiosvr.input.CodeToKeysMappings.fromDict parameter)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputEvent.params.typeName">(gpiosvr.input.InputEvent parameter)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputListenerConfig.params.typeName">(gpiosvr.input.InputListenerConfig parameter)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputListenerConfig.fromDict.params.typeName">(gpiosvr.input.InputListenerConfig.fromDict parameter)</a>
+</li>
+        <li><a href="input.html#gpiosvr.input.InputParameters.params.typeName">(gpiosvr.input.InputParameters parameter)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyEvent.params.typeName">(gpiosvr.key.KeyEvent parameter)</a>
+</li>
+        <li><a href="key.html#gpiosvr.key.KeyHandlingConfig.params.typeName">(gpiosvr.key.KeyHandlingConfig parameter)</a>
+</li>
+        <li><a href="signal.html#gpiosvr.signal.SignalListenerConfig.fromDict.params.typeName">(gpiosvr.signal.SignalListenerConfig.fromDict parameter)</a>
+</li>
+        <li><a href="signal.html#gpiosvr.signal.SignalParameters.params.typeName">(gpiosvr.signal.SignalParameters parameter)</a>
+</li>
+        <li><a href="signal_button.html#signal_button.ButtonListenerConfig.fromDict.params.typeName">(signal_button.ButtonListenerConfig.fromDict parameter)</a>
+</li>
+        <li><a href="signal_ir.html#signal_ir.IrListenerConfig.fromDict.params.typeName">(signal_ir.IrListenerConfig.fromDict parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="input.html#gpiosvr.input.InputServerConfig.params.typeToKeysMappings">typeToKeysMappings (gpiosvr.input.InputServerConfig parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputServerConfig.params.typeToListenerConfigs">typeToListenerConfigs (gpiosvr.input.InputServerConfig parameter)</a>
+</li>
+      <li><a href="input.html#gpiosvr.input.InputServerConfig.params.typeToParams">typeToParams (gpiosvr.input.InputServerConfig parameter)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1349,21 +1797,21 @@
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.GpioFunction.UART">UART (gpiosvr.client_picod.GpioFunction attribute)</a>
 </li>
-      <li><a href="picossa.html#gpiosvr.picossa.UART_PAUSE_BEFORE_READING_DEFAULT_MS">UART_PAUSE_BEFORE_READING_DEFAULT_MS (in module gpiosvr.picossa)</a>
+      <li><a href="uart.html#gpiosvr.uart.UartConfig">UartConfig (class in gpiosvr.uart)</a>
 </li>
-      <li><a href="picossa.html#gpiosvr.picossa.UART_READ_BUFFER_BYTES_DEFAULT">UART_READ_BUFFER_BYTES_DEFAULT (in module gpiosvr.picossa)</a>
+      <li><a href="picossa_pigs.html#gpiosvr.picossa_pigs.PigsExecutor.params.uartConfig">uartConfig (gpiosvr.picossa_pigs.PigsExecutor parameter)</a>
+
+      <ul>
+        <li><a href="picossa_pigs.html#gpiosvr.picossa_pigs.PigsScript.params.uartConfig">(gpiosvr.picossa_pigs.PigsScript parameter)</a>
 </li>
-      <li><a href="picossa.html#gpiosvr.picossa.UART_READ_DELIMITER_DEFAULT">UART_READ_DELIMITER_DEFAULT (in module gpiosvr.picossa)</a>
+        <li><a href="uart.html#gpiosvr.uart.UartConfig.params.uartConfig">(gpiosvr.uart.UartConfig parameter)</a>
 </li>
-      <li><a href="picossa.html#gpiosvr.picossa.UART_READ_DELIMITER_MIN_COUNT_DEFAULT">UART_READ_DELIMITER_MIN_COUNT_DEFAULT (in module gpiosvr.picossa)</a>
+        <li><a href="uart.html#gpiosvr.uart.UartContext.fromConfig.params.uartConfig">(gpiosvr.uart.UartContext.fromConfig parameter)</a>
 </li>
-      <li><a href="picossa.html#gpiosvr.picossa.UART_READ_TIMEOUT_DEFAULT_MS">UART_READ_TIMEOUT_DEFAULT_MS (in module gpiosvr.picossa)</a>
-</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="picossa_pigs.html#gpiosvr.picossa_pigs.PigsScript.params.uartConfig">uartConfig (gpiosvr.picossa_pigs.PigsScript parameter)</a>
-</li>
-      <li><a href="uart.html#gpiosvr.uart.UartParameters.params.uartParameterConfig">uartParameterConfig (gpiosvr.uart.UartParameters parameter)</a>
+      <li><a href="uart.html#gpiosvr.uart.UartContext">UartContext (class in gpiosvr.uart)</a>
 </li>
       <li><a href="uart.html#gpiosvr.uart.UartParameters">UartParameters (class in gpiosvr.uart)</a>
 </li>
@@ -1373,9 +1821,11 @@
         <li><a href="picossa.html#gpiosvr.picossa.PicoSerialAdapter.uid">(gpiosvr.picossa.PicoSerialAdapter method)</a>
 </li>
       </ul></li>
+      <li><a href="input.html#gpiosvr.input.InputServer.params.uInput">uInput (gpiosvr.input.InputServer parameter)</a>
+</li>
       <li><a href="gpio_server.html#gpiosvr.bin.gpio_server.UnixSocketServer">UnixSocketServer (class in gpiosvr.bin.gpio_server)</a>
 </li>
-      <li><a href="key.html#key.KeyEvent.UP">UP (key.KeyEvent attribute)</a>
+      <li><a href="key.html#gpiosvr.key.KeyEvent.UP">UP (gpiosvr.key.KeyEvent attribute)</a>
 </li>
       <li><a href="client_picod.html#gpiosvr.client_picod.GpioFunction.USB">USB (gpiosvr.client_picod.GpioFunction attribute)</a>
 </li>
@@ -1385,10 +1835,10 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="signal.html#gpiosvr.signal.SignalListener.waitForKeyEvents">waitForKeyEvents() (gpiosvr.signal.SignalListener method)</a>
+      <li><a href="input.html#gpiosvr.input.InputListener.waitForInputEvents">waitForInputEvents() (gpiosvr.input.InputListener method)</a>
 
       <ul>
-        <li><a href="key.html#key.KeyEventListener.waitForKeyEvents">(key.KeyEventListener method)</a>
+        <li><a href="signal.html#gpiosvr.signal.SignalListener.waitForInputEvents">(gpiosvr.signal.SignalListener method)</a>
 </li>
       </ul></li>
   </ul></td>

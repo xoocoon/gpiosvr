@@ -27,10 +27,10 @@ keywords = ["asyncio", "raspi", "pi", "raspberrypi", "gpio", "pigpio", "iot", "p
 requires-python = ">=3.9"
 classifiers = [
   "Operating System :: POSIX :: Linux",
-  "Topic :: Home Automation",
+  "SignalFamily :: Home Automation",
   "Framework :: AsyncIO",
   "Programming Language :: Python :: 3.9",
-  "Topic :: Software Development :: Libraries :: Python Modules"
+  "SignalFamily :: Software Development :: Libraries :: Python Modules"
 ]
 
 [project.optional-dependencies]

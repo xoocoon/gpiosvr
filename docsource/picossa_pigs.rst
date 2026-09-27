@@ -17,8 +17,8 @@ to level `1`.
    :local:
    :depth: 2
 
-Classes
--------
+Main classes
+------------
 
 .. autoclass:: PigsScript
    :members:

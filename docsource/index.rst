@@ -8,9 +8,35 @@ Welcome to gpiosvr's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
-   
-   modules
+   :caption: Common modules:
+
+   control
+   shell
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Server-side modules:
+
+   picossa
+   picossa_pigs
+   input
+   signal
+   uart
+   key
+   gpio_server
+   key_monitor
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Client-side modules:
+
+   client
+   client_pigpio
+   client_pigs
+   client_picod
+   pigs
+   leds
+
 
 Indices and tables
 ==================

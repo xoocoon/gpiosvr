@@ -7,62 +7,42 @@ signal module
    :local:
    :depth: 2
 
-.. _configuration:
+.. _signal-extension:
+
+Extension mechanism
+-------------------
+
+Custom signal listeners can be created based on the extension mechanism
+described for the :ref:`input <input-extension>` module.
+
+Existing extensions are:
+
+    * :mod:`~.signal_button` for physical buttons
+    * :mod:`~.signal_ir` for infrared protocols (currently only RC6 MCE)
+
+The default implementation of :class:`~.SignalListener` supports signal types
+with fixed or variable pulse lengths or single edges.
+
+.. signal-configuration:
 
 Configuration classes
 ---------------------
 
-The classes in this section evaluate and hold configurations for signal 
-protocols, signal listeners and GPIO mappings. They can be easily initialized 
-with `dict` instances, e.g. read from JSON files. 
+The signal configuration classes are based on the corresponding classes from
+the :ref:`input <input-configuration>` module.
 
-Auto-discovering and parsing JSON files are out of scope for
-:mod:`gpiosvr.signal`. See the :mod:`ctlbase` package instead. 
-The following is a sample JSON representation of a signal configuration::
-
-   {
-     "evdevName": "pi-sig-injector",
-     "gpios": {
-       "25": "door-bell"
-     },
-     "signalProtocols": {
-       "door-bell": {
-         "basePulse_μs": 9000,
-         "basePulseCount": 5,
-         "codeStartBit": 1,
-         "preamble_ms": 10,
-         "postamble_ms": 12,
-         "tolerancePercentage": 30,
-         "debounce_μs": 600,
-         "signalListener": {
-           "mayInject": false
-         },
-         "keys": {
-           "0x1f": {
-             "keyName": "KEY_SOUND"
-           }
-         }
-       }
-     }
-   }
-
-
-.. autoclass:: SignalConfig
+.. autoclass:: SignalParameters
    :members:
    :special-members: __init__
-
-.. autoclass:: SignalProtocolDescription
-   :members:
-   :special-members: __init__
+   :show-inheritance:
 
 .. autoclass:: SignalListenerConfig
    :members:
-   :member-order: bysource
    :special-members: __init__
+   :show-inheritance:
 
-
-Pulse event classes
--------------------
+Main classes
+------------
 
 .. autoclass:: PulseEvent
    :members:
@@ -74,11 +54,17 @@ Pulse event classes
 .. autoclass:: PulseEventIterator
    :members:
    :special-members: __init__
+   :show-inheritance:
 
 .. autoclass:: SignalListener
    :members:
-   :member-order: bysource
    :special-members: __init__
+   :show-inheritance:
+
+.. autoclass:: SignalServer
+   :members:
+   :special-members: __init__
+   :show-inheritance:
 
 Constants and defaults
 ----------------------
