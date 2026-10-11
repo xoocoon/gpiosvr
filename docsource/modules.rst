@@ -5,19 +5,24 @@ gpiosvr
    :maxdepth: 4
    :caption: Common modules:
 
-   key
    control
    shell
+   api_pigpio
+   api_picod
 
 .. toctree::
    :maxdepth: 4
    :caption: Server-side modules:
 
+   backend
    picossa
    picossa_pigs
    input
    signal
+   signal_button
+   signal_ir
    uart
+   key
    gpio_server
    key_monitor
 
@@ -26,8 +31,6 @@ gpiosvr
    :caption: Client-side modules:
 
    client
-   client_pigpio
    client_pigs
-   client_picod
    pigs
    leds

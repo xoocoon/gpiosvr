@@ -20,8 +20,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="client_picod module" href="client_picod.html" />
-    <link rel="prev" title="client_pigpio module" href="client_pigpio.html" /> 
+    <link rel="next" title="pigs executable" href="pigs.html" />
+    <link rel="prev" title="client module" href="client.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,24 +45,28 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Common modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="control.html">control module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_pigpio.html">api_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_picod.html">api_picod module</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="backend.html">backend module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input.html">input module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_button.html">signal_button module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_ir.html">signal_ir module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">client_pigs module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gpiosvr.client_pigs.PigpioSocketClient"><code class="docutils literal notranslate"><span class="pre">PigpioSocketClient</span></code></a><ul>
@@ -83,7 +87,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
@@ -118,7 +121,9 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.client_pigs.</span></span><span class="sig-name descname"><span class="pre">PigpioSocketClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socketPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectTimeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">responseBufferSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">responseTimeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isKeepAlive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pigpioPigsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="client.html#gpiosvr.client.SocketClient" title="gpiosvr.client.SocketClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">SocketClient</span></code></a>, <a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi" title="gpiosvr.client_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a>, <a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioScriptApi" title="gpiosvr.client_pigpio.PigpioScriptApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioScriptApi</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="client.html#gpiosvr.client.SocketClient" title="gpiosvr.client.SocketClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">SocketClient</span></code></a>, <a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioMinimalApi" title="gpiosvr.api_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a>, <a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioScriptApi" title="gpiosvr.api_pigpio.PigpioScriptApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioScriptApi</span></code></a></p>
+<p>A client for a GPIO server, implementing <a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioMinimalApi" title="gpiosvr.api_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a> and
+<a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioScriptApi" title="gpiosvr.api_pigpio.PigpioScriptApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioScriptApi</span></code></a>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.set_mode">
 <em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gpio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.set_mode" title="Link to this definition"></a></dt>
@@ -192,7 +197,7 @@
 <dt class="sig sig-object py" id="gpiosvr.client_pigs.PigpioSocketClient.stop">
 <span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.client_pigs.PigpioSocketClient.stop" title="Link to this definition"></a></dt>
 <dd><p>A non-async variant of <code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code> for 
-compatibility with <a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi" title="gpiosvr.client_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a>.</p>
+compatibility with <a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioMinimalApi" title="gpiosvr.api_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -204,8 +209,8 @@ compatibility with <a class="reference internal" href="client_pigpio.html#gpiosv
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="client_pigpio.html" class="btn btn-neutral float-left" title="client_pigpio module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="client_picod.html" class="btn btn-neutral float-right" title="client_picod module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="client.html" class="btn btn-neutral float-left" title="client module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pigs.html" class="btn btn-neutral float-right" title="pigs executable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

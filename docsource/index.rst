@@ -12,15 +12,20 @@ Welcome to gpiosvr's documentation!
 
    control
    shell
+   api_pigpio
+   api_picod
 
 .. toctree::
    :maxdepth: 2
    :caption: Server-side modules:
 
+   backend
    picossa
    picossa_pigs
    input
    signal
+   signal_button
+   signal_ir
    uart
    key
    gpio_server
@@ -31,9 +36,7 @@ Welcome to gpiosvr's documentation!
    :caption: Client-side modules:
 
    client
-   client_pigpio
    client_pigs
-   client_picod
    pigs
    leds
 

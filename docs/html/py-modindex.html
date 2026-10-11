@@ -21,6 +21,10 @@
     <link rel="search" title="Search" href="search.html" />
  
 
+    <script>
+      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
+    </script>
+
 
 </head>
 
@@ -47,13 +51,18 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="control.html">control module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_pigpio.html">api_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_picod.html">api_picod module</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="backend.html">backend module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input.html">input module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_button.html">signal_button module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_ir.html">signal_ir module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
@@ -62,9 +71,7 @@
 <p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
@@ -96,20 +103,44 @@
    <h1>Python Module Index</h1>
 
    <div class="modindex-jumpbox">
-   <a href="#cap-g"><strong>g</strong></a> | 
+   <a href="#cap-a"><strong>a</strong></a> | 
+   <a href="#cap-b"><strong>b</strong></a> | 
+   <a href="#cap-c"><strong>c</strong></a> | 
+   <a href="#cap-i"><strong>i</strong></a> | 
+   <a href="#cap-k"><strong>k</strong></a> | 
    <a href="#cap-l"><strong>l</strong></a> | 
-   <a href="#cap-s"><strong>s</strong></a>
+   <a href="#cap-p"><strong>p</strong></a> | 
+   <a href="#cap-s"><strong>s</strong></a> | 
+   <a href="#cap-u"><strong>u</strong></a>
    </div>
 
    <table class="indextable modindextable">
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-g"><td></td><td>
-       <strong>g</strong></td><td></td></tr>
+     <tr class="cap" id="cap-a"><td></td><td>
+       <strong>a</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="api_picod.html#module-gpiosvr.api_picod"><code class="xref">gpiosvr.api_picod</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="api_pigpio.html#module-gpiosvr.api_pigpio"><code class="xref">gpiosvr.api_pigpio</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-b"><td></td><td>
+       <strong>b</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="backend.html#module-gpiosvr.backend"><code class="xref">gpiosvr.backend</code></a></td><td>
+       <em></em></td></tr>
      <tr>
        <td><img src="_static/minus.png" class="toggler"
               id="toggle-1" style="display: none" alt="-" /></td>
        <td>
-       <code class="xref">gpiosvr</code></td><td>
+       <code class="xref">gpiosvr.bin</code></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
@@ -131,65 +162,39 @@
        <td>&#160;&#160;&#160;
        <a href="pigs.html#module-gpiosvr.bin.pigs"><code class="xref">gpiosvr.bin.pigs</code></a></td><td>
        <em></em></td></tr>
-     <tr class="cg-1">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-c"><td></td><td>
+       <strong>c</strong></td><td></td></tr>
+     <tr>
        <td></td>
-       <td>&#160;&#160;&#160;
+       <td>
        <a href="client.html#module-gpiosvr.client"><code class="xref">gpiosvr.client</code></a></td><td>
        <em></em></td></tr>
-     <tr class="cg-1">
+     <tr>
        <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="client_picod.html#module-gpiosvr.client_picod"><code class="xref">gpiosvr.client_picod</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="client_pigpio.html#module-gpiosvr.client_pigpio"><code class="xref">gpiosvr.client_pigpio</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
+       <td>
        <a href="client_pigs.html#module-gpiosvr.client_pigs"><code class="xref">gpiosvr.client_pigs</code></a></td><td>
        <em></em></td></tr>
-     <tr class="cg-1">
+     <tr>
        <td></td>
-       <td>&#160;&#160;&#160;
+       <td>
        <a href="control.html#module-gpiosvr.control"><code class="xref">gpiosvr.control</code></a></td><td>
        <em></em></td></tr>
-     <tr class="cg-1">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-i"><td></td><td>
+       <strong>i</strong></td><td></td></tr>
+     <tr>
        <td></td>
-       <td>&#160;&#160;&#160;
+       <td>
        <a href="input.html#module-gpiosvr.input"><code class="xref">gpiosvr.input</code></a></td><td>
        <em></em></td></tr>
-     <tr class="cg-1">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-k"><td></td><td>
+       <strong>k</strong></td><td></td></tr>
+     <tr>
        <td></td>
-       <td>&#160;&#160;&#160;
+       <td>
        <a href="key.html#module-gpiosvr.key"><code class="xref">gpiosvr.key</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="picossa.html#module-gpiosvr.picossa"><code class="xref">gpiosvr.picossa</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="picossa_pigs.html#module-gpiosvr.picossa_pigs"><code class="xref">gpiosvr.picossa_pigs</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="shell.html#module-gpiosvr.shell"><code class="xref">gpiosvr.shell</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="signal.html#module-gpiosvr.signal"><code class="xref">gpiosvr.signal</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="uart.html#module-gpiosvr.uart"><code class="xref">gpiosvr.uart</code></a></td><td>
        <em></em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-l"><td></td><td>
@@ -197,7 +202,20 @@
      <tr>
        <td></td>
        <td>
-       <a href="led.html#module-led"><code class="xref">led</code></a></td><td>
+       <a href="led.html#module-gpiosvr.led"><code class="xref">gpiosvr.led</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-p"><td></td><td>
+       <strong>p</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="picossa.html#module-gpiosvr.picossa"><code class="xref">gpiosvr.picossa</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="picossa_pigs.html#module-gpiosvr.picossa_pigs"><code class="xref">gpiosvr.picossa_pigs</code></a></td><td>
        <em></em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-s"><td></td><td>
@@ -205,12 +223,30 @@
      <tr>
        <td></td>
        <td>
-       <a href="signal_button.html#module-signal_button"><code class="xref">signal_button</code></a></td><td>
+       <a href="shell.html#module-gpiosvr.shell"><code class="xref">gpiosvr.shell</code></a></td><td>
        <em></em></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="signal_ir.html#module-signal_ir"><code class="xref">signal_ir</code></a></td><td>
+       <a href="signal.html#module-gpiosvr.signal"><code class="xref">gpiosvr.signal</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="signal_button.html#module-gpiosvr.signal_button"><code class="xref">gpiosvr.signal_button</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="signal_ir.html#module-gpiosvr.signal_ir"><code class="xref">gpiosvr.signal_ir</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-u"><td></td><td>
+       <strong>u</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="uart.html#module-gpiosvr.uart"><code class="xref">gpiosvr.uart</code></a></td><td>
        <em></em></td></tr>
    </table>
 

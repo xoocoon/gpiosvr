@@ -45,12 +45,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Common modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="control.html">control module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_pigpio.html">api_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_picod.html">api_picod module</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backend.html">backend module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">input module</a><ul>
@@ -58,6 +60,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#input-type">Input type</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#scan-code">Scan code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#input-family">Input family</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alternate-mode">Alternate mode</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#extension-mechanism">Extension mechanism</a></li>
@@ -65,35 +68,55 @@
 <li class="toctree-l3"><a class="reference internal" href="#gpiosvr.input.InputParameters"><code class="docutils literal notranslate"><span class="pre">InputParameters</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputParameters.__init__"><code class="docutils literal notranslate"><span class="pre">InputParameters.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputParameters.fromDict"><code class="docutils literal notranslate"><span class="pre">InputParameters.fromDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputParameters.typeName"><code class="docutils literal notranslate"><span class="pre">InputParameters.typeName</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMapping</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.__init__"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMapping.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.fromDict"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMapping.fromDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.alias"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMapping.alias</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.altKeyNames"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMapping.altKeyNames</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.code"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMapping.code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.isEnabled"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMapping.isEnabled</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.keyNames"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMapping.keyNames</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMappings"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMappings</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMappings.__init__"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMappings.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMappings.fromDict"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMappings.fromDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMappings.getScanCode"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMappings.getScanCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMappings.getUInputEventsDict"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMappings.getUInputEventsDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.CodeToKeysMappings.typeName"><code class="docutils literal notranslate"><span class="pre">CodeToKeysMappings.typeName</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig"><code class="docutils literal notranslate"><span class="pre">InputListenerConfig</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig.__init__"><code class="docutils literal notranslate"><span class="pre">InputListenerConfig.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig.fromDict"><code class="docutils literal notranslate"><span class="pre">InputListenerConfig.fromDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig.isDebugOutput"><code class="docutils literal notranslate"><span class="pre">InputListenerConfig.isDebugOutput</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig.isEnabled"><code class="docutils literal notranslate"><span class="pre">InputListenerConfig.isEnabled</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig.isTesting"><code class="docutils literal notranslate"><span class="pre">InputListenerConfig.isTesting</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig.mayInject"><code class="docutils literal notranslate"><span class="pre">InputListenerConfig.mayInject</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig.typeName"><code class="docutils literal notranslate"><span class="pre">InputListenerConfig.typeName</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#gpiosvr.input.InputServerConfig"><code class="docutils literal notranslate"><span class="pre">InputServerConfig</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServerConfig.__init__"><code class="docutils literal notranslate"><span class="pre">InputServerConfig.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServerConfig.fromDict"><code class="docutils literal notranslate"><span class="pre">InputServerConfig.fromDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServerConfig.evdevName"><code class="docutils literal notranslate"><span class="pre">InputServerConfig.evdevName</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServerConfig.listenerClass_"><code class="docutils literal notranslate"><span class="pre">InputServerConfig.listenerClass_</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServerConfig.serverClass_"><code class="docutils literal notranslate"><span class="pre">InputServerConfig.serverClass_</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServerConfig.typeToKeysMappings"><code class="docutils literal notranslate"><span class="pre">InputServerConfig.typeToKeysMappings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServerConfig.typeToListenerConfigs"><code class="docutils literal notranslate"><span class="pre">InputServerConfig.typeToListenerConfigs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServerConfig.typeToParams"><code class="docutils literal notranslate"><span class="pre">InputServerConfig.typeToParams</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#main-classes">Main classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gpiosvr.input.InputEvent"><code class="docutils literal notranslate"><span class="pre">InputEvent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputEvent.__init__"><code class="docutils literal notranslate"><span class="pre">InputEvent.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputEvent.END"><code class="docutils literal notranslate"><span class="pre">InputEvent.END</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputEvent.START"><code class="docutils literal notranslate"><span class="pre">InputEvent.START</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputEvent.__init__"><code class="docutils literal notranslate"><span class="pre">InputEvent.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputEvent.code"><code class="docutils literal notranslate"><span class="pre">InputEvent.code</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputEvent.repeatCount"><code class="docutils literal notranslate"><span class="pre">InputEvent.repeatCount</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputEvent.timestamp_s"><code class="docutils literal notranslate"><span class="pre">InputEvent.timestamp_μs</span></code></a></li>
@@ -109,7 +132,16 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#gpiosvr.input.InputServer"><code class="docutils literal notranslate"><span class="pre">InputServer</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServer.__init__"><code class="docutils literal notranslate"><span class="pre">InputServer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServer.close"><code class="docutils literal notranslate"><span class="pre">InputServer.close()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServer.describe"><code class="docutils literal notranslate"><span class="pre">InputServer.describe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServer.injectKeyName"><code class="docutils literal notranslate"><span class="pre">InputServer.injectKeyName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServer.reportKeys"><code class="docutils literal notranslate"><span class="pre">InputServer.reportKeys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServer.serve_forever"><code class="docutils literal notranslate"><span class="pre">InputServer.serve_forever()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServer.toggleAltMode"><code class="docutils literal notranslate"><span class="pre">InputServer.toggleAltMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServer.errorCount"><code class="docutils literal notranslate"><span class="pre">InputServer.errorCount</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServer.isAltAliasReported"><code class="docutils literal notranslate"><span class="pre">InputServer.isAltAliasReported</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServer.isAltModeOn"><code class="docutils literal notranslate"><span class="pre">InputServer.isAltModeOn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.InputServer.maxErrorCount"><code class="docutils literal notranslate"><span class="pre">InputServer.maxErrorCount</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -123,19 +155,29 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gpiosvr.input.AltAlias"><code class="docutils literal notranslate"><span class="pre">AltAlias</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.AltAlias.ALT_OFF"><code class="docutils literal notranslate"><span class="pre">AltAlias.ALT_OFF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.AltAlias.ALT_ON"><code class="docutils literal notranslate"><span class="pre">AltAlias.ALT_ON</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.input.AltAlias.ALT_TOGGLE"><code class="docutils literal notranslate"><span class="pre">AltAlias.ALT_TOGGLE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_button.html">signal_button module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_ir.html">signal_ir module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
@@ -165,8 +207,8 @@
              
   <section id="module-gpiosvr.input">
 <span id="input-module"></span><h1>input module<a class="headerlink" href="#module-gpiosvr.input" title="Link to this heading"></a></h1>
-<p>Classes abstracting the input from various hardware sources, i.e. GPIOs,
-UART, SPI and I2C.</p>
+<p>Classes abstracting the input from various hardware sources connected via
+GPIOs or UART.</p>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#core-concepts" id="id2">Core concepts</a></p>
@@ -174,12 +216,14 @@ UART, SPI and I2C.</p>
 <li><p><a class="reference internal" href="#input-type" id="id3">Input type</a></p></li>
 <li><p><a class="reference internal" href="#scan-code" id="id4">Scan code</a></p></li>
 <li><p><a class="reference internal" href="#input-family" id="id5">Input family</a></p></li>
+<li><p><a class="reference internal" href="#alternate-mode" id="id6">Alternate mode</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#extension-mechanism" id="id6">Extension mechanism</a></p></li>
-<li><p><a class="reference internal" href="#configuration-classes" id="id7">Configuration classes</a></p></li>
-<li><p><a class="reference internal" href="#main-classes" id="id8">Main classes</a></p></li>
-<li><p><a class="reference internal" href="#helper-classes" id="id9">Helper classes</a></p></li>
+<li><p><a class="reference internal" href="#extension-mechanism" id="id7">Extension mechanism</a></p></li>
+<li><p><a class="reference internal" href="#configuration-classes" id="id8">Configuration classes</a></p></li>
+<li><p><a class="reference internal" href="#main-classes" id="id9">Main classes</a></p></li>
+<li><p><a class="reference internal" href="#helper-classes" id="id10">Helper classes</a></p></li>
+<li><p><a class="reference internal" href="#constants-and-defaults" id="id11">Constants and defaults</a></p></li>
 </ul>
 </nav>
 <section id="core-concepts">
@@ -187,46 +231,58 @@ UART, SPI and I2C.</p>
 <section id="input-type">
 <span id="id1"></span><h3><a class="toc-backref" href="#id3" role="doc-backlink">Input type</a><a class="headerlink" href="#input-type" title="Link to this heading"></a></h3>
 <p>An input type specifies the input expected from a particular hardware source.
-For a pulse generator such as an IR remote control, the input type specifies the
-signal’s technical parameters, such as pulse durations and counts. For a UART
-channel, it specifies the connection parameters and the valid byte sequences
-that can be received.</p>
+For a pulse generator such as an IR remote control, the input type corresponds
+to the signal’s technical parameters, such as pulse durations and counts. For a
+UART channel, it corresponds to the connection parameters and the valid byte
+sequences that can be received.</p>
 <p>This is important for hardware initialization and for the decoding of actual
 input chunks.</p>
 </section>
 <section id="scan-code">
 <span id="input-code"></span><h3><a class="toc-backref" href="#id4" role="doc-backlink">Scan code</a><a class="headerlink" href="#scan-code" title="Link to this heading"></a></h3>
-<p>When an input chunk is received, based on a specific input type, it is decoded
-to a corresponding scan code. This concept is known from keyboards and remote
-controls, where a key or button triggers some electronic signals that appear as a
-scan code in the kernel. Such a code is mapped to a logical key or character
+<p>When input chunks are received based on a specific input type, they are decoded
+to corresponding scan codes. This concept is known from keyboards and remote
+controls, where a key or button triggers some electronic signals that appear as
+a scan code in the kernel. Such a code is mapped to a logical key or character
 like “A” or “2”. For instance, the scan code of the “A” key on a US-American IBM
 keyboard is <code class="docutils literal notranslate"><span class="pre">0x1c</span></code>. In the scope of this module, an incoming byte sequence,
 e.g. from a UART channel, is also called scan code.</p>
-<p>As with a keyboard, this module generates key events in the Linux kernel for
-each received scan code. An individual scan code may take one of the following
-forms:</p>
+<p>An individual scan code may take one of the following forms:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>A <cite>str</cite> starting with <code class="docutils literal notranslate"><span class="pre">0x</span></code>, in which case it is interpreted as a byte
-sequence in hexadecimal form.</p></li>
+<li><p>A <cite>str</cite> starting with <code class="docutils literal notranslate"><span class="pre">0x</span></code>, in which case it is interpreted as an
+unsigned integer in hexadecimal form.</p></li>
 <li><p>Any other <cite>str</cite> in which case it is interpreted as a sequence of ASCII
 characters.</p></li>
-<li><p>An <cite>int</cite>, in which case it is interpreted as a decimal number.</p></li>
+<li><p>An <cite>int</cite>, in which case it is interpreted as an unsigned integer in decimal
+form.</p></li>
 </ul>
 </div></blockquote>
+<p>The receiving and decoding of input chunks is done by so-called input listeners.</p>
 </section>
 <section id="input-family">
 <h3><a class="toc-backref" href="#id5" role="doc-backlink">Input family</a><a class="headerlink" href="#input-family" title="Link to this heading"></a></h3>
 <p>Input types with similar technical parameters shape one input family. As a
 defining characteristic, all the input types in a family can be handled by the
-same input listener class. It must be based on <a class="reference internal" href="#gpiosvr.input.InputListener" title="gpiosvr.input.InputListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputListener</span></code></a>. As an
-example, the RC6 infrared protocols might shape an input family <code class="docutils literal notranslate"><span class="pre">rc6</span></code>, with
-input types such as <code class="docutils literal notranslate"><span class="pre">rc6-0</span></code>, <code class="docutils literal notranslate"><span class="pre">rc6-6a-32</span></code> or <code class="docutils literal notranslate"><span class="pre">rc6-6a-mce</span></code>.</p>
+same input listener class based on <a class="reference internal" href="#gpiosvr.input.InputListener" title="gpiosvr.input.InputListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputListener</span></code></a>. As an example, the
+RC6 infrared protocols might shape an input family <code class="docutils literal notranslate"><span class="pre">rc6</span></code>, with input types
+such as <code class="docutils literal notranslate"><span class="pre">rc6-0</span></code>, <code class="docutils literal notranslate"><span class="pre">rc6-6a-32</span></code> or <code class="docutils literal notranslate"><span class="pre">rc6-6a-mce</span></code>.</p>
+</section>
+<section id="alternate-mode">
+<span id="input-alternate"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">Alternate mode</a><a class="headerlink" href="#alternate-mode" title="Link to this heading"></a></h3>
+<p>The code-to-keys mapping for a scan code may specify one or more alternate key
+names via <a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.altKeyNames" title="gpiosvr.input.CodeToKeysMapping.altKeyNames"><code class="xref py py-attr docutils literal notranslate"><span class="pre">altKeyNames</span></code></a>. They are used instead of the
+regular key names when the alternate mode is on.</p>
+<p>The alternate mode is toggled via <a class="reference internal" href="#gpiosvr.input.InputServer.toggleAltMode" title="gpiosvr.input.InputServer.toggleAltMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">toggleAltMode()</span></code></a>. Toggling
+is also possible via a code-to-keys mapping with an
+<a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.alias" title="gpiosvr.input.CodeToKeysMapping.alias"><code class="xref py py-attr docutils literal notranslate"><span class="pre">alias</span></code></a> value set to one of the members or member
+names of <a class="reference internal" href="#gpiosvr.input.AltAlias" title="gpiosvr.input.AltAlias"><code class="xref py py-class docutils literal notranslate"><span class="pre">AltAlias</span></code></a>.</p>
+<p>The state of the alternate mode can be checked via
+<a class="reference internal" href="#gpiosvr.input.InputServer.isAltModeOn" title="gpiosvr.input.InputServer.isAltModeOn"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isAltModeOn</span></code></a>.</p>
 </section>
 </section>
 <section id="extension-mechanism">
-<span id="input-extension"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Extension mechanism</a><a class="headerlink" href="#extension-mechanism" title="Link to this heading"></a></h2>
+<span id="input-extension"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink">Extension mechanism</a><a class="headerlink" href="#extension-mechanism" title="Link to this heading"></a></h2>
 <p>To create a custom extension for an input family, an input listener class needs
 to be created. For auto-discoverability, the following naming conventions apply:</p>
 <ul class="simple">
@@ -256,7 +312,7 @@ after the input family and  have the postfix <code class="docutils literal notra
 a input family named <code class="docutils literal notranslate"><span class="pre">rc6</span></code>, the class name must be <code class="docutils literal notranslate"><span class="pre">Rc6ListenerConfig</span></code>.</p></li>
 </ul>
 <p>What is more, a custom extension is not limited to input listeners. It may also
-include an input server class that is able to publish key presses to the Linux
+include an input server class that is able to publish input events to the Linux
 kernel. It must be based on <a class="reference internal" href="#gpiosvr.input.InputServer" title="gpiosvr.input.InputServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputServer</span></code></a>. To provide an individual
 configuration to an input server, a class based on <a class="reference internal" href="#gpiosvr.input.InputServerConfig" title="gpiosvr.input.InputServerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputServerConfig</span></code></a>
 is needed. The following naming conventions apply for auto-discoverability:</p>
@@ -268,29 +324,26 @@ class name must be <code class="docutils literal notranslate"><span class="pre">
 the input family and have the postfix <code class="docutils literal notranslate"><span class="pre">ServerConfig</span></code>. That is, for a input
 family named <code class="docutils literal notranslate"><span class="pre">rc6</span></code>, the class name must be <code class="docutils literal notranslate"><span class="pre">Rc6ServerConfig</span></code>.</p></li>
 </ul>
-<p>A predefined input family is <code class="docutils literal notranslate"><span class="pre">signal</span></code>, embodied by the <a class="reference internal" href="signal.html#module-gpiosvr.signal" title="gpiosvr.signal"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gpiosvr.signal</span></code></a>
+<p>A predefined input family is <code class="docutils literal notranslate"><span class="pre">signal</span></code>, embodied by the <a class="reference internal" href="signal.html#module-gpiosvr.signal" title="gpiosvr.signal"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signal</span></code></a>
 module and its derivatives.</p>
-<p>To bootstrap an input server from a custom extension, the corresponding
-configuration needs to be created first. The most convenient way is to load a
-server configuration from a file into a <cite>dict</cite> and provide it to
-<a class="reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers" title="gpiosvr.input.ExtensionHelper.createInputServers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">createInputServers()</span></code></a>. This yields a sequence of one or
-more input servers unless any error occurs. It is also possibly to instantiate
-the <a class="reference internal" href="#input-configuration"><span class="std std-ref">Configuration classes</span></a> and the input listener and/or input server
-classes programatically. See the <cite>fromDict</cite> methods of the configuration classes
-as a starting point.</p>
+<p>To bootstrap an input server from a custom extension, instances of the
+corresponding configuration classes need to be created first. The most
+convenient way is to load a server configuration from a file into a <cite>dict</cite> and
+provide it to <a class="reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers" title="gpiosvr.input.ExtensionHelper.createInputServers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">createInputServers()</span></code></a>. This yields a
+sequence of one or more input servers unless any error occurs. It is also
+possibly to instantiate the <a class="reference internal" href="#input-configuration"><span class="std std-ref">Configuration classes</span></a> and the input listener
+and/or input server classes programatically. See the <cite>fromDict</cite> methods of the
+configuration classes as a starting point.</p>
 </section>
 <section id="configuration-classes">
-<span id="input-configuration"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink">Configuration classes</a><a class="headerlink" href="#configuration-classes" title="Link to this heading"></a></h2>
-<p>The configuration classes help to set up one or more input listeners via <cite>dict</cite>
-instances, e.g. parsed from JSON files, or programatically.</p>
+<span id="input-configuration"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink">Configuration classes</a><a class="headerlink" href="#configuration-classes" title="Link to this heading"></a></h2>
+<p>The configuration classes help to set up one or more input listeners and servers
+via <cite>dict</cite> instances, e.g. parsed from JSON files, or programatically.</p>
 <p>The following is the JSON representation of an exemplary input server
 configuration for the predefined input family <code class="docutils literal notranslate"><span class="pre">signal</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
   &quot;evdevName&quot;: &quot;pi-sig-injector&quot;,
-  &quot;gpios&quot;: {                // &lt;- mappings of GPIO numbers to input types
-    &quot;25&quot;: &quot;door-bell&quot;       // &lt;- mappings of GPIO 25 to input type &quot;door-bell&quot;
-  },
-  &quot;input&quot;: {                // &lt;- technical parameters for input family &quot;input&quot;
+  &quot;signal&quot;: {               // &lt;- technical parameters for input family &quot;signal&quot;
     &quot;door-bell&quot;: {          // &lt;- technical parameters for input type &quot;door-bell&quot;
       &quot;basePulse_μs&quot;: 9000,
       &quot;basePulseCount&quot;: 5,
@@ -306,6 +359,7 @@ configuration for the predefined input family <code class="docutils literal notr
   },
   &quot;listeners&quot;: {            // &lt;- input listener configurations
     &quot;door-bell&quot;: {          // &lt;- listener configuration for input type &quot;door-bell&quot;
+      &quot;gpio&quot;: 25,
       &quot;mayInject&quot;: false
     }
   },
@@ -325,16 +379,15 @@ configuration for the predefined input family <code class="docutils literal notr
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.input.InputParameters">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.input.</span></span><span class="sig-name descname"><span class="pre">InputParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typeName</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputParameters" title="Link to this definition"></a></dt>
-<dd><p>A collection of technical parameters of an input type.
-See <a class="reference internal" href="#input-type"><span class="std std-ref">input type</span></a> for a conceptual overview.</p>
+<dd><p>A collection of technical parameters for an input type. See
+<a class="reference internal" href="#input-type"><span class="std std-ref">input type</span></a> for a conceptual overview.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.input.InputParameters.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typeName</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputParameters.__init__" title="Link to this definition"></a></dt>
-<dd><p>Creates a collection of technical parameters.</p>
+<dd><p>Creates a collection of technical parameters for an input type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="gpiosvr.input.InputParameters.params.typeName"></span><strong>typeName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputParameters.params.typeName">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The name of the input type for which the technical
-parameters are valid.</p>
+<dd class="field-odd"><p><span class="target" id="gpiosvr.input.InputParameters.params.typeName"></span><strong>typeName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputParameters.params.typeName">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputParameters.typeName" title="gpiosvr.input.InputParameters.typeName"><code class="xref py py-attr docutils literal notranslate"><span class="pre">typeName</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -362,11 +415,18 @@ key.</p>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputParameters.typeName">
+<span class="sig-name descname"><span class="pre">typeName</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#gpiosvr.input.InputParameters.typeName" title="Link to this definition"></a></dt>
+<dd><p>The name of the input type for which the technical parameters are
+valid.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.input.CodeToKeysMapping">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.input.</span></span><span class="sig-name descname"><span class="pre">CodeToKeysMapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altKeyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.CodeToKeysMapping" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.input.</span></span><span class="sig-name descname"><span class="pre">CodeToKeysMapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isEnabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altKeyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.CodeToKeysMapping" title="Link to this definition"></a></dt>
 <dd><p>A mapping from a scan code to one or more keys in the Linux kernel.</p>
 <p>The following is the JSON representation of an exemplary code-to-keys
 mapping for the scan code <code class="docutils literal notranslate"><span class="pre">0x2a</span></code>:</p>
@@ -378,21 +438,16 @@ mapping for the scan code <code class="docutils literal notranslate"><span class
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.input.CodeToKeysMapping.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altKeyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.CodeToKeysMapping.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isEnabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altKeyNames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.CodeToKeysMapping.__init__" title="Link to this definition"></a></dt>
 <dd><p>Creates a code-to-keys mapping.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gpiosvr.input.CodeToKeysMapping.params.code"></span><strong>code</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMapping.params.code">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The scan code for which the mapping is valid.</p></li>
-<li><p><span class="target" id="gpiosvr.input.CodeToKeysMapping.params.keyNames"></span><strong>keyNames</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMapping.params.keyNames">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – One or more names of keys to which <cite>code</cite> is mapped.
-They must start with <code class="docutils literal notranslate"><span class="pre">KEY_</span></code> and reference key constants from the
-Linux kernel as listed in
-<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h">input-event-codes.h</a>.</p></li>
-<li><p><span class="target" id="gpiosvr.input.CodeToKeysMapping.params.altKeyNames"></span><strong>altKeyNames</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMapping.params.altKeyNames">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – One or more names of keys to which <cite>code</cite> is mapped
-when the alternate key mapping is active on the input level. They
-must start with <code class="docutils literal notranslate"><span class="pre">KEY_</span></code> and reference key constants from the Linux
-kernel as listed in
-<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h">input-event-codes.h</a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.CodeToKeysMapping.params.code"></span><strong>code</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMapping.params.code">¶</a> – See <a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.code" title="gpiosvr.input.CodeToKeysMapping.code"><code class="xref py py-attr docutils literal notranslate"><span class="pre">code</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.CodeToKeysMapping.params.isEnabled"></span><strong>isEnabled</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMapping.params.isEnabled">¶</a> – See <a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.isEnabled" title="gpiosvr.input.CodeToKeysMapping.isEnabled"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isEnabled</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.CodeToKeysMapping.params.keyNames"></span><strong>keyNames</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMapping.params.keyNames">¶</a> – See <a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.keyNames" title="gpiosvr.input.CodeToKeysMapping.keyNames"><code class="xref py py-attr docutils literal notranslate"><span class="pre">keyNames</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.CodeToKeysMapping.params.altKeyNames"></span><strong>altKeyNames</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMapping.params.altKeyNames">¶</a> – See <a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.altKeyNames" title="gpiosvr.input.CodeToKeysMapping.altKeyNames"><code class="xref py py-attr docutils literal notranslate"><span class="pre">altKeyNames</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.CodeToKeysMapping.params.alias"></span><strong>alias</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMapping.params.alias">¶</a> – See <a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.alias" title="gpiosvr.input.CodeToKeysMapping.alias"><code class="xref py py-attr docutils literal notranslate"><span class="pre">alias</span></code></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -421,6 +476,44 @@ file. The <cite>dict</cite> may contain the parameters of <cite>__init__()</cite
 <dd class="field-even"><p>Identical to <a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.__init__" title="gpiosvr.input.CodeToKeysMapping.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.CodeToKeysMapping.alias">
+<span class="sig-name descname"><span class="pre">alias</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#gpiosvr.input.CodeToKeysMapping.alias" title="Link to this definition"></a></dt>
+<dd><p>An alias or logical name for the scan code. It may be used as a
+logical identifier and/or in message texts.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.CodeToKeysMapping.altKeyNames">
+<span class="sig-name descname"><span class="pre">altKeyNames</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#gpiosvr.input.CodeToKeysMapping.altKeyNames" title="Link to this definition"></a></dt>
+<dd><p>One or more names of keys to which <cite>code</cite> is mapped when the
+alternate mode is on. They must start with <code class="docutils literal notranslate"><span class="pre">KEY_</span></code> and reference
+key constants in the Linux kernel as listed in
+<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h">input-event-codes.h</a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.CodeToKeysMapping.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#gpiosvr.input.CodeToKeysMapping.code" title="Link to this definition"></a></dt>
+<dd><p>The scan code for which the mapping is valid.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.CodeToKeysMapping.isEnabled">
+<span class="sig-name descname"><span class="pre">isEnabled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#gpiosvr.input.CodeToKeysMapping.isEnabled" title="Link to this definition"></a></dt>
+<dd><p>If <cite>False</cite>, any input event for the scan code is ignored. Defaults to
+<cite>True</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.CodeToKeysMapping.keyNames">
+<span class="sig-name descname"><span class="pre">keyNames</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#gpiosvr.input.CodeToKeysMapping.keyNames" title="Link to this definition"></a></dt>
+<dd><p>One or more names of keys to which <cite>code</cite> is mapped. They must
+start with <code class="docutils literal notranslate"><span class="pre">KEY_</span></code> and reference key constants in the Linux
+kernel as listed in
+<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h">input-event-codes.h</a>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -454,11 +547,10 @@ code-to-keys mappings for an input type named <code class="docutils literal notr
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gpiosvr.input.CodeToKeysMappings.params.typeName"></span><strong>typeName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMappings.params.typeName">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The name of the input type for which the mappings are
-valid.</p></li>
-<li><p><span class="target" id="gpiosvr.input.CodeToKeysMappings.params.mappings"></span><strong>mappings</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMappings.params.mappings">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – The code-to-keys mappings, i.e. instances of
-<a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping" title="gpiosvr.input.CodeToKeysMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">CodeToKeysMapping</span></code></a>. If the argument is a <cite>dict</cite>, its keys
-must correspond to the scan codes.</p></li>
+<li><p><span class="target" id="gpiosvr.input.CodeToKeysMappings.params.typeName"></span><strong>typeName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMappings.params.typeName">¶</a> – See <a class="reference internal" href="#gpiosvr.input.CodeToKeysMappings.typeName" title="gpiosvr.input.CodeToKeysMappings.typeName"><code class="xref py py-attr docutils literal notranslate"><span class="pre">typeName</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.CodeToKeysMappings.params.mappings"></span><strong>mappings</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMappings.params.mappings">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – The code-to-keys mappings
+(<a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping" title="gpiosvr.input.CodeToKeysMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">CodeToKeysMapping</span></code></a>). If the argument is a <cite>dict</cite>, its 
+keys must correspond to the scan codes.</p></li>
 </ul>
 </dd>
 </dl>
@@ -487,12 +579,72 @@ file. The <cite>dict</cite> may contain the parameters of <cite>__init__()</cite
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.input.CodeToKeysMappings.getScanCode">
+<span class="sig-name descname"><span class="pre">getScanCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altKeyName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.CodeToKeysMappings.getScanCode" title="Link to this definition"></a></dt>
+<dd><p>Tries to find the scan code corresponding to a key name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gpiosvr.input.CodeToKeysMappings.getScanCode.params.keyName"></span><strong>keyName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMappings.getScanCode.params.keyName">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The key name for which to get the scan code. It must
+start with <code class="docutils literal notranslate"><span class="pre">KEY_</span></code> and reference a key constant in the Linux
+kernel as listed in
+<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h">input-event-codes.h</a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.CodeToKeysMappings.getScanCode.params.altKeyName"></span><strong>altKeyName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMappings.getScanCode.params.altKeyName">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The alternative key name for which to get the scan
+code. See <a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.altKeyNames" title="gpiosvr.input.CodeToKeysMapping.altKeyNames"><code class="xref py py-attr docutils literal notranslate"><span class="pre">altKeyNames</span></code></a> for semantics.
+If <cite>altKeyName</cite> is given in addition to <cite>keyName</cite>, the alternative
+key names are searched, too. If it is given instead of <cite>keyName</cite>,
+only the alternative key names are searched.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The scan code of the first match. <cite>None</cite> if there is no match.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a> | <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.input.CodeToKeysMappings.getUInputEventsDict">
+<span class="sig-name descname"><span class="pre">getUInputEventsDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isAltMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.CodeToKeysMappings.getUInputEventsDict" title="Link to this definition"></a></dt>
+<dd><p>Compiles the native Linux input events an input event device may
+produce.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="gpiosvr.input.CodeToKeysMappings.getUInputEventsDict.params.isAltMode"></span><strong>isAltMode</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.CodeToKeysMappings.getUInputEventsDict.params.isAltMode">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the Linux input events for the alternate
+keys are compiled instead of the regular keys.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>A <cite>dict</cite> with two items:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EV_KEY</span></code> (<code class="docutils literal notranslate"><span class="pre">1</span></code>): A list of the Linux input events corresponding
+to the code-to-keys mappings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EV_MSC</span></code> (<code class="docutils literal notranslate"><span class="pre">4</span></code>): A static tuple with the single element
+<code class="docutils literal notranslate"><span class="pre">MSC_SCAN</span></code> (<code class="docutils literal notranslate"><span class="pre">4</span></code>)</p></li>
+</ul>
+<p>It can be used to instantiate <code class="docutils literal notranslate"><span class="pre">evdev.UInput</span></code>.</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.CodeToKeysMappings.typeName">
+<span class="sig-name descname"><span class="pre">typeName</span></span><a class="headerlink" href="#gpiosvr.input.CodeToKeysMappings.typeName" title="Link to this definition"></a></dt>
+<dd><p>The name of the input type for which the mappings are valid.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.input.InputListenerConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.input.</span></span><span class="sig-name descname"><span class="pre">InputListenerConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typeName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isEnabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mayInject</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isDebugOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isTesting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputListenerConfig" title="Link to this definition"></a></dt>
-<dd><p>The listener configuration for a specific input type.</p>
+<dd><p>The listener configuration for an input type.</p>
 <p>It is independent from the technical parameters of the input type and 
 influences the workings of a listener.</p>
 <p>The following is the JSON representation of an exemplary listener
@@ -506,23 +658,15 @@ configuration for an input type named <code class="docutils literal notranslate"
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.input.InputListenerConfig.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typeName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isEnabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mayInject</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isDebugOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isTesting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputListenerConfig.__init__" title="Link to this definition"></a></dt>
-<dd><p>Creates a listener configuration.</p>
+<dd><p>Creates an input listener configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gpiosvr.input.InputListenerConfig.params.typeName"></span><strong>typeName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListenerConfig.params.typeName">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The name of the input type for which the configuration
-is valid.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputListenerConfig.params.isEnabled"></span><strong>isEnabled</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListenerConfig.params.isEnabled">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>False</cite>, listening to the input type is disabled.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputListenerConfig.params.mayInject"></span><strong>mayInject</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListenerConfig.params.mayInject">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, input events may be injected via
-<a class="reference internal" href="#gpiosvr.input.InputListener.injectScanCode" title="gpiosvr.input.InputListener.injectScanCode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">injectScanCode()</span></code></a>. This is security-relevant, as key
-codes could be injected by malicious software without the need to be
-physically connected to the corresponding GPIO. Defaults to <cite>False</cite>.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputListenerConfig.params.isDebugOutput"></span><strong>isDebugOutput</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListenerConfig.params.isDebugOutput">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, debug messages are written to a
-message buffer, if available. Defaults to <cite>False</cite>.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputListenerConfig.params.isTesting"></span><strong>isTesting</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListenerConfig.params.isTesting">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, more verbose messages about occurring edges
-are written to a message buffer, if available. Also sets
-<cite>isDebugOutput</cite> to <cite>True</cite>. Useful for inspecting the actual pulse or
-edge sequences on a line. Defaults to <cite>False</cite>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputListenerConfig.params.typeName"></span><strong>typeName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListenerConfig.params.typeName">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputListenerConfig.typeName" title="gpiosvr.input.InputListenerConfig.typeName"><code class="xref py py-attr docutils literal notranslate"><span class="pre">typeName</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputListenerConfig.params.isEnabled"></span><strong>isEnabled</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListenerConfig.params.isEnabled">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputListenerConfig.isEnabled" title="gpiosvr.input.InputListenerConfig.isEnabled"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isEnabled</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputListenerConfig.params.mayInject"></span><strong>mayInject</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListenerConfig.params.mayInject">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputListenerConfig.mayInject" title="gpiosvr.input.InputListenerConfig.mayInject"><code class="xref py py-attr docutils literal notranslate"><span class="pre">mayInject</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputListenerConfig.params.isDebugOutput"></span><strong>isDebugOutput</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListenerConfig.params.isDebugOutput">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputListenerConfig.isDebugOutput" title="gpiosvr.input.InputListenerConfig.isDebugOutput"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isDebugOutput</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputListenerConfig.params.isTesting"></span><strong>isTesting</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListenerConfig.params.isTesting">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputListenerConfig.isTesting" title="gpiosvr.input.InputListenerConfig.isTesting"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isTesting</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -558,6 +702,45 @@ except <cite>typeName</cite>.</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputListenerConfig.isDebugOutput">
+<span class="sig-name descname"><span class="pre">isDebugOutput</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#gpiosvr.input.InputListenerConfig.isDebugOutput" title="Link to this definition"></a></dt>
+<dd><p>If <cite>True</cite>, debug messages are written to a message buffer, if
+available. Defaults to <cite>None</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputListenerConfig.isEnabled">
+<span class="sig-name descname"><span class="pre">isEnabled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#gpiosvr.input.InputListenerConfig.isEnabled" title="Link to this definition"></a></dt>
+<dd><p>If <cite>False</cite>, listening to the input type is disabled. Defaults to
+<cite>True</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputListenerConfig.isTesting">
+<span class="sig-name descname"><span class="pre">isTesting</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#gpiosvr.input.InputListenerConfig.isTesting" title="Link to this definition"></a></dt>
+<dd><p>If <cite>True</cite>, more verbose messages about occurring edges are written to
+a message buffer, if available. Also sets <cite>isDebugOutput</cite> to <cite>True</cite>.
+Useful for inspecting the actual pulse or edge sequences on a line.
+Defaults to <cite>None</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputListenerConfig.mayInject">
+<span class="sig-name descname"><span class="pre">mayInject</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#gpiosvr.input.InputListenerConfig.mayInject" title="Link to this definition"></a></dt>
+<dd><p>If <cite>True</cite>, scan codes may be injected via
+<a class="reference internal" href="#gpiosvr.input.InputListener.injectScanCode" title="gpiosvr.input.InputListener.injectScanCode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">injectScanCode()</span></code></a>, resulting in artificial input
+events. This is security-relevant, as scan codes could be injected by
+malicious software without the need to be physically connected to the
+corresponding GPIO. Defaults to <cite>False</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputListenerConfig.typeName">
+<span class="sig-name descname"><span class="pre">typeName</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#gpiosvr.input.InputListenerConfig.typeName" title="Link to this definition"></a></dt>
+<dd><p>The name of the input type for which the configuration is valid.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -571,20 +754,12 @@ except <cite>typeName</cite>.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.evdevName"></span><strong>evdevName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.evdevName">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The logical name of the input event device to which
-to publish key presses, e.g. <code class="docutils literal notranslate"><span class="pre">pi-sig-injector</span></code>. May also be an
-absolute path to the event device, e.g. <code class="docutils literal notranslate"><span class="pre">/dev/input/event14</span></code>.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.typeToParams"></span><strong>typeToParams</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.typeToParams">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – A mapping of input type names (<cite>str</cite>) to the
-corresponding technical parameters (<a class="reference internal" href="#gpiosvr.input.InputParameters" title="gpiosvr.input.InputParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputParameters</span></code></a>).</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.typeToListenerConfigs"></span><strong>typeToListenerConfigs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.typeToListenerConfigs">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – A mapping of input type names (<cite>str</cite>) to
-the corresponding listener configurations
-(<a class="reference internal" href="#gpiosvr.input.InputListenerConfig" title="gpiosvr.input.InputListenerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputListenerConfig</span></code></a>).</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.typeToKeysMappings"></span><strong>typeToKeysMappings</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.typeToKeysMappings">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – A mapping of input type names (<cite>str</cite>) to the
-corresponding code-to-keys mappings (<a class="reference internal" href="#gpiosvr.input.CodeToKeysMappings" title="gpiosvr.input.CodeToKeysMappings"><code class="xref py py-class docutils literal notranslate"><span class="pre">CodeToKeysMappings</span></code></a>).</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.listenerClass_"></span><strong>listenerClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.listenerClass_">¶</a> (<em>class</em><em> | </em><em>None</em>) – The input listener class to be instantiated for
-each input type. Defaults to <a class="reference internal" href="#gpiosvr.input.InputListener" title="gpiosvr.input.InputListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputListener</span></code></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.serverClass_"></span><strong>serverClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.serverClass_">¶</a> (<em>class</em><em> | </em><em>None</em>) – The input server class to be instantiated for each
-input type. Defaults to <a class="reference internal" href="#gpiosvr.input.InputServer" title="gpiosvr.input.InputServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputServer</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.evdevName"></span><strong>evdevName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.evdevName">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputServerConfig.evdevName" title="gpiosvr.input.InputServerConfig.evdevName"><code class="xref py py-attr docutils literal notranslate"><span class="pre">evdevName</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.typeToParams"></span><strong>typeToParams</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.typeToParams">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputServerConfig.typeToParams" title="gpiosvr.input.InputServerConfig.typeToParams"><code class="xref py py-attr docutils literal notranslate"><span class="pre">typeToParams</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.typeToListenerConfigs"></span><strong>typeToListenerConfigs</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.typeToListenerConfigs">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputServerConfig.typeToListenerConfigs" title="gpiosvr.input.InputServerConfig.typeToListenerConfigs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">typeToListenerConfigs</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.typeToKeysMappings"></span><strong>typeToKeysMappings</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.typeToKeysMappings">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputServerConfig.typeToKeysMappings" title="gpiosvr.input.InputServerConfig.typeToKeysMappings"><code class="xref py py-attr docutils literal notranslate"><span class="pre">typeToKeysMappings</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.listenerClass_"></span><strong>listenerClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.listenerClass_">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputServerConfig.listenerClass_" title="gpiosvr.input.InputServerConfig.listenerClass_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">listenerClass_</span></code></a>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputServerConfig.params.serverClass_"></span><strong>serverClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.params.serverClass_">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputServerConfig.serverClass_" title="gpiosvr.input.InputServerConfig.serverClass_"><code class="xref py py-attr docutils literal notranslate"><span class="pre">serverClass_</span></code></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -602,22 +777,22 @@ server configuration. Defaults to <code class="docutils literal notranslate"><sp
 <li><p><span class="target" id="gpiosvr.input.InputServerConfig.fromDict.params.serverConfigDict"></span><strong>serverConfigDict</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.serverConfigDict">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – The configuration as a <cite>dict</cite>, e.g. parsed from
 a JSON file. An exemplary configuration is shown under
 <a class="reference internal" href="#input-configuration"><span class="std std-ref">Configuration classes</span></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServerConfig.fromDict.params.paramsClass_"></span><strong>paramsClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.paramsClass_">¶</a> (<em>class</em><em> | </em><em>None</em>) – The class to which the parsing of the technical
+<li><p><span class="target" id="gpiosvr.input.InputServerConfig.fromDict.params.paramsClass_"></span><strong>paramsClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.paramsClass_">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#type" title="(in Python v3.14)"><em>type</em></a><em> | </em><em>None</em>) – The class to which the parsing of the technical
 parameters is delegated. It must be based on
 <a class="reference internal" href="#gpiosvr.input.InputParameters" title="gpiosvr.input.InputParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputParameters</span></code></a>. <cite>True</cite> to auto-discover the class based
 on <a class="reference internal" href="#input-extension"><span class="std std-ref">naming conventions</span></a>. If <cite>None</cite>, the
 default class <a class="reference internal" href="#gpiosvr.input.InputParameters" title="gpiosvr.input.InputParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputParameters</span></code></a> is used.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServerConfig.fromDict.params.listenerConfigClass_"></span><strong>listenerConfigClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.listenerConfigClass_">¶</a> (<em>class</em><em> | </em><em>None</em>) – The class to which the parsing of the input
+<li><p><span class="target" id="gpiosvr.input.InputServerConfig.fromDict.params.listenerConfigClass_"></span><strong>listenerConfigClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.listenerConfigClass_">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#type" title="(in Python v3.14)"><em>type</em></a><em> | </em><em>None</em>) – The class to which the parsing of the input
 listener configuration is delegated. It must be based on
 <a class="reference internal" href="#gpiosvr.input.InputListenerConfig" title="gpiosvr.input.InputListenerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputListenerConfig</span></code></a>. <cite>True</cite> to auto-discover the class
 based on naming conventions. If <cite>None</cite>, the default class
 <a class="reference internal" href="#gpiosvr.input.InputListenerConfig" title="gpiosvr.input.InputListenerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputListenerConfig</span></code></a> is used.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServerConfig.fromDict.params.listenerClass_"></span><strong>listenerClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.listenerClass_">¶</a> (<em>class</em><em> | </em><em>None</em>) – The input listener class to be instantiated for
+<li><p><span class="target" id="gpiosvr.input.InputServerConfig.fromDict.params.listenerClass_"></span><strong>listenerClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.listenerClass_">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#type" title="(in Python v3.14)"><em>type</em></a><em> | </em><em>None</em>) – The input listener class to be instantiated for
 each input type in the family. It must be based on
 <a class="reference internal" href="#gpiosvr.input.InputListener" title="gpiosvr.input.InputListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputListener</span></code></a>. <cite>True</cite> to auto-discover the class based on
 naming conventions. If <cite>None</cite>, the default class
 <a class="reference internal" href="#gpiosvr.input.InputListener" title="gpiosvr.input.InputListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputListener</span></code></a> is used.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServerConfig.fromDict.params.serverClass_"></span><strong>serverClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.serverClass_">¶</a> (<em>class</em><em> | </em><em>None</em>) – The input server class to be instantiated for each
+<li><p><span class="target" id="gpiosvr.input.InputServerConfig.fromDict.params.serverClass_"></span><strong>serverClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.serverClass_">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#type" title="(in Python v3.14)"><em>type</em></a><em> | </em><em>None</em>) – The input server class to be instantiated for each
 input type in the family. It must be based on
 <a class="reference internal" href="#gpiosvr.input.InputServer" title="gpiosvr.input.InputServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputServer</span></code></a>. <cite>True</cite> to auto-discover the class based on
 naming conventions. If <cite>None</cite>, the default class
@@ -639,29 +814,64 @@ classes is no subclass of the corresponding <cite>Input*</cite> base class.</p>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServerConfig.evdevName">
+<span class="sig-name descname"><span class="pre">evdevName</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#gpiosvr.input.InputServerConfig.evdevName" title="Link to this definition"></a></dt>
+<dd><p>The logical name of the input event device to which to report input
+events, e.g. <code class="docutils literal notranslate"><span class="pre">pi-sig-injector</span></code>. May also be an absolute path starting
+with <code class="docutils literal notranslate"><span class="pre">/dev/input/event</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServerConfig.listenerClass_">
+<span class="sig-name descname"><span class="pre">listenerClass_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#type" title="(in Python v3.14)"><span class="pre">type</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#gpiosvr.input.InputServerConfig.listenerClass_" title="Link to this definition"></a></dt>
+<dd><p>The input listener class to be instantiated for each input type.
+Defaults to <a class="reference internal" href="#gpiosvr.input.InputListener" title="gpiosvr.input.InputListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputListener</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServerConfig.serverClass_">
+<span class="sig-name descname"><span class="pre">serverClass_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#type" title="(in Python v3.14)"><span class="pre">type</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#gpiosvr.input.InputServerConfig.serverClass_" title="Link to this definition"></a></dt>
+<dd><p>The input server class to be instantiated for each input type.
+Defaults to <a class="reference internal" href="#gpiosvr.input.InputServer" title="gpiosvr.input.InputServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputServer</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServerConfig.typeToKeysMappings">
+<span class="sig-name descname"><span class="pre">typeToKeysMappings</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></em><a class="headerlink" href="#gpiosvr.input.InputServerConfig.typeToKeysMappings" title="Link to this definition"></a></dt>
+<dd><p>A mapping of input type names (<cite>str</cite>) to the corresponding
+code-to-keys mappings (<a class="reference internal" href="#gpiosvr.input.CodeToKeysMappings" title="gpiosvr.input.CodeToKeysMappings"><code class="xref py py-class docutils literal notranslate"><span class="pre">CodeToKeysMappings</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServerConfig.typeToListenerConfigs">
+<span class="sig-name descname"><span class="pre">typeToListenerConfigs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#gpiosvr.input.InputServerConfig.typeToListenerConfigs" title="Link to this definition"></a></dt>
+<dd><p>A mapping of input type names (<cite>str</cite>) to the corresponding listener
+configurations (<a class="reference internal" href="#gpiosvr.input.InputListenerConfig" title="gpiosvr.input.InputListenerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputListenerConfig</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServerConfig.typeToParams">
+<span class="sig-name descname"><span class="pre">typeToParams</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></em><a class="headerlink" href="#gpiosvr.input.InputServerConfig.typeToParams" title="Link to this definition"></a></dt>
+<dd><p>A mapping of input type names (<cite>str</cite>) to the corresponding technical
+parameters (<a class="reference internal" href="#gpiosvr.input.InputParameters" title="gpiosvr.input.InputParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputParameters</span></code></a>).</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
 <section id="main-classes">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Main classes</a><a class="headerlink" href="#main-classes" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Main classes</a><a class="headerlink" href="#main-classes" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.input.InputEvent">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.input.</span></span><span class="sig-name descname"><span class="pre">InputEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputEvent" title="Link to this definition"></a></dt>
 <dd><p>An input event based on a scan code.</p>
+<p>It distinct from a native Linux input event as shown under
+<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input.h#L28">input.h</a>.
+However, it is finally translated to a native Linux input event in the
+scope of <a class="reference internal" href="#gpiosvr.input.InputServer.reportKeys" title="gpiosvr.input.InputServer.reportKeys"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportKeys()</span></code></a>.</p>
 <p>A repeat event is simply a <a class="reference internal" href="#gpiosvr.input.InputEvent.START" title="gpiosvr.input.InputEvent.START"><code class="xref py py-attr docutils literal notranslate"><span class="pre">START</span></code></a> event with a 
 <a class="reference internal" href="#gpiosvr.input.InputEvent.repeatCount" title="gpiosvr.input.InputEvent.repeatCount"><code class="xref py py-attr docutils literal notranslate"><span class="pre">repeatCount</span></code></a> greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gpiosvr.input.InputEvent.END">
-<span class="sig-name descname"><span class="pre">END</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#gpiosvr.input.InputEvent.END" title="Link to this definition"></a></dt>
-<dd><p>Identifier for an “input end” event.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gpiosvr.input.InputEvent.START">
-<span class="sig-name descname"><span class="pre">START</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#gpiosvr.input.InputEvent.START" title="Link to this definition"></a></dt>
-<dd><p>Identifier for an “input start” event.</p>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.input.InputEvent.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_μs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputEvent.__init__" title="Link to this definition"></a></dt>
@@ -676,6 +886,18 @@ classes is no subclass of the corresponding <cite>Input*</cite> base class.</p>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputEvent.END">
+<span class="sig-name descname"><span class="pre">END</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#gpiosvr.input.InputEvent.END" title="Link to this definition"></a></dt>
+<dd><p>Identifier for an “input end” event.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputEvent.START">
+<span class="sig-name descname"><span class="pre">START</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#gpiosvr.input.InputEvent.START" title="Link to this definition"></a></dt>
+<dd><p>Identifier for an “input start” event.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -708,19 +930,20 @@ event and an end event. <code class="docutils literal notranslate"><span class="
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.input.InputListener">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.input.</span></span><span class="sig-name descname"><span class="pre">InputListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AbstractEventLoop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioClient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi" title="gpiosvr.client_pigpio.PigpioMinimalApi"><span class="pre">PigpioMinimalApi</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioCallbackApi" title="gpiosvr.client_pigpio.PigpioCallbackApi"><span class="pre">PigpioCallbackApi</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gpiosvr.input.InputParameters" title="gpiosvr.input.InputParameters"><span class="pre">InputParameters</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig" title="gpiosvr.input.InputListenerConfig"><span class="pre">InputListenerConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://xoocoon.github.io/ctlbase/html/message.html#ctlbase.message.MessageBuffer" title="(in ctlbase)"><span class="pre">MessageBuffer</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputListener" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.input.</span></span><span class="sig-name descname"><span class="pre">InputListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AbstractEventLoop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioApi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioMinimalApi" title="gpiosvr.api_pigpio.PigpioMinimalApi"><span class="pre">PigpioMinimalApi</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioCallbackApi" title="gpiosvr.api_pigpio.PigpioCallbackApi"><span class="pre">PigpioCallbackApi</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gpiosvr.input.InputParameters" title="gpiosvr.input.InputParameters"><span class="pre">InputParameters</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig" title="gpiosvr.input.InputListenerConfig"><span class="pre">InputListenerConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://xoocoon.github.io/ctlbase/html/message.html#ctlbase.message.MessageBuffer" title="(in ctlbase)"><span class="pre">MessageBuffer</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputListener" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoopBase</span></code></p>
-<p>A listener for a specific input type.</p>
+<p>A listener for a specific input type. It receives input chunks and
+decodes them to scan codes based on the input type.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.input.InputListener.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AbstractEventLoop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioClient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi" title="gpiosvr.client_pigpio.PigpioMinimalApi"><span class="pre">PigpioMinimalApi</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioCallbackApi" title="gpiosvr.client_pigpio.PigpioCallbackApi"><span class="pre">PigpioCallbackApi</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gpiosvr.input.InputParameters" title="gpiosvr.input.InputParameters"><span class="pre">InputParameters</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig" title="gpiosvr.input.InputListenerConfig"><span class="pre">InputListenerConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://xoocoon.github.io/ctlbase/html/message.html#ctlbase.message.MessageBuffer" title="(in ctlbase)"><span class="pre">MessageBuffer</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputListener.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AbstractEventLoop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioApi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioMinimalApi" title="gpiosvr.api_pigpio.PigpioMinimalApi"><span class="pre">PigpioMinimalApi</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioCallbackApi" title="gpiosvr.api_pigpio.PigpioCallbackApi"><span class="pre">PigpioCallbackApi</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gpiosvr.input.InputParameters" title="gpiosvr.input.InputParameters"><span class="pre">InputParameters</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gpiosvr.input.InputListenerConfig" title="gpiosvr.input.InputListenerConfig"><span class="pre">InputListenerConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://xoocoon.github.io/ctlbase/html/message.html#ctlbase.message.MessageBuffer" title="(in ctlbase)"><span class="pre">MessageBuffer</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputListener.__init__" title="Link to this definition"></a></dt>
 <dd><p>Creates a listener.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><span class="target" id="gpiosvr.input.InputListener.params.loop"></span><strong>loop</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListener.params.loop">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.EventLoop" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.EventLoop</span></code></a>) – The asyncio event loop for listening.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputListener.params.gpioClient"></span><strong>gpioClient</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListener.params.gpioClient">¶</a> (<a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi" title="gpiosvr.client_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a> |
-<a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioCallbackApi" title="gpiosvr.client_pigpio.PigpioCallbackApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioCallbackApi</span></code></a>) – The GPIO API to use, connected with an appropriate
+<li><p><span class="target" id="gpiosvr.input.InputListener.params.gpioApi"></span><strong>gpioApi</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListener.params.gpioApi">¶</a> (<a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioMinimalApi" title="gpiosvr.api_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a> |
+<a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioCallbackApi" title="gpiosvr.api_pigpio.PigpioCallbackApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioCallbackApi</span></code></a>) – The GPIO API to use, connected with an appropriate
 GPIO backend.</p></li>
 <li><p><span class="target" id="gpiosvr.input.InputListener.params.params"></span><strong>params</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListener.params.params">¶</a> (<a class="reference internal" href="#gpiosvr.input.InputParameters" title="gpiosvr.input.InputParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputParameters</span></code></a>) – The technical parameters of the input type.</p></li>
 <li><p><span class="target" id="gpiosvr.input.InputListener.params.listenerConfig"></span><strong>listenerConfig</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListener.params.listenerConfig">¶</a> (<a class="reference internal" href="#gpiosvr.input.InputListenerConfig" title="gpiosvr.input.InputListenerConfig"><em>InputListenerConfig</em></a><em> | </em><em>None</em>) – The configuration to apply. If <cite>None</cite>, default
@@ -742,7 +965,7 @@ values are assumed.</p></li>
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">describe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputListener.describe" title="Link to this definition"></a></dt>
 <dd><p>Returns a description of the input listener in a human-readable form
 (in English).</p>
-<p>Useful for debugging or for log output.</p>
+<p>Useful as log output and for debugging.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#NotImplementedError" title="(in Python v3.14)"><strong>NotImplementedError</strong></a> – If the implementation does not provide a
@@ -760,16 +983,16 @@ description.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.input.InputListener.injectScanCode">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">injectScanCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputListener.injectScanCode" title="Link to this definition"></a></dt>
-<dd><p>Injects a scan code directly instead of waiting for the next
-genuine chunk of input. <a class="reference internal" href="#gpiosvr.input.InputListener.waitForInputEvents" title="gpiosvr.input.InputListener.waitForInputEvents"><code class="xref py py-meth docutils literal notranslate"><span class="pre">waitForInputEvents()</span></code></a> must be
-running for that to work.</p>
+<dd><p>Injects a scan code directly instead of waiting for the next genuine
+input chunk. <a class="reference internal" href="#gpiosvr.input.InputListener.waitForInputEvents" title="gpiosvr.input.InputListener.waitForInputEvents"><code class="xref py py-meth docutils literal notranslate"><span class="pre">waitForInputEvents()</span></code></a> must be running
+for that to work.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="gpiosvr.input.InputListener.injectScanCode.params.code"></span><strong>code</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListener.injectScanCode.params.code">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The scan code to inject as a <cite>str</cite> starting with <code class="docutils literal notranslate"><span class="pre">0x</span></code>.</p>
+<dd class="field-odd"><p><span class="target" id="gpiosvr.input.InputListener.injectScanCode.params.code"></span><strong>code</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputListener.injectScanCode.params.code">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The scan code to inject.</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If this listener does not allow injecting scan
-codes. See <a class="reference internal" href="#gpiosvr.input.InputListenerConfig.params.mayInject" title="gpiosvr.input.InputListenerConfig"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">mayInject</span></code></a>.</p>
+codes. See <a class="reference internal" href="#gpiosvr.input.InputListenerConfig.mayInject" title="gpiosvr.input.InputListenerConfig.mayInject"><code class="xref py py-attr docutils literal notranslate"><span class="pre">mayInject</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -785,24 +1008,24 @@ codes. See <a class="reference internal" href="#gpiosvr.input.InputListenerConfi
 
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.input.InputServer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.input.</span></span><span class="sig-name descname"><span class="pre">InputServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uInput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keysMapping</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputServer" title="Link to this definition"></a></dt>
-<dd><p>A server waiting for input from a hardware source, corresponding to a
-specific input type. Any decoded input is published as key presses in the 
-Linux kernel.</p>
-<p>At its core, an input server uses an input listener to receive input events.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.input.</span></span><span class="sig-name descname"><span class="pre">InputServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uInput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keysMappings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputServer" title="Link to this definition"></a></dt>
+<dd><p>A server receiving and processing input events for a specific input type.</p>
+<p>Every input event is reported to the Linux kernel through an input event
+device. For more details, see <a class="reference internal" href="#gpiosvr.input.InputServer.reportKeys" title="gpiosvr.input.InputServer.reportKeys"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportKeys()</span></code></a>.</p>
+<p>In essence, an input server wraps an input listener to provide an ongoing
+processing loop.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.input.InputServer.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uInput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keysMapping</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputServer.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uInput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keysMappings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputServer.__init__" title="Link to this definition"></a></dt>
 <dd><p>Creates an input server.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><span class="target" id="gpiosvr.input.InputServer.params.listener"></span><strong>listener</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServer.params.listener">¶</a> (<a class="reference internal" href="#gpiosvr.input.InputListener" title="gpiosvr.input.InputListener"><em>InputListener</em></a>) – The input listener connected to the actual hardware
 source and parameterized with the corresponding input type.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServer.params.uInput"></span><strong>uInput</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServer.params.uInput">¶</a> (<em>evdev.UInput</em>) – The input event device to which to publish key presses.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServer.params.keysMapping"></span><strong>keysMapping</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServer.params.keysMapping">¶</a> (<a class="reference internal" href="#gpiosvr.input.CodeToKeysMappings" title="gpiosvr.input.CodeToKeysMappings"><em>CodeToKeysMappings</em></a>) – The code-to-keys mapping for the input type.</p></li>
-<li><p><span class="target" id="gpiosvr.input.InputServer.params.maxErrorCount"></span><strong>maxErrorCount</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServer.params.maxErrorCount">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The maximum number of errors that, if exceeded,
-leads to a shut down of the server. Defaults to <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputServer.params.uInput"></span><strong>uInput</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServer.params.uInput">¶</a> (<em>evdev.UInput</em>) – The input event device to which to report input events.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputServer.params.keysMappings"></span><strong>keysMappings</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServer.params.keysMappings">¶</a> (<a class="reference internal" href="#gpiosvr.input.CodeToKeysMappings" title="gpiosvr.input.CodeToKeysMappings"><em>CodeToKeysMappings</em></a>) – The code-to-keys mappings for the input type.</p></li>
+<li><p><span class="target" id="gpiosvr.input.InputServer.params.maxErrorCount"></span><strong>maxErrorCount</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServer.params.maxErrorCount">¶</a> – See <a class="reference internal" href="#gpiosvr.input.InputServer.maxErrorCount" title="gpiosvr.input.InputServer.maxErrorCount"><code class="xref py py-attr docutils literal notranslate"><span class="pre">maxErrorCount</span></code></a></p></li>
 <li><p><span class="target" id="gpiosvr.input.InputServer.params.msgBuffer"></span><strong>msgBuffer</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServer.params.msgBuffer">¶</a> (<a class="reference external" href="https://xoocoon.github.io/ctlbase/html/message.html#ctlbase.message.MessageBuffer" title="(in ctlbase)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.message.MessageBuffer</span></code></a>) – The message buffer to which to write debug messages.</p></li>
 </ul>
 </dd>
@@ -810,11 +1033,19 @@ leads to a shut down of the server. Defaults to <code class="docutils literal no
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServer.close">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputServer.close" title="Link to this definition"></a></dt>
+<dd><p>Closes all the resources used by the input server, namely the input
+listener and the input event device.</p>
+<p>Any subsequent call to <a class="reference internal" href="#gpiosvr.input.InputServer.serve_forever" title="gpiosvr.input.InputServer.serve_forever"><code class="xref py py-meth docutils literal notranslate"><span class="pre">serve_forever()</span></code></a> will fail.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.input.InputServer.describe">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">describe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputServer.describe" title="Link to this definition"></a></dt>
 <dd><p>Returns a description of this input server in a human-readable form
 (in English).</p>
-<p>Useful for debugging or for log output.</p>
+<p>Useful as log output and for debugging.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#NotImplementedError" title="(in Python v3.14)"><strong>NotImplementedError</strong></a> – If the implementation does not provide a
@@ -829,11 +1060,128 @@ description.</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServer.injectKeyName">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">injectKeyName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputServer.injectKeyName" title="Link to this definition"></a></dt>
+<dd><p>Injects a key name directly instead of waiting for the next genuine
+input event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="gpiosvr.input.InputServer.injectKeyName.params.keyName"></span><strong>keyName</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServer.injectKeyName.params.keyName">¶</a> – The key name to inject. It must start with <code class="docutils literal notranslate"><span class="pre">KEY_</span></code> and
+reference a key constant in the Linux kernel as listed in
+<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h">input-event-codes.h</a>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the server’s listener does not allow injecting 
+scan codes. See <a class="reference internal" href="#gpiosvr.input.InputListenerConfig.mayInject" title="gpiosvr.input.InputListenerConfig.mayInject"><code class="xref py py-attr docutils literal notranslate"><span class="pre">mayInject</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServer.reportKeys">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reportKeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputEvents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputServer.reportKeys" title="Link to this definition"></a></dt>
+<dd><p>Reports one or more input events to the Linux kernel through the 
+input event device.</p>
+<p>For the basic structure of a native Linux input event, see
+<a class="reference external" href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input.h#L28">input.h</a>.
+Native events with the attributes <cite>type</cite>, <cite>code</cite> and <cite>value</cite> are
+generated as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A start event (<a class="reference internal" href="#gpiosvr.input.InputEvent.START" title="gpiosvr.input.InputEvent.START"><code class="xref py py-attr docutils literal notranslate"><span class="pre">START</span></code></a>) translates to as many
+Linux input events as there are key names in the corresponding
+code-to-keys mapping. As an example, if the scan code <code class="docutils literal notranslate"><span class="pre">0x2b</span></code> maps
+to the key names <code class="docutils literal notranslate"><span class="pre">KEY_VOLUMEUP</span></code> and <code class="docutils literal notranslate"><span class="pre">KEY_SOUND</span></code>, one Linux input
+event is generated for each of these key names. The <cite>code</cite> of these 
+Linux input events is the numeric value of the corresponding key 
+constant in the Linux kernel. In the example, these are <code class="docutils literal notranslate"><span class="pre">115</span></code> and
+<code class="docutils literal notranslate"><span class="pre">213</span></code>, respectively. For a start event, the <cite>type</cite> of the Linux
+input event is always <code class="docutils literal notranslate"><span class="pre">EV_KEY</span></code> (<code class="docutils literal notranslate"><span class="pre">1</span></code>) and the <cite>value</cite> is always
+<code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p>A repeat event is identical but with a <cite>value</cite> of <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
+<li><p>An end event (<a class="reference internal" href="#gpiosvr.input.InputEvent.END" title="gpiosvr.input.InputEvent.END"><code class="xref py py-attr docutils literal notranslate"><span class="pre">END</span></code></a>) is identical but with a
+<cite>value</cite> of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>An input event’s original scan code is generated as an extra Linux 
+input event with the scan code as its <cite>value</cite>. The <cite>type</cite> of such a
+Linux input event is always <code class="docutils literal notranslate"><span class="pre">EV_MSC</span></code> (<code class="docutils literal notranslate"><span class="pre">4</span></code>) and the <cite>code</cite> is
+always <code class="docutils literal notranslate"><span class="pre">MSC_SCAN</span></code> (<code class="docutils literal notranslate"><span class="pre">4</span></code>).</p></li>
+</ul>
+</div></blockquote>
+<p>The alternate mode is honored. That is, if the alternate mode is on,
+alternate key names (<a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.altKeyNames" title="gpiosvr.input.CodeToKeysMapping.altKeyNames"><code class="xref py py-attr docutils literal notranslate"><span class="pre">altKeyNames</span></code></a>) are used
+instead of the regular key names (<a class="reference internal" href="#gpiosvr.input.CodeToKeysMapping.keyNames" title="gpiosvr.input.CodeToKeysMapping.keyNames"><code class="xref py py-attr docutils literal notranslate"><span class="pre">keyNames</span></code></a>).</p>
+<p>If an input event has a scan code not present in the code-to-keys
+mappings, a warning message is written to the message buffer, if
+available. Its message key is <code class="docutils literal notranslate"><span class="pre">CODE_NOT_CONFIGURED</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="gpiosvr.input.InputServer.reportKeys.params.inputEvents"></span><strong>inputEvents</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServer.reportKeys.params.inputEvents">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>[</em><a class="reference internal" href="#gpiosvr.input.InputEvent" title="gpiosvr.input.InputEvent"><em>InputEvent</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference internal" href="#gpiosvr.input.InputEvent" title="gpiosvr.input.InputEvent"><em>InputEvent</em></a><em>]</em>) – A sequence of input events to report to the input 
+event device.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServer.serve_forever">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serve_forever</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputServer.serve_forever" title="Link to this definition"></a></dt>
+<dd><p>Starts the processing loop and blocks until <a class="reference internal" href="#gpiosvr.input.InputServer.close" title="gpiosvr.input.InputServer.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> is
+called or until the error count (<a class="reference internal" href="#gpiosvr.input.InputServer.errorCount" title="gpiosvr.input.InputServer.errorCount"><code class="xref py py-attr docutils literal notranslate"><span class="pre">errorCount</span></code></a>) exceeds the
+maximum number (<a class="reference internal" href="#gpiosvr.input.InputServer.maxErrorCount" title="gpiosvr.input.InputServer.maxErrorCount"><code class="xref py py-attr docutils literal notranslate"><span class="pre">maxErrorCount</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServer.toggleAltMode">
+<span class="sig-name descname"><span class="pre">toggleAltMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetState</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.InputServer.toggleAltMode" title="Link to this definition"></a></dt>
+<dd><p>Toggles the alternate mode. See <a class="reference internal" href="#input-alternate"><span class="std std-ref">Alternate mode</span></a> for the basic
+concept.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="gpiosvr.input.InputServer.toggleAltMode.params.targetState"></span><strong>targetState</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.InputServer.toggleAltMode.params.targetState">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, the alternate mode is toggled on unless
+it is already on. If <cite>False</cite>, the alternate mode is toggled off
+unless it is already of. If <cite>None</cite>, the alternate mode is toggled on
+or off depending on the current state.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServer.errorCount">
+<span class="sig-name descname"><span class="pre">errorCount</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#gpiosvr.input.InputServer.errorCount" title="Link to this definition"></a></dt>
+<dd><p>The number of errors occurred so far. It is matched against
+<a class="reference internal" href="#gpiosvr.input.InputServer.maxErrorCount" title="gpiosvr.input.InputServer.maxErrorCount"><code class="xref py py-attr docutils literal notranslate"><span class="pre">maxErrorCount</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServer.isAltAliasReported">
+<span class="sig-name descname"><span class="pre">isAltAliasReported</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#gpiosvr.input.InputServer.isAltAliasReported" title="Link to this definition"></a></dt>
+<dd><p>When the server receives a scan code matching one of the
+<a class="reference internal" href="#gpiosvr.input.AltAlias" title="gpiosvr.input.AltAlias"><code class="xref py py-class docutils literal notranslate"><span class="pre">AltAlias</span></code></a> members, it always toggles the alternate mode
+accordingly. Whether it also reports corresponding input events to
+the Linux kernel is determined by the value of <cite>isAltAliasReported</cite>.
+If <cite>True</cite>, corresponding input events are reported. If <cite>False</cite>, no
+input events are reported.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServer.isAltModeOn">
+<span class="sig-name descname"><span class="pre">isAltModeOn</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#gpiosvr.input.InputServer.isAltModeOn" title="Link to this definition"></a></dt>
+<dd><p>If <cite>True</cite>, the alternate mode is on. Otherwise, the regular mode
+is on.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.InputServer.maxErrorCount">
+<span class="sig-name descname"><span class="pre">maxErrorCount</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#gpiosvr.input.InputServer.maxErrorCount" title="Link to this definition"></a></dt>
+<dd><p>The maximum number of errors that, if exceeded, leads to a shut down
+of the server. Defaults to <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
 <section id="helper-classes">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">Helper classes</a><a class="headerlink" href="#helper-classes" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Helper classes</a><a class="headerlink" href="#helper-classes" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.input.ExtensionHelper">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.input.</span></span><span class="sig-name descname"><span class="pre">ExtensionHelper</span></span><a class="headerlink" href="#gpiosvr.input.ExtensionHelper" title="Link to this definition"></a></dt>
@@ -876,7 +1224,7 @@ description.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.input.ExtensionHelper.createInputServers">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">createInputServers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">familyName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioClient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serverConfig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serverConfigClass_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paramsClass_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerConfigClass_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerClass_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serverClass_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modulePrefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isDebugOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.ExtensionHelper.createInputServers" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">createInputServers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">familyName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioApi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serverConfig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serverConfigClass_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paramsClass_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerConfigClass_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenerClass_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serverClass_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modulePrefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxErrorCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isDebugOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.ExtensionHelper.createInputServers" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -884,22 +1232,22 @@ description.</p>
 input server. Defaults to <code class="docutils literal notranslate"><span class="pre">input</span></code>.</p></li>
 <li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.loop"></span><strong>loop</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.loop">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.EventLoop" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.EventLoop</span></code></a>) – The asyncio event loop to provide to the listener(s) and
 server(s).</p></li>
-<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.gpioClient"></span><strong>gpioClient</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.gpioClient">¶</a> – The GPIO API to provide to the listener(s), connected
+<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.gpioApi"></span><strong>gpioApi</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.gpioApi">¶</a> – The GPIO API to provide to the listener(s), connected
 with an appropriate GPIO backend.</p></li>
 <li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.serverConfig"></span><strong>serverConfig</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.serverConfig">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em> | </em><a class="reference internal" href="#gpiosvr.input.InputServerConfig" title="gpiosvr.input.InputServerConfig"><em>InputServerConfig</em></a>) – A <cite>dict</cite> containing the parsed server configuration
 or an instance of <a class="reference internal" href="#gpiosvr.input.InputServerConfig" title="gpiosvr.input.InputServerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputServerConfig</span></code></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.serverConfigClass_"></span><strong>serverConfigClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.serverConfigClass_">¶</a> (<em>class</em><em> | </em><em>None</em>) – The class to which the parsing of the input
+<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.serverConfigClass_"></span><strong>serverConfigClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.serverConfigClass_">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#type" title="(in Python v3.14)"><em>type</em></a><em> | </em><em>None</em>) – The class to which the parsing of the input
 server configuration is delegated. It must be based on
 <a class="reference internal" href="#gpiosvr.input.InputServerConfig" title="gpiosvr.input.InputServerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputServerConfig</span></code></a>. <cite>True</cite> to auto-discover the class
 based on naming conventions. If <cite>None</cite>, the default class
 <a class="reference internal" href="#gpiosvr.input.InputServerConfig" title="gpiosvr.input.InputServerConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputServerConfig</span></code></a> is used.</p></li>
-<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.paramsClass_"></span><strong>paramsClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.paramsClass_">¶</a> (<em>class</em><em> | </em><em>None</em>) – See
+<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.paramsClass_"></span><strong>paramsClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.paramsClass_">¶</a> – See
 <a class="reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.paramsClass_" title="gpiosvr.input.InputServerConfig.fromDict"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">paramsClass_</span></code></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.listenerConfigClass_"></span><strong>listenerConfigClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.listenerConfigClass_">¶</a> (<em>class</em><em> | </em><em>None</em>) – See
+<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.listenerConfigClass_"></span><strong>listenerConfigClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.listenerConfigClass_">¶</a> – See
 <a class="reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.listenerConfigClass_" title="gpiosvr.input.InputServerConfig.fromDict"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">listenerConfigClass_</span></code></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.listenerClass_"></span><strong>listenerClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.listenerClass_">¶</a> (<em>class</em><em> | </em><em>None</em>) – See
+<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.listenerClass_"></span><strong>listenerClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.listenerClass_">¶</a> – See
 <a class="reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.listenerClass_" title="gpiosvr.input.InputServerConfig.fromDict"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">listenerClass_</span></code></a>.</p></li>
-<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.serverClass_"></span><strong>serverClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.serverClass_">¶</a> (<em>class</em><em> | </em><em>None</em>) – See
+<li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.serverClass_"></span><strong>serverClass_</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.serverClass_">¶</a> – See
 <a class="reference internal" href="#gpiosvr.input.InputServerConfig.fromDict.params.serverClass_" title="gpiosvr.input.InputServerConfig.fromDict"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">serverClass_</span></code></a>.</p></li>
 <li><p><span class="target" id="gpiosvr.input.ExtensionHelper.createInputServers.params.modulePrefix"></span><strong>modulePrefix</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.input.ExtensionHelper.createInputServers.params.modulePrefix">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional prefix for the module name when 
 auto-discovering classes. See <a class="reference internal" href="#input-extension"><span class="std std-ref">Extension mechanism</span></a> for an example.</p></li>
@@ -952,6 +1300,36 @@ the corresponding classes.</p>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)">dict</a></p>
 </dd>
 </dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="constants-and-defaults">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Constants and defaults</a><a class="headerlink" href="#constants-and-defaults" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="gpiosvr.input.AltAlias">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.input.</span></span><span class="sig-name descname"><span class="pre">AltAlias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.input.AltAlias" title="Link to this definition"></a></dt>
+<dd><p>Aliases related to the toggling of the alternate mode.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.AltAlias.ALT_OFF">
+<span class="sig-name descname"><span class="pre">ALT_OFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#gpiosvr.input.AltAlias.ALT_OFF" title="Link to this definition"></a></dt>
+<dd><p>The alias to identify a configuration that toggles the alternate mode off
+unless it is elready off.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.AltAlias.ALT_ON">
+<span class="sig-name descname"><span class="pre">ALT_ON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#gpiosvr.input.AltAlias.ALT_ON" title="Link to this definition"></a></dt>
+<dd><p>The alias to identify a configuration that toggles the alternate mode on
+unless it is elready on.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.input.AltAlias.ALT_TOGGLE">
+<span class="sig-name descname"><span class="pre">ALT_TOGGLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#gpiosvr.input.AltAlias.ALT_TOGGLE" title="Link to this definition"></a></dt>
+<dd><p>The alias to identify a configuration that toggles the alternate mode on
+or off, depenending on the current state.</p>
 </dd></dl>
 
 </dd></dl>

@@ -43,26 +43,29 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Common modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="control.html">control module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_pigpio.html">api_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_picod.html">api_picod module</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="backend.html">backend module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input.html">input module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_button.html">signal_button module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_ir.html">signal_ir module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
@@ -90,52 +93,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-led">
-<span id="led-module"></span><h1>led module<a class="headerlink" href="#module-led" title="Link to this heading"></a></h1>
+  <section id="module-gpiosvr.led">
+<span id="led-module"></span><h1>led module<a class="headerlink" href="#module-gpiosvr.led" title="Link to this heading"></a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="led.BlinkstickLedControl">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">led.</span></span><span class="sig-name descname"><span class="pre">BlinkstickLedControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ledIndex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turnOffAfterTimeoutDefault_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.BlinkstickLedControl" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.BlinkstickLedControl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.led.</span></span><span class="sig-name descname"><span class="pre">BlinkstickLedControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ledIndex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turnOffAfterTimeoutDefault_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.BlinkstickLedControl" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="led.BlinkstickLedControl.close">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#led.BlinkstickLedControl.close" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.BlinkstickLedControl.close">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.BlinkstickLedControl.close" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.BlinkstickLedControl.fromConfig">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ledsConfig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.BlinkstickLedControl.fromConfig" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.BlinkstickLedControl.fromConfig">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ledsConfig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.BlinkstickLedControl.fromConfig" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.BlinkstickLedControl.setColor">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rgbTuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.BlinkstickLedControl.setColor" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.BlinkstickLedControl.setColor">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rgbTuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.BlinkstickLedControl.setColor" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.BlinkstickLedControl.turnOff">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turnOff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leaveIfOverridden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.BlinkstickLedControl.turnOff" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.BlinkstickLedControl.turnOff">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turnOff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leaveIfOverridden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.BlinkstickLedControl.turnOff" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.BlinkstickLedControl.turnOffAfterTimeout">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turnOffAfterTimeout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startTimestamp_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leaveIfOverridden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.BlinkstickLedControl.turnOffAfterTimeout" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.BlinkstickLedControl.turnOffAfterTimeout">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turnOffAfterTimeout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startTimestamp_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leaveIfOverridden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.BlinkstickLedControl.turnOffAfterTimeout" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="led.LedsConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">led.</span></span><span class="sig-name descname"><span class="pre">LedsConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ledsConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.LedsConfig" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.LedsConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.led.</span></span><span class="sig-name descname"><span class="pre">LedsConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ledsConfig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.LedsConfig" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="led.PiLedControl">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">led.</span></span><span class="sig-name descname"><span class="pre">PiLedControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioClient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redPin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">greenPin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bluePin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turnOffAfterTimeoutDefault_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.led.</span></span><span class="sig-name descname"><span class="pre">PiLedControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioApi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redPin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">greenPin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bluePin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turnOffAfterTimeoutDefault_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="control.html#gpiosvr.control.GpioControl" title="gpiosvr.control.GpioControl"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioControl</span></code></a></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.blink">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">blink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycleCount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval_ms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lasting_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rgbTuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.blink" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.blink">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">blink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycleCount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval_ms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lasting_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rgbTuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.blink" title="Link to this definition"></a></dt>
 <dd><p>Have the LED(s) blink.</p>
 <dl class="simple">
 <dt>lasting_ms: After the blink cycles, duration of the </dt><dd><p>LED(s) remaining on in milliseconds. 
@@ -146,39 +149,39 @@ If -1, will stay on indefinitely.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.close">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.close" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.close">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.close" title="Link to this definition"></a></dt>
 <dd><p>Closes auto-created resources.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.colorToLevels">
-<span class="sig-name descname"><span class="pre">colorToLevels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rgbTuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.colorToLevels" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.colorToLevels">
+<span class="sig-name descname"><span class="pre">colorToLevels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rgbTuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.colorToLevels" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.fromConfig">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioClient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ledsConfig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.fromConfig" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.fromConfig">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpioApi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ledsConfig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.fromConfig" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.pinsToColor">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pinsToColor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.pinsToColor" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.pinsToColor">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pinsToColor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.pinsToColor" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.setColor">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rgbTuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.setColor" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.setColor">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rgbTuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.setColor" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.start">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shallResetGpio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.start" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.start">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shallResetGpio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.start" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.storeBlinkScript">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">storeBlinkScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.storeBlinkScript" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.storeBlinkScript">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">storeBlinkScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.storeBlinkScript" title="Link to this definition"></a></dt>
 <dd><p>Stores an LED blink script to a pigpiod or GPIO server.</p>
 <p>p0: Number of blink cycles.
 p1: Duration of one blink cycle in milliseconds.
@@ -194,23 +197,23 @@ p5: 1 if the blue LED shall be included, else 0.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.storeSetColorScript">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">storeSetColorScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.storeSetColorScript" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.storeSetColorScript">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">storeSetColorScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.storeSetColorScript" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.storeTurnOffScript">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">storeTurnOffScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.storeTurnOffScript" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.storeTurnOffScript">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">storeTurnOffScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.storeTurnOffScript" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.turnOff">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turnOff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leaveIfOverridden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.turnOff" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.turnOff">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turnOff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leaveIfOverridden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.turnOff" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="led.PiLedControl.turnOffAfterTimeout">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turnOffAfterTimeout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startTimestamp_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leaveIfOverridden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.PiLedControl.turnOffAfterTimeout" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="gpiosvr.led.PiLedControl.turnOffAfterTimeout">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turnOffAfterTimeout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startTimestamp_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leaveIfOverridden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.led.PiLedControl.turnOffAfterTimeout" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

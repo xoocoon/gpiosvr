@@ -21,7 +21,7 @@ UART
 ^^^^
 
 Sending and receiving data via UART is only supported for Pico devices. That is,
-a GPIO backend must implement :class:`~.client_picod.PicodApi`.
+a GPIO backend must implement :class:`~.api_picod.PicodApi`.
 
 Environment variables
 ---------------------
@@ -85,6 +85,10 @@ accepted.
 
 Main classes
 ------------
+
+.. autoclass:: RequestDelimitersProcessor
+   :members:
+   :special-members: __init__
 
 .. autoclass:: UnixSocketServer
    :members:

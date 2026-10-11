@@ -1,7 +1,9 @@
+.. currentmodule:: gpiosvr.led
+
 led module
 ==========
 
-.. automodule:: led
+.. automodule:: gpiosvr.led
    :members:
    :undoc-members:
    :show-inheritance:

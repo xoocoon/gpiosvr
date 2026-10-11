@@ -36,6 +36,7 @@ classifiers = [
 [project.optional-dependencies]
 pigpio = ["pigpio==1.78"]
 systemd = ["systemd-python>=234"]
+gpiod = ["pigpio>=2.4.3"]
 
 [project.urls]
 Documentation = "https://xoocoon.github.io/gpiosvr/html/"

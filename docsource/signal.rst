@@ -1,3 +1,5 @@
+.. currentmodule:: gpiosvr.signal
+
 signal module
 =============
 

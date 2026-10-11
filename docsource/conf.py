@@ -74,3 +74,19 @@ html_static_path = ['_static']
 html_copy_source = False
 
 html_show_sourcelink = False
+
+# Output finetuning -------------------------------------------------------------------------------
+
+modindex_common_prefix = ["gpiosvr."]
+
+autodoc_member_order = 'groupwise'
+
+def skip_init_without_docstring(app, what, name, obj, skip, options):
+    if name == "__init__":
+        if not obj.__doc__:
+            return True  # skip it
+    return skip
+
+def setup(app):
+    app.connect("autodoc-skip-member", skip_init_without_docstring)
+

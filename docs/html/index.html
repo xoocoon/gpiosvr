@@ -46,13 +46,18 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="control.html">control module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_pigpio.html">api_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_picod.html">api_picod module</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="backend.html">backend module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input.html">input module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_button.html">signal_button module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_ir.html">signal_ir module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
@@ -61,9 +66,7 @@
 <p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
@@ -105,11 +108,26 @@
 <li class="toctree-l2"><a class="reference internal" href="shell.html#constants-and-defaults">Constants and defaults</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="api_pigpio.html">api_pigpio module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_pigpio.html#interfaces">Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_pigpio.html#constants-and-defaults">Constants and defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_picod.html">api_picod module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_picod.html#interfaces">Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_picod.html#constants-and-defaults">Constants and defaults</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="backend.html">backend module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="backend.html#gpiosvr.backend.BackendInfo"><code class="docutils literal notranslate"><span class="pre">BackendInfo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="backend.html#gpiosvr.backend.BackendType"><code class="docutils literal notranslate"><span class="pre">BackendType</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="picossa.html">picossa module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="picossa.html#main-classes">Main classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="picossa.html#picod-constants">picod constants</a></li>
@@ -127,6 +145,7 @@
 <li class="toctree-l2"><a class="reference internal" href="input.html#configuration-classes">Configuration classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input.html#main-classes">Main classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input.html#helper-classes">Helper classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input.html#constants-and-defaults">Constants and defaults</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a><ul>
@@ -135,6 +154,18 @@
 <li class="toctree-l2"><a class="reference internal" href="signal.html#main-classes">Main classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="signal.html#constants-and-defaults">Constants and defaults</a></li>
 <li class="toctree-l2"><a class="reference internal" href="signal.html#helper-classes">Helper classes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="signal_button.html">signal_button module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="signal_button.html#configuration-classes">Configuration classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signal_button.html#main-classes">Main classes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="signal_ir.html">signal_ir module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="signal_ir.html#configuration-classes">Configuration classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signal_ir.html#main-classes">Main classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signal_ir.html#constants-and-defaults">Constants and defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signal_ir.html#helper-classes">Helper classes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a><ul>
@@ -146,6 +177,7 @@
 <li class="toctree-l2"><a class="reference internal" href="key.html#core-concepts">Core concepts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="key.html#configuration-classes">Configuration classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="key.html#main-classes">Main classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key.html#constants-and-defaults">Constants and defaults</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a><ul>
@@ -169,18 +201,8 @@
 <li class="toctree-l2"><a class="reference internal" href="client.html#constants-and-defaults">Constants and defaults</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="client_pigpio.html#interfaces">Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client_pigpio.html#constants-and-defaults">Constants and defaults</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="client_pigs.html#classes">Classes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="client_picod.html#interfaces">Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="client_picod.html#constants-and-defaults">Constants and defaults</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a><ul>

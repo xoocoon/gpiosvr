@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="picossa_pigs module" href="picossa_pigs.html" />
-    <link rel="prev" title="shell module" href="shell.html" /> 
+    <link rel="prev" title="backend module" href="backend.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,21 +45,23 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Common modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="control.html">control module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_pigpio.html">api_pigpio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_picod.html">api_picod module</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Server-side modules:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="backend.html">backend module</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">picossa module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#main-classes">Main classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gpiosvr.picossa.EdgeCallback"><code class="docutils literal notranslate"><span class="pre">EdgeCallback</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.picossa.EdgeCallback.BOTH"><code class="docutils literal notranslate"><span class="pre">EdgeCallback.BOTH</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.picossa.EdgeCallback.FALLING"><code class="docutils literal notranslate"><span class="pre">EdgeCallback.FALLING</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.picossa.EdgeCallback.RISING"><code class="docutils literal notranslate"><span class="pre">EdgeCallback.RISING</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.picossa.EdgeCallback.__init__"><code class="docutils literal notranslate"><span class="pre">EdgeCallback.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.picossa.EdgeCallback.call"><code class="docutils literal notranslate"><span class="pre">EdgeCallback.call()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gpiosvr.picossa.EdgeCallback.cancel"><code class="docutils literal notranslate"><span class="pre">EdgeCallback.cancel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.picossa.EdgeCallback.BOTH"><code class="docutils literal notranslate"><span class="pre">EdgeCallback.BOTH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.picossa.EdgeCallback.FALLING"><code class="docutils literal notranslate"><span class="pre">EdgeCallback.FALLING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpiosvr.picossa.EdgeCallback.RISING"><code class="docutils literal notranslate"><span class="pre">EdgeCallback.RISING</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#gpiosvr.picossa.ResponseFuture"><code class="docutils literal notranslate"><span class="pre">ResponseFuture</span></code></a><ul>
@@ -141,16 +143,17 @@
 <li class="toctree-l1"><a class="reference internal" href="picossa_pigs.html">picossa_pigs module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input.html">input module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">signal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_button.html">signal_button module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_ir.html">signal_ir module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uart.html">uart module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key.html">key module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpio_server.html">gpio_server executable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="key_monitor.html">key_monitor executable</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Client-side modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="client.html">client module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client_pigpio.html">client_pigpio module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="client_pigs.html">client_pigs module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="client_picod.html">client_picod module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pigs.html">pigs executable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leds.html">leds executable</a></li>
 </ul>
@@ -204,21 +207,6 @@ command is helpful:</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.picossa.</span></span><span class="sig-name descname"><span class="pre">EdgeCallback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pico</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callable_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.picossa.EdgeCallback" title="Link to this definition"></a></dt>
 <dd><p>A wrapper for a callable to be invoked whenever a specific GPIO edge
 occurs.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gpiosvr.picossa.EdgeCallback.BOTH">
-<span class="sig-name descname"><span class="pre">BOTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#gpiosvr.picossa.EdgeCallback.BOTH" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gpiosvr.picossa.EdgeCallback.FALLING">
-<span class="sig-name descname"><span class="pre">FALLING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#gpiosvr.picossa.EdgeCallback.FALLING" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gpiosvr.picossa.EdgeCallback.RISING">
-<span class="sig-name descname"><span class="pre">RISING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#gpiosvr.picossa.EdgeCallback.RISING" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="gpiosvr.picossa.EdgeCallback.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pico</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callable_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.picossa.EdgeCallback.__init__" title="Link to this definition"></a></dt>
@@ -257,6 +245,21 @@ the loop in a thread-safe way.</p>
 <em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.picossa.EdgeCallback.cancel" title="Link to this definition"></a></dt>
 <dd><p>Cancels and deregisters the callback.</p>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.picossa.EdgeCallback.BOTH">
+<span class="sig-name descname"><span class="pre">BOTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#gpiosvr.picossa.EdgeCallback.BOTH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.picossa.EdgeCallback.FALLING">
+<span class="sig-name descname"><span class="pre">FALLING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#gpiosvr.picossa.EdgeCallback.FALLING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gpiosvr.picossa.EdgeCallback.RISING">
+<span class="sig-name descname"><span class="pre">RISING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#gpiosvr.picossa.EdgeCallback.RISING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -393,10 +396,10 @@ waits for the response synchronously if
 <dd class="field-odd"><p>A <cite>tuple</cite> of the processing status and the response (payload)
 from the <cite>picod</cite> daemon. If the request does not complete 
 within <a class="reference internal" href="#gpiosvr.picossa.PicoModem.params.responseTimeout_ms" title="gpiosvr.picossa.PicoModem"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">responseTimeout_ms</span></code></a> milliseconds, a
-<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Status.TIMED_OUT" title="gpiosvr.client_picod.Status.TIMED_OUT"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TIMED_OUT</span></code></a> status is returned.</p>
+<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Status.TIMED_OUT" title="gpiosvr.api_picod.Status.TIMED_OUT"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TIMED_OUT</span></code></a> status is returned.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>tuple(<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Status" title="gpiosvr.client_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, bytes)</p>
+<dd class="field-even"><p>tuple(<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Status" title="gpiosvr.api_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, bytes)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -470,7 +473,7 @@ serial connection.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="gpiosvr.picossa.PicoSerialAdapter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gpiosvr.picossa.</span></span><span class="sig-name descname"><span class="pre">PicoSerialAdapter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/dev/ttyACM0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">responseTimeout_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.picossa.PicoSerialAdapter" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="client_picod.html#gpiosvr.client_picod.PicodApi" title="gpiosvr.client_picod.PicodApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PicodApi</span></code></a>, <a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi" title="gpiosvr.client_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a>, <a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioCallbackApi" title="gpiosvr.client_pigpio.PigpioCallbackApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioCallbackApi</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="api_picod.html#gpiosvr.api_picod.PicodApi" title="gpiosvr.api_picod.PicodApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PicodApi</span></code></a>, <a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioMinimalApi" title="gpiosvr.api_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a>, <a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioCallbackApi" title="gpiosvr.api_pigpio.PigpioCallbackApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioCallbackApi</span></code></a></p>
 <p>Main class for establishing and operating a serial connection with a Pico 
 device.</p>
 <p>Methods starting with <em>GPIO_</em> (uppercase) performAction on multiple GPIOs.
@@ -498,7 +501,7 @@ They are adapted from <a class="reference external" href="https://abyz.me.uk/pic
 <dd class="field-odd"><ul class="simple">
 <li><p><span class="target" id="gpiosvr.picossa.PicoSerialAdapter.fromDiscovery.params.targetUid"></span><strong>targetUid</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.fromDiscovery.params.targetUid">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – UID of the Pico to connect to in hexadecimal (<cite>str</cite>)
 or decimal (<cite>int</cite>) form. See
-<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.PicodApi.uid" title="gpiosvr.client_picod.PicodApi.uid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">uid()</span></code></a>. If not specified, the first
+<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.PicodApi.uid" title="gpiosvr.api_picod.PicodApi.uid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">uid()</span></code></a>. If not specified, the first
 unconnected <code class="docutils literal notranslate"><span class="pre">/dev/ttyACM*</span></code> device will be taken.</p></li>
 <li><p><span class="target" id="gpiosvr.picossa.PicoSerialAdapter.fromDiscovery.params.maxRetryCount"></span><strong>maxRetryCount</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.fromDiscovery.params.maxRetryCount">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The maximum number of retries for connecting to a
 specific device, if the connection fails at the first attempt.
@@ -626,7 +629,7 @@ given pull value.</p>
 <dt class="sig sig-object py" id="gpiosvr.picossa.PicoSerialAdapter.stop">
 <span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gpiosvr.picossa.PicoSerialAdapter.stop" title="Link to this definition"></a></dt>
 <dd><p>A non-async variant of <a class="reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.close" title="gpiosvr.picossa.PicoSerialAdapter.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> for 
-compatibility with <a class="reference internal" href="client_pigpio.html#gpiosvr.client_pigpio.PigpioMinimalApi" title="gpiosvr.client_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a>.</p>
+compatibility with <a class="reference internal" href="api_pigpio.html#gpiosvr.api_pigpio.PigpioMinimalApi" title="gpiosvr.api_pigpio.PigpioMinimalApi"><code class="xref py py-class docutils literal notranslate"><span class="pre">PigpioMinimalApi</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -641,26 +644,26 @@ compatibility with <a class="reference internal" href="client_pigpio.html#gpiosv
 <a class="reference external" href="https://abyz.me.uk/rpi/pigpio/python.html#serial_read">pigpio</a>, 
 the parameter is called <cite>handle</cite>.</p></li>
 <li><p><span class="target" id="gpiosvr.picossa.PicoSerialAdapter.serial_open.params.tx"></span><strong>tx</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.tx">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for transmission. The allowed values depend
-on the channel. See <a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Uart.TX" title="gpiosvr.client_picod.Uart.TX"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TX</span></code></a>.</p></li>
+on the channel. See <a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Uart.TX" title="gpiosvr.api_picod.Uart.TX"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TX</span></code></a>.</p></li>
 <li><p><span class="target" id="gpiosvr.picossa.PicoSerialAdapter.serial_open.params.rx"></span><strong>rx</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.rx">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for receiving. The allowed values depend on the
-channel. See <a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Uart.RX" title="gpiosvr.client_picod.Uart.RX"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RX</span></code></a>.</p></li>
+channel. See <a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Uart.RX" title="gpiosvr.api_picod.Uart.RX"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RX</span></code></a>.</p></li>
 <li><p><span class="target" id="gpiosvr.picossa.PicoSerialAdapter.serial_open.params.baud"></span><strong>baud</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.baud">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The baud rate in bits per second, from <code class="docutils literal notranslate"><span class="pre">120</span></code> to
 <code class="docutils literal notranslate"><span class="pre">4000000</span></code>.</p></li>
 <li><p><span class="target" id="gpiosvr.picossa.PicoSerialAdapter.serial_open.params.cts"></span><strong>cts</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.cts">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for CTS. The allowed values depend on
-the channel. See <a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Uart.CTS" title="gpiosvr.client_picod.Uart.CTS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CTS</span></code></a>.</p></li>
+the channel. See <a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Uart.CTS" title="gpiosvr.api_picod.Uart.CTS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CTS</span></code></a>.</p></li>
 <li><p><span class="target" id="gpiosvr.picossa.PicoSerialAdapter.serial_open.params.rts"></span><strong>rts</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.rts">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The GPIO to use for RTS. The allowed values depend on
-the channel. See <a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Uart.RTS" title="gpiosvr.client_picod.Uart.RTS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RTS</span></code></a>.</p></li>
+the channel. See <a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Uart.RTS" title="gpiosvr.api_picod.Uart.RTS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RTS</span></code></a>.</p></li>
 <li><p><span class="target" id="gpiosvr.picossa.PicoSerialAdapter.serial_open.params.data_bits"></span><strong>data_bits</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.data_bits">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The number of data bits, from <code class="docutils literal notranslate"><span class="pre">5</span></code> to <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p></li>
 <li><p><span class="target" id="gpiosvr.picossa.PicoSerialAdapter.serial_open.params.stop_bits"></span><strong>stop_bits</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.stop_bits">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The number of stop bits, <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
-<li><p><span class="target" id="gpiosvr.picossa.PicoSerialAdapter.serial_open.params.parity"></span><strong>parity</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.parity">¶</a> (int | <a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Uart.PARITY_NONE" title="gpiosvr.client_picod.Uart.PARITY_NONE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PARITY_NONE</span></code></a> | 
-<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Uart.PARITY_EVEN" title="gpiosvr.client_picod.Uart.PARITY_EVEN"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PARITY_EVEN</span></code></a> | <a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Uart.PARITY_ODD" title="gpiosvr.client_picod.Uart.PARITY_ODD"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PARITY_ODD</span></code></a>) – The parity bit.</p></li>
+<li><p><span class="target" id="gpiosvr.picossa.PicoSerialAdapter.serial_open.params.parity"></span><strong>parity</strong><a class="paramlink headerlink reference internal" href="#gpiosvr.picossa.PicoSerialAdapter.serial_open.params.parity">¶</a> (int | <a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Uart.PARITY_NONE" title="gpiosvr.api_picod.Uart.PARITY_NONE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PARITY_NONE</span></code></a> | 
+<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Uart.PARITY_EVEN" title="gpiosvr.api_picod.Uart.PARITY_EVEN"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PARITY_EVEN</span></code></a> | <a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Uart.PARITY_ODD" title="gpiosvr.api_picod.Uart.PARITY_ODD"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PARITY_ODD</span></code></a>) – The parity bit.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A <cite>tuple</cite> of the processing status and the accepted baud rate.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple(<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Status" title="gpiosvr.client_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, int)</p>
+<dd class="field-odd"><p>tuple(<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Status" title="gpiosvr.api_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, int)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -677,10 +680,10 @@ the parameter is called <cite>handle</cite>.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A tuple of status and up to 
-<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.PicodApi.serial_read.params.count" title="gpiosvr.client_picod.PicodApi.serial_read"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">count</span></code></a> bytes.</p>
+<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.PicodApi.serial_read.params.count" title="gpiosvr.api_picod.PicodApi.serial_read"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">count</span></code></a> bytes.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple(<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Status" title="gpiosvr.client_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, bytearray)</p>
+<dd class="field-odd"><p>tuple(<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Status" title="gpiosvr.api_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, bytearray)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -705,7 +708,7 @@ the parameter is called <cite>handle</cite>.</p></li>
 <dd class="field-odd"><p>A tuple of status and <cite>None</cite>.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>tuple(<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Status" title="gpiosvr.client_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, None)</p>
+<dd class="field-even"><p>tuple(<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Status" title="gpiosvr.api_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -724,7 +727,7 @@ the parameter is called <cite>handle</cite>.</p>
 <dd class="field-even"><p>A tuple of status and <cite>None</cite>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple(<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Status" title="gpiosvr.client_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, None)</p>
+<dd class="field-odd"><p>tuple(<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Status" title="gpiosvr.api_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -740,7 +743,7 @@ the parameter is called <cite>handle</cite>.</p>
 <dd class="field-odd"><p>A tuple of status and <cite>None</cite>.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>tuple(<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Status" title="gpiosvr.client_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, None)</p>
+<dd class="field-even"><p>tuple(<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Status" title="gpiosvr.api_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -760,7 +763,7 @@ a unique identifier.</p>
 <dd class="field-odd"><p>A tuple of status and the UID.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>tuple(<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Status" title="gpiosvr.client_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, int)</p>
+<dd class="field-even"><p>tuple(<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Status" title="gpiosvr.api_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, int)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -781,7 +784,7 @@ of a second.</p>
 <dd class="field-even"><p>A tuple of status and <cite>None</cite>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple(<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Status" title="gpiosvr.client_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, None)</p>
+<dd class="field-odd"><p>tuple(<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Status" title="gpiosvr.api_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, None)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -796,7 +799,7 @@ representing its internal clock time.</p>
 <dd class="field-odd"><p>A tuple of status and the tick value.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>tuple(<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Status" title="gpiosvr.client_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, int)</p>
+<dd class="field-even"><p>tuple(<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Status" title="gpiosvr.api_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, int)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -812,7 +815,7 @@ functions. In the bit mask, the function for GPIO x is indicated by
 bits 4x+3, 4x+2, 4x+1 and 4x.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>tuple(<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.Status" title="gpiosvr.client_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, int, set[<a class="reference internal" href="client_picod.html#gpiosvr.client_picod.GpioFunction" title="gpiosvr.client_picod.GpioFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioFunction</span></code></a>])</p>
+<dd class="field-even"><p>tuple(<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.Status" title="gpiosvr.api_picod.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a>, int, set[<a class="reference internal" href="api_picod.html#gpiosvr.api_picod.GpioFunction" title="gpiosvr.api_picod.GpioFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">GpioFunction</span></code></a>])</p>
 </dd>
 </dl>
 </dd></dl>
@@ -973,7 +976,7 @@ occurrences of the delimiter byte or byte sequence.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="shell.html" class="btn btn-neutral float-left" title="shell module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="backend.html" class="btn btn-neutral float-left" title="backend module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="picossa_pigs.html" class="btn btn-neutral float-right" title="picossa_pigs module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
