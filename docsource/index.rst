@@ -37,6 +37,7 @@ Welcome to gpiosvr's documentation!
 
    client
    client_pigs
+   led
    pigs
    leds
 

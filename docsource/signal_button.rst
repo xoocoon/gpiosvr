@@ -17,7 +17,7 @@ Configuration classes
    :special-members: __init__
    :show-inheritance:
 
-.. autoclass:: ButtonListenerConfig
+.. autoclass:: ButtonIteratorConfig
    :members:
    :special-members: __init__
    :show-inheritance:
@@ -25,10 +25,10 @@ Configuration classes
 Main classes
 ------------
 
-.. autoclass:: ButtonPulseEventIterator
+.. autoclass:: ButtonPulseIterator
    :members:
    :show-inheritance:
 
-.. autoclass:: ButtonListener
+.. autoclass:: ButtonIterator
    :members:
    :show-inheritance:

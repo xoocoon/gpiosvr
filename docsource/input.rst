@@ -50,15 +50,15 @@ An individual scan code may take one of the following forms:
   * An `int`, in which case it is interpreted as an unsigned integer in decimal
     form.
 
-The receiving and decoding of input chunks is done by so-called input listeners.
+The receiving and decoding of input chunks is done by so-called input iterators.
 
 Input family
 ^^^^^^^^^^^^
 
 Input types with similar technical parameters shape one input family. As a
 defining characteristic, all the input types in a family can be handled by the
-same input listener class based on :class:`~.InputListener`. As an example, the
-RC6 infrared protocols might shape an input family ``rc6``, with input types
+same input iterator class based on :class:`~.InputIterator`. As an example,
+the RC6 infrared protocols might shape an input family ``rc6``, with input types
 such as ``rc6-0``, ``rc6-6a-32`` or ``rc6-6a-mce``.
 
 .. _input-alternate:
@@ -71,7 +71,7 @@ names via :attr:`~.CodeToKeysMapping.altKeyNames`. They are used instead of the
 regular key names when the alternate mode is on.
 
 The alternate mode is toggled via :meth:`~.InputServer.toggleAltMode`. Toggling
-is also possible via a code-to-keys mapping with an 
+is also possible via a code-to-keys mapping with an
 :attr:`~.CodeToKeysMapping.alias` value set to one of the members or member
 names of :class:`~.AltAlias`.
 
@@ -83,18 +83,18 @@ The state of the alternate mode can be checked via
 Extension mechanism
 -------------------
 
-To create a custom extension for an input family, an input listener class needs
+To create a custom extension for an input family, an input iterator class needs
 to be created. For auto-discoverability, the following naming conventions apply:
 
 * All classes must be contained in a module named after the input family. That
   is, for a input family named ``rc6``, the corresponding module must be named
   ``gpiosvr.rc6``. Optionally, the module name can have a custom prefix, e.g.
   ``signal_``, resulting in the module name ``gpiosvr.signal_rc6``.
-* The input listener class must be named after the input family and have the
-  postfix ``Listener``. That is, for a input family named ``rc6``, the class
-  name must be ``Rc6Listener``.
+* The input iterator class must be named after the input family and have the
+  postfix ``EventIterator``. That is, for a input family named ``rc6``, the class
+  name must be ``Rc6EventIterator``.
 
-One instance of an input listener class relates to one specific input type. To
+One instance of an input iterator class relates to one specific input type. To
 capture the technical parameters of an input type, a class based on
 :class:`~.InputParameters` must be included in a custom extension. For
 auto-discoverability, the following naming convention applies:
@@ -103,15 +103,15 @@ auto-discoverability, the following naming convention applies:
   have the postfix ``Parameters``. That is, for a input family named ``rc6``,
   the class name must be ``Rc6Parameters``.
 
-To provide an individual configuration to an input listener, a class based on 
-:class:`~.InputListenerConfig` is needed. Such a class may be part of a custom
+To provide an individual configuration to an input iterator, a class based on 
+:class:`~.InputIteratorConfig` is needed. Such a class may be part of a custom
 extension. For auto-discoverability, the following naming convention applies:
 
-* The class for an input listener configuration, if included, must be named
-  after the input family and  have the postfix ``ListenerConfig``. That is, for 
-  a input family named ``rc6``, the class name must be ``Rc6ListenerConfig``.
+* The class for an input iterator configuration, if included, must be named
+  after the input family and  have the postfix ``EventIteratorConfig``. That is, for 
+  a input family named ``rc6``, the class name must be ``Rc6EventIteratorConfig``.
 
-What is more, a custom extension is not limited to input listeners. It may also
+What is more, a custom extension is not limited to input iterators. It may also
 include an input server class that is able to publish input events to the Linux
 kernel. It must be based on :class:`~.InputServer`. To provide an individual
 configuration to an input server, a class based on :class:`~.InputServerConfig`
@@ -132,7 +132,7 @@ corresponding configuration classes need to be created first. The most
 convenient way is to load a server configuration from a file into a `dict` and 
 provide it to :meth:`~.ExtensionHelper.createInputServers`. This yields a 
 sequence of one or more input servers unless any error occurs. It is also
-possibly to instantiate the :ref:`input-configuration` and the input listener 
+possibly to instantiate the :ref:`input-configuration` and the input iterator 
 and/or input server classes programatically. See the `fromDict` methods of the
 configuration classes as a starting point.
 
@@ -141,7 +141,7 @@ configuration classes as a starting point.
 Configuration classes
 ---------------------
 
-The configuration classes help to set up one or more input listeners and servers
+The configuration classes help to set up one or more input iterators and servers
 via `dict` instances, e.g. parsed from JSON files, or programatically.
 
 The following is the JSON representation of an exemplary input server 
@@ -165,8 +165,8 @@ configuration for the predefined input family ``signal``:
         "codeStartBit": "GPIO_LEVEL"
       }
     },
-    "listeners": {            // <- input listener configurations
-      "door-bell": {          // <- listener configuration for input type "door-bell"
+    "iterators": {            // <- input iterator configurations
+      "door-bell": {          // <- iterator configuration for input type "door-bell"
         "gpio": 25,
         "mayInject": false
       }
@@ -196,7 +196,7 @@ Auto-discovering and parsing JSON files is in the scope of the
    :members:
    :special-members: __init__
 
-.. autoclass:: InputListenerConfig
+.. autoclass:: InputIteratorConfig
    :members:
    :special-members: __init__
 
@@ -211,9 +211,9 @@ Main classes
    :members:
    :special-members: __init__
 
-.. autoclass:: InputListener
+.. autoclass:: InputIterator
    :members:
-   :special-members: __init__
+   :special-members: __init__, __anext__
    :show-inheritance:
 
 .. autoclass:: InputServer

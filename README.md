@@ -54,7 +54,7 @@ Various types of input can be captured and decoded with a GPIO server. The follo
       "debounce_μs": 600
     }
   },
-  "listeners": {
+  "iterators": {
     "door-bell": {
       "gpio": 25,
       "mayInject": false
@@ -85,7 +85,7 @@ Another input source might be an infrared remote control. In this case, no extra
       "address": "0x800f"
     }
   },
-  "listeners": {
+  "iterators": {
     "Media Center Edition": {
       "gpio": 19,
       "mayInject": true
@@ -104,7 +104,7 @@ Another input source might be an infrared remote control. In this case, no extra
 }
 ```
 
-By contrast, this configuration relates to an infrared listener instead of a generic signal listener. This demonstrates that *gpiosvr* can be extended to support additional input types.
+By contrast, this configuration relates to an infrared iterator instead of a generic signal iterator. This demonstrates that *gpiosvr* can be extended to support additional input types.
 
 More complete configuration examples are included in the repo under `template/`:
 

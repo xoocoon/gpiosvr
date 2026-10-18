@@ -32,5 +32,6 @@ gpiosvr
 
    client
    client_pigs
+   led
    pigs
    leds

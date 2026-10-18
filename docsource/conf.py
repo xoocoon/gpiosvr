@@ -66,6 +66,13 @@ primary_domain = 'py'
 #
 html_theme = 'sphinx_rtd_theme'
 
+html_theme_options = {
+    "navigation_depth": 4,
+    "collapse_navigation": False,
+    "titles_only": False,
+    "includehidden": True
+}
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a filenamed "default.css" will overwrite the builtin "default.css".

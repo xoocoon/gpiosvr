@@ -64,8 +64,8 @@ The following arguments are independent from the GPIO backend:
 
 * ``--signaldebug``, ``--buttondebug``, ``--irdebug`` (flags) – If present,
   debug output is written to the log file. The flags correspond to the activity
-  of signal listeners (:class:`~.SignalListener`), button listeners
-  (:class:`~.ButtonListener`) and IR listeners (:class:`~.IrListener`),
+  of signal iterators (:class:`~.SignalIterator`), button iterators
+  (:class:`~.ButtonIterator`) and IR iterators (:class:`~.IrIterator`),
   respectively.
 * ``--sockdebug`` (flag) – If present, debug output from the GPIO server's Unix
   socket is written to the log file. It mainly includes requests received via 
@@ -80,13 +80,17 @@ The following arguments are independent from the GPIO backend:
   by the GPIO server.
 
 Additionally, the standard arguments from 
-:external+ctl:meth:`ctlbase.shell.DaemonControlShell.addStandardArgs` are
-accepted.
+:external+ctl:meth:`DaemonControlShell.addStandardArgs <ctlbase.shell.DaemonControlShell.addStandardArgs>`
+are accepted.
 
 Main classes
 ------------
 
-.. autoclass:: RequestDelimitersProcessor
+.. autoclass:: RequestProcessor
+   :members:
+   :special-members: __init__
+
+.. autoclass:: PigsRequestProcessor
    :members:
    :special-members: __init__
 
@@ -94,4 +98,11 @@ Main classes
    :members:
    :special-members: __init__
 
+Constants and defaults
+----------------------
 
+.. autodata:: SOCKET_REQUEST_BUFFER_SIZE_DEFAULT
+
+.. autodata:: SOCKET_REQUEST_MAX_CHAR_COUNT
+
+.. autodata:: PIGS_PROCESSING_TIMEOUT_DEFAULT_MS

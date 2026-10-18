@@ -17,7 +17,7 @@ Configuration classes
    :special-members: __init__
    :show-inheritance:
 
-.. autoclass:: IrListenerConfig
+.. autoclass:: IrIteratorConfig
    :members:
    :special-members: __init__
    :show-inheritance:
@@ -25,7 +25,7 @@ Configuration classes
 Main classes
 ------------
 
-.. autoclass:: IrListener
+.. autoclass:: IrIterator
    :members:
    :show-inheritance:
 

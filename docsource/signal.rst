@@ -14,7 +14,7 @@ signal module
 Extension mechanism
 -------------------
 
-Custom signal listeners can be created based on the extension mechanism
+Custom signal iterators can be created based on the extension mechanism
 described for the :ref:`input <input-extension>` module.
 
 Existing extensions are:
@@ -22,7 +22,7 @@ Existing extensions are:
     * :mod:`~.signal_button` for physical buttons
     * :mod:`~.signal_ir` for infrared protocols (currently only RC6 MCE)
 
-The default implementation of :class:`~.SignalListener` supports signal types
+The default implementation of :class:`~.SignalIterator` supports signal types
 with fixed or variable pulse lengths or single edges.
 
 .. signal-configuration:
@@ -38,7 +38,7 @@ the :ref:`input <input-configuration>` module.
    :special-members: __init__
    :show-inheritance:
 
-.. autoclass:: SignalListenerConfig
+.. autoclass:: SignalIteratorConfig
    :members:
    :special-members: __init__
    :show-inheritance:
@@ -53,12 +53,12 @@ Main classes
    :members:
    :show-inheritance:
    
-.. autoclass:: PulseEventIterator
+.. autoclass:: PulseIterator
    :members:
    :special-members: __init__
    :show-inheritance:
 
-.. autoclass:: SignalListener
+.. autoclass:: SignalIterator
    :members:
    :special-members: __init__
    :show-inheritance:
